@@ -1,0 +1,14 @@
+{
+  "name": "Linkurious Administrator documentation",
+  "description": "welcome.md",
+  "index": [
+    {"name": "Introduction", "content": "intro.md"},
+    {
+      "name": "Getting started",
+      "content": [
+        {"name": "Download", "content": "download.md"},
+        {"name": "Install", "content": "install.md"}
+      ]
+    }
+  ]
+}

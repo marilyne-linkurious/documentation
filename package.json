@@ -1,0 +1,18 @@
+{
+  "name": "documentation",
+  "description": "Linkurious documentation",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "//": "invoked using >npm run [script-name]",
+    "admin": "src/makeDoc.js content/admin",
+    "user": "src/makeDoc.js content/user"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "bluebird": "latest",
+    "fs-extra": "latest",
+    "valcheck": "1.0.1"
+  }
+}
