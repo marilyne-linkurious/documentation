@@ -9,6 +9,4 @@
 const BookParser = require('./BookParser');
 
 const book = BookParser.parse('./content/admin');
-console.log(JSON.stringify(book, null, ' '));
-
-// https://github.com/npm/marky-markdown
+//console.log(JSON.stringify(book, null, ' '));

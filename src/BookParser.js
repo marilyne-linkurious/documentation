@@ -8,10 +8,10 @@
 
 const fs = require('fs-extra');
 const path = require('path');
-
+const _difference = require('lodash.difference');
+const Valcheck = require('valcheck');
 const Book = require('./Book');
-
-const Valcheck = require('valcheck/src/Valcheck');
+const Utils = require('./Utils');
 
 /**
  * @type Valcheck
@@ -44,71 +44,67 @@ class BookParser {
 
     var bookContent;
     try {
-      console.log(JSON.stringify(fileContent, null, ' '))
       bookContent = JSON.parse(fileContent);
     } catch(e) {
       throw new Error(`Could not parse JSON content of "${configPath}: ${e.message}`);
     }
 
-    BookParser._validate(dir, bookContent);
+    const markdownContent = BookParser._validate(dir, bookContent);
 
-    return new Book(dir, bookContent);
+    return new Book(dir, bookContent, markdownContent);
   }
 
   /**
    * @param {string} dir content directory
-   * @param {object} content
+   * @param {object} book
    * @return {string[]} files
    * @private
    */
-  static _validate(dir, content) {
-    var files = [];
+  static _validate(dir, book) {
+    var referencedFiles = [];
 
-    // check object format and extract files
-    const contentChecker = (key, value) => {
-      if (typeof value === 'string') {
-        // extract file names
-        files.push(value);
-        return false;
-      } else if (Array.isArray(value)) {
-        return checker.property(key, value, {
-          arrayItem: {
-            required: true,
-            properties: {
-              name: {required: true, type: 'string'},
-              content: {required: true, check: contentChecker}
-            }
-          }
-        });
-      } else {
-        return checker._error(key, "must be a string or an array");
-      }
+    // check that the .book.json file format is connect
+    // check that all files referenced in "content" do exist in `dir`
+    const checkFilePath = (key, value) => {
+      checker.regexp(key, value, /^[a-z0-9/-]+\.md$/);
+      let filePath = path.resolve(dir, value);
+      checker.file(filePath, filePath);
+      referencedFiles.push(filePath);
     };
-
-    checker.properties('book', content, {
+    checker.properties('book', book, {
       name: {required: true, type: 'string'},
-      description: {required: true, type: 'string'},
+      project: {required: true, check: 'nonEmpty'},
+      description: {required: true, check: checkFilePath},
+      variables: {required: true, type: 'object'},
       index: {
         required: true,
         arrayItem: {
           properties: {
             name: {required: true, type: 'string'},
-            content: {required: true, check: contentChecker}
+            key: {required: false, type: 'string'},
+            content: {required: true, check: checkFilePath},
+            children: {required: false, arrayItem: {
+              properties: {
+                name: {required: true, type: 'string'},
+                key: {required: false, type: 'string'},
+                content: {required: true, check: checkFilePath}
+              }
+            }}
           }
         }
       }
     });
 
-    // check that all files exits
-    files.forEach(file => {
-      let f = path.resolve(dir, file);
-      checker.file(f, f);
-    });
+    // check that all markdown files in `dir` are referenced in .book.json
+    const markdownFiles = Utils.getAllFiles(dir, '.md');
+    var notReferenced = _difference(markdownFiles, referencedFiles);
+    if (notReferenced.length > 0) {
+      throw new Error('Some Markdown files are not referenced: ' + notReferenced.join('\n'));
+    }
 
-    // todo: check that no existing file is un-referenced
-
-    return files;
+    return referencedFiles;
   }
+
 }
 
 module.exports = BookParser;

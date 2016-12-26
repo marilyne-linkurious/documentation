@@ -1,13 +1,18 @@
 {
   "name": "Linkurious Administrator documentation",
+  "project": "git@github.com:Linkurious/linkurious-server.git#develop",
+  "variables": {
+
+  },
   "description": "welcome.md",
   "index": [
     {"name": "Introduction", "content": "intro.md"},
     {
       "name": "Getting started",
-      "content": [
-        {"name": "Download", "content": "download.md"},
-        {"name": "Install", "content": "install.md"}
+      "content": "getting-started/index.md",
+      "children": [
+        {"name": "Download", "content": "getting-started/download.md"},
+        {"name": "Install", "content": "getting-started/install.md"}
       ]
     }
   ]
