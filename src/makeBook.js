@@ -6,7 +6,8 @@
  */
 'use strict';
 
-const BookParser = require('./BookParser');
+const path = require('path');
+const BookParser = require('./classes/BookParser');
 
-const book = BookParser.parse('./content/admin');
-//console.log(JSON.stringify(book, null, ' '));
+const book = BookParser.parse(path.resolve(__dirname, '..', 'content', 'admin'));
+book.generateSite('output/site');

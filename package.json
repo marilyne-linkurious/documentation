@@ -13,10 +13,11 @@
   "devDependencies": {
     "bluebird": "latest",
     "fs-extra": "latest",
-    "valcheck": "1.x",
+    "valcheck": "latest",
     "lodash.difference": "4.4.0",
     "esprima": "3.1.x",
     "lodash": "4.17.x",
-    "marky-markdown": "9.0.1"
+    "marky-markdown": "9.0.1",
+    "watch": "1.0.1"
   }
 }

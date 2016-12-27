@@ -10,6 +10,10 @@ const fs = require('fs-extra');
 const path = require('path');
 const child = require('child_process');
 const _ = require('lodash');
+const marky = require("marky-markdown");
+
+/** @type {function(Array, Array): Array} */
+const _difference = require('lodash.difference');
 
 const COMMENT_KEY_RE = /^@(\S+)(?:\s+(.+))?$/;
 
@@ -23,8 +27,8 @@ class Utils {
    * @returns {Array<String>}
    */
   static getAllFiles(dir, suffix) {
-    var files = [];
-    var fileNames = fs.readdirSync(dir);
+    let files = [];
+    const fileNames = fs.readdirSync(dir);
     for (let fileName of fileNames) {
       let filePath = path.resolve(dir, fileName);
       let stat = fs.statSync(filePath);
@@ -44,7 +48,7 @@ class Utils {
    * @param {string} dir Target directory.
    */
   static gitClone(url, dir) {
-    var branch = 'master';
+    let branch = 'master';
     if (url.indexOf('#') !== -1) {
       let ub = url.split('#');
       url = ub[0];
@@ -52,13 +56,13 @@ class Utils {
     }
 
     fs.emptyDirSync(dir);
-    var r = child.spawnSync(
+    const r = child.spawnSync(
       'git',
-      ['clone', `--branch=${branch}`, '--depth=1', url],
+      ['clone', `--branch=${branch}`, '--depth=1', url, '.'],
       {cwd: dir, timeout: 5000, stdio: 'pipe'}
     );
 
-    var err = r.output[2];
+    const err = r.output[2];
     if (r.status !== 0) {
       throw new Error('Error while cloning: ' + err)
     }
@@ -72,10 +76,10 @@ class Utils {
    */
   static extractComments(file) {
     const comments = [];
-    var body = fs.readFileSync(file, {encoding: 'utf8'});
+    const body = fs.readFileSync(file, {encoding: 'utf8'});
 
     const re = /^\/\*\*[\r\n]+([\w\W]+?)\*\//gm;
-    var match, c, lines, comment;
+    let match, c, lines, comment;
     while ((match = re.exec(body)) !== null) {
       // extract lines
       c = match[1].trim();
@@ -96,6 +100,43 @@ class Utils {
     }
 
     return comments;
+  }
+
+  /**
+   * @param {string} body
+   * @param {function(string)} callback called for each Moustache reference
+   */
+  static forReferences(body, callback) {
+    const blockRefRe = /\{\{([a-z0-9.]+)}}/g;
+    let match;
+    while ((match = blockRefRe.exec(body)) !== null) {
+      callback(match[1])
+    }
+  }
+
+  /**
+   * @param {string} markdown Markdown content
+   * @returns {string} HTML content
+   */
+  static renderMarkdown(markdown) {
+    return marky(markdown, {
+      sanitize: true,            // remove script tags and stuff
+      linkify: true,             // turn orphan URLs into hyperlinks
+      highlightSyntax: true,     // run highlights on fenced code blocks
+      prefixHeadingIds: true,    // prevent DOM id collisions
+      serveImagesWithCDN: false, // use npm's CDN to proxy images over HTTPS
+      debug: false,              // console.log() all the things
+      package: null              // npm package metadata
+    });
+  }
+
+  /**
+   * @param {Array} array
+   * @param {Array} otherArray
+   * @returns {Array}
+   */
+  static difference(array, otherArray) {
+    return _difference(array, otherArray);
   }
 
   /**

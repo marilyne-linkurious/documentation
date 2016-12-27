@@ -1,10 +1,11 @@
 {
   "name": "Linkurious Administrator documentation",
   "project": "git@github.com:Linkurious/linkurious-server.git#develop",
-  "variables": {
-
-  },
+  "variables": {},
+  "siteRoot": "/documentation/site/",
   "description": "welcome.md",
+  "template": "template.html",
+  "assets": "assets",
   "index": [
     {"name": "Introduction", "content": "intro.md"},
     {
