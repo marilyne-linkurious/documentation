@@ -8,6 +8,7 @@
 
 const fs = require('fs-extra');
 const path = require('path');
+const less = require('less');
 const Utils = require('./Utils');
 
 /**
@@ -120,6 +121,7 @@ class Book {
   /**
    * @param {string} target Target directory
    * @param {boolean} [forceDownloadProject=false]
+   * @returns {Promise}
    */
   generateSite(target, forceDownloadProject) {
     const t = Date.now();
@@ -157,9 +159,10 @@ class Book {
       });
     });
 
-    const assets = this._path(this.config.assets);
-    this.log(`Copying assets from "${assets}"...`);
-    fs.copySync(assets, path.resolve(target, path.basename(assets)));
+    const assetsSource = this._path(this.config.assets);
+    const assetsTarget = path.resolve(target, path.basename(assetsSource));
+    this.log(`Copying assets from "${assetsSource}"...`);
+    fs.copySync(assetsSource, assetsTarget);
 
     this.log(`Done in ${((Date.now() - t) / 1000).toFixed(2)}s :)`);
   }
@@ -184,7 +187,7 @@ class Book {
 
     // second pass to make links absolute
     htmlPage = htmlPage.replace(
-      /(href|src)=(["']?)([^/])/g,
+      /(href|src)=(["'])([^/#])/g,
       `$1=$2${this.config.siteRoot}$3`
     );
 
@@ -245,6 +248,15 @@ class Book {
     variables.set('menu', {
       key: 'menu',
       text: Utils.renderMarkdown(this._generateMarkdownMenu()),
+      builtin: true,
+      markdown: false,
+      file: Book.CONFIG_FILE
+    });
+
+    // generating random token
+    variables.set('random', {
+      key: 'menu',
+      text: Date.now() + '',
       builtin: true,
       markdown: false,
       file: Book.CONFIG_FILE
