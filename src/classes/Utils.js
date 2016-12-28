@@ -11,6 +11,16 @@ const path = require('path');
 const child = require('child_process');
 const _ = require('lodash');
 const marky = require("marky-markdown");
+const Valcheck = require('valcheck');
+
+/**
+ * @type Valcheck
+ */
+const checker = new Valcheck(error => {
+  throw new Error('Validation error: ' + error);
+}, bug => {
+  throw new Error('Library usage error: ' + bug);
+});
 
 /** @type {function(Array, Array): Array} */
 const _difference = require('lodash.difference');
@@ -40,6 +50,11 @@ class Utils {
     }
     return files;
   }
+
+  /**
+   * @returns {Valcheck}
+   */
+  static get check() { return checker; }
 
   /**
    * Clone git repository into a folder.
@@ -152,6 +167,20 @@ class Utils {
   static defaults(o, defaults) {
     if (!o)  { o = {}; }
     return _.defaults(o, defaults);
+  }
+
+  /**
+   *
+   * @param {string} p path
+   * @returns {boolean}
+   */
+  static isFile(p) {
+    try {
+      const stats = fs.statSync(p);
+      return stats.isFile();
+    } catch(e) {
+      return false;
+    }
   }
 }
 

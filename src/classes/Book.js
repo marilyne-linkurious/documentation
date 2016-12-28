@@ -8,7 +8,6 @@
 
 const fs = require('fs-extra');
 const path = require('path');
-const less = require('less');
 const Utils = require('./Utils');
 
 /**
@@ -41,6 +40,7 @@ class Book {
    * @param {string} config.project
    * @param {string} config.name
    * @param {string} config.assets
+   * @param {boolean} [config.numbering]
    * @param {string} config.siteRoot
    * @param {string} config.template HTML template file
    * @param {string} config.description
@@ -55,6 +55,7 @@ class Book {
     this.referencedContent = referencedContent;
     this.options = Utils.defaults(options, {annotation: 'doc'});
     this.template = fs.readFileSync(this._path(this.config.template), {encoding: 'utf8'});
+    this.numbering = !!config.numbering;
 
     this._assignKeys();
     this.checkOrphanContent();
@@ -118,16 +119,30 @@ class Book {
     });
   }
 
+  _checkMarkdownFiles(createMissing) {
+    this.log(`Check all markdown files (creating missing: ${createMissing})...`);
+    this.referencedContent.forEach(filePath => {
+      if (createMissing) {
+        fs.ensureFileSync(filePath)
+      } else {
+        Utils.check.file('file', filePath);
+      }
+    });
+  }
+
   /**
    * @param {string} target Target directory
    * @param {boolean} [forceDownloadProject=false]
+   * @param {boolean} [createMissingMarkdown=false]
    * @returns {Promise}
    */
-  generateSite(target, forceDownloadProject) {
+  generateSite(target, forceDownloadProject, createMissingMarkdown) {
     const t = Date.now();
 
     this.log(`Generating site in ${target}...`);
     fs.emptyDirSync(target);
+
+    this._checkMarkdownFiles(!!createMissingMarkdown);
 
     const projectSources = path.resolve(target, '..', path.basename(target) + '-project');
     if (!fs.existsSync(projectSources) || forceDownloadProject) {
@@ -173,10 +188,13 @@ class Book {
    * @param {Map<string, Variable>} variables
    */
   _generateHtmlFile(entry, targetPath, variables) {
-    const htmlBody = this._getHtmlContent(
-      this._path(Book.CONTENT_DIR, entry.content),
-      variables
-    );
+    let htmlBody;
+    const mdPath = this._path(Book.CONTENT_DIR, entry.content);
+    if (Utils.isFile(mdPath)) {
+      htmlBody = this._getHtmlContent(mdPath, variables);
+    } else {
+      htmlBody = Utils.renderMarkdown(this._makeIndexMarkdown(entry.children));
+    }
 
     let htmlPage = this._renderTemplate(
       this.template,
@@ -185,13 +203,30 @@ class Book {
       true
     );
 
-    // second pass to make links absolute
+    // second pass to tag links to current page
     htmlPage = htmlPage.replace(
-      /(href|src)=(["'])([^/#])/g,
+      new RegExp(`href=(["']/${entry.key}["'])`, 'g'),
+      `href=$1 class="current"`
+    );
+
+    // third pass to make links absolute
+    htmlPage = htmlPage.replace(
+      /(href|src)=(["'])(\/)/g,
       `$1=$2${this.config.siteRoot}$3`
     );
 
     fs.writeFileSync(path.resolve(targetPath, 'index.html'), htmlPage);
+  }
+
+  /**
+   * @param {Entry[]} children
+   * @private
+   */
+  _makeIndexMarkdown(children) {
+    const bullet = this.numbering ? '1.' : '-';
+    return children.reduce((md, child) => {
+        return `${md}\n${bullet} [${child.name}](/${child.key})`;
+    }, '') + '\n';
   }
 
   /**
@@ -209,7 +244,12 @@ class Book {
    * @returns {string}
    */
   _getMarkdownContent(mdPath, variables) {
-    let mdBody = fs.readFileSync(mdPath, {encoding: 'utf8'});
+    let mdBody;
+    try {
+      mdBody = fs.readFileSync(mdPath, {encoding: 'utf8'});
+    } catch(e) {
+      throw new Error('Could not read file "' + mdPath + '": ' + e.message);
+    }
     return this._renderTemplate(mdBody, variables, null, false);
   }
 
@@ -358,19 +398,21 @@ class Book {
    */
   _generateMarkdownMenu() {
     this.log(`Generating menu...`);
-    return '- [Home](.)\n' + this.__generateMarkdownMenu('', this.config.index);
+    const bullet = this.numbering ? '1.' : '-';
+    return `${bullet} [Home](/)\n${this.__generateMarkdownMenu('', bullet, this.config.index)}`;
   }
 
   /**
    * @param {string} indent The indentation level
+   * @param {string} bullet '-' or '1.'
    * @param {Array<Entry>} entries
    * @returns {string} html
    * @private
    */
-  __generateMarkdownMenu(indent, entries) {
+  __generateMarkdownMenu(indent, bullet, entries) {
     return entries.reduce((menu, entry) => {
-      return menu + indent + `- [${entry.name}](${entry.key})\n` +
-        (entry.children ? this.__generateMarkdownMenu(indent + '  ', entry.children) : '');
+      return menu + indent + `${bullet} [${entry.name}](/${entry.key})\n` +
+        (entry.children ? this.__generateMarkdownMenu(indent + '   ', bullet, entry.children) : '');
     }, '');
   }
 }

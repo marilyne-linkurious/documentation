@@ -8,18 +8,8 @@
 
 const fs = require('fs-extra');
 const path = require('path');
-const Valcheck = require('valcheck');
 const Book = require('./Book');
 const Utils = require('./Utils');
-
-/**
- * @type Valcheck
- */
-const checker = new Valcheck(error => {
-  throw new Error('Validation error: ' + error);
-}, bug => {
-  throw new Error('Library usage error: ' + bug);
-});
 
 class BookParser {
 
@@ -65,17 +55,17 @@ class BookParser {
     // check that the .book.json file format is connect
     // check that all files referenced in "content" do exist in `dir`
     const checkFilePath = (key, value) => {
-      checker.regexp(key, value, /^[a-z0-9/-]+\.md$/);
+      Utils.check.regexp(key, value, /^[a-z0-9/-]+\.md$/);
       let filePath = path.resolve(rootPath, Book.CONTENT_DIR, value);
-      checker.file(filePath, filePath);
       referencedFiles.push(filePath);
     };
-    checker.properties('book', book, {
+    Utils.check.properties('book', book, {
       name: {required: true, type: 'string'},
       project: {required: true, check: 'nonEmpty'},
       description: {required: true, check: checkFilePath},
       variables: {required: true, type: 'object'},
       template: {required: true, check: ['file', rootPath]},
+      numbering: {required: false, type: 'boolean'},
       siteRoot: {required: true, check: ['startsWith', '/', false]},
       assets: {required: true, check: ['dir', rootPath]},
       index: {
@@ -84,7 +74,7 @@ class BookParser {
           properties: {
             name: {required: true, type: 'string'},
             key: {required: false, type: 'string'},
-            content: {required: true, check: checkFilePath},
+            content: {requiredUnless: 'children', check: checkFilePath},
             children: {required: false, arrayItem: {
               properties: {
                 name: {required: true, type: 'string'},
