@@ -193,7 +193,7 @@ class Book {
     if (Utils.isFile(mdPath)) {
       htmlBody = this._getHtmlContent(mdPath, variables);
     } else {
-      htmlBody = Utils.renderMarkdown(this._makeIndexMarkdown(entry.children));
+      htmlBody = Utils.renderMarkdown(this._makeIndexMarkdown(entry));
     }
 
     let htmlPage = this._renderTemplate(
@@ -219,14 +219,15 @@ class Book {
   }
 
   /**
-   * @param {Entry[]} children
+   * @param {Entry} entry
+   * @param {Entry[]} entry.children
    * @private
    */
-  _makeIndexMarkdown(children) {
+  _makeIndexMarkdown(entry) {
     const bullet = this.numbering ? '1.' : '-';
-    return children.reduce((md, child) => {
+    return entry.children.reduce((md, child) => {
         return `${md}\n${bullet} [${child.name}](/${child.key})`;
-    }, '') + '\n';
+    }, `# ${entry.name}\n`) + '\n';
   }
 
   /**
