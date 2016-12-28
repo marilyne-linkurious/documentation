@@ -2,18 +2,123 @@
   "name": "Linkurious Administrator documentation",
   "project": "git@github.com:Linkurious/linkurious-server.git#develop",
   "variables": {},
-  "siteRoot": "/documentation/site/",
-  "description": "welcome.md",
+  "siteRoot": "/documentation/site",
+  "description": "main.md",
   "template": "template.html",
   "assets": "assets",
+  "numbering": true,
   "index": [
     {"name": "Introduction", "content": "intro.md"},
     {
       "name": "Getting started",
       "content": "getting-started/index.md",
       "children": [
+        {"name": "Technical requirements", "content": "getting-started/requirements.md"},
         {"name": "Download", "content": "getting-started/download.md"},
         {"name": "Install", "content": "getting-started/install.md"}
+      ]
+    },
+    {"name": "Start/stop", "content": "start-stop.md"},
+    {
+      "name": "Troubleshooting",
+      "content": "troubleshoot/index.md",
+      "children": [
+        {"name": "Check status", "content": "troubleshoot/status.md"},
+        {"name": "Read logs", "content": "troubleshoot/logs.md"},
+        {"name": "Get support", "content": "troubleshoot/support.md"}
+      ]
+    },
+    {
+      "name": "Importing graph data",
+      "content": "importing/index.md",
+      "children": [
+        {"name": "Neo4j", "key": "import-neo4j", "content": "importing/neo4j.md"},
+        {"name": "DataStax Enterprise Graph", "key": "import-dse", "content": "importing/dse.md"},
+        {"name": "AllegroGraph", "key": "import-allegrograph", "content": "importing/allegro.md"},
+        {"name": "Titan", "key": "import-titan", "content": "importing/titan.md"}
+      ]
+    },
+    {
+      "name": "Updating Linkurious",
+      "content": "updating/index.md",
+      "children": [
+        {"name": "Check for updates", "content": "updating/check.md"},
+        {"name": "Backing up your data", "content": "updating/backup.md"},
+        {"name": "Update procedure", "content": "updating/update.md"}
+      ]
+    },
+    {
+      "name": "Configure data-sources",
+      "content": "data-sources/index.md",
+      "children": [
+        {"name": "Neo4j", "key": "config-neo4j", "content": "data-sources/neo4j.md"},
+        {"name": "DataStax Enterprise Graph", "key": "config-dse", "content": "data-sources/titan.md"},
+        {"name": "AllegroGraph", "key": "config-allegrograph", "content": "data-sources/allegro.md"},
+        {"name": "Titan", "key": "config-titan", "content": "data-sources/titan.md"}
+      ]
+    },
+    {
+      "name": "Configure data-sources (advanced)",
+      "children": [
+        {"name": "Alternative IDs", "content": "data-sources-advanced/alternative-ids.md"},
+        {"name": "Advanced settings", "content": "data-sources-advanced/config.md"}
+      ]
+    },
+    {
+      "name": "Search index",
+      "content": "search/index.md",
+      "children": [
+        {"name": "ElasticSearch configuration", "key": "config-es", "content": "search/es.md"},
+        {"name": "ElasticSearch on AWS", "content": "search/es-on-aws.md"}
+      ]
+    },
+    {
+      "name": "Internal database",
+      "content": "sql-db/config.md",
+      "children": [
+        {"name": "Migrating to MySQL", "key": "sql-migration", "content": "sql-db/migration.md"}
+      ]
+    },
+    {
+      "name": "Web server",
+      "content": "www/config.md",
+      "children": [
+        {"name": "Client analytics", "content": "www/analytics.md"}
+      ]
+    },
+    {
+      "name": "Access control",
+      "content": "access/index.md",
+      "children": [
+        {"name": "Users, groups and rights", "content": "access/users.md"},
+        {"name": "LDAP", "content": "access/ldap.md"},
+        {"name": "Single Sign-On (SSO)", "content": "access/sso.md"},
+        {"name": "SSO with Google", "content": "access/sso-google.md"},
+        {"name": "SSO with Azure AD", "content": "access/sso-azure.md"},
+        {"name": "SSO with OpenID Connect", "content": "access/sso-openid-connect.md"}
+      ]
+    },
+    {
+      "name": "Alerts",
+      "content": "alerts/index.md",
+      "children": [
+        {"name": "Configuration", "key": "config-alerts", "content": "alerts/config.md"},
+        {"name": "Managing alerts", "key": "manage-alerts", "content": "alerts/manage.md"}
+      ]
+    },
+    {
+      "name": "Visualizations appearance",
+      "children": [
+        {"name": "Default styles", "content": "viz/styles.md"},
+        {"name": "Default captions", "content": "viz/captions.md"},
+        {"name": "Geographic tiles", "content": "viz/geo-tiles.md"}
+      ]
+    },
+    {
+      "name": "Audit trail",
+      "content": "audit-trail/config.md",
+      "children": [
+        {"name": "Log format", "content": "audit-trail/format.md"}
       ]
     }
   ]

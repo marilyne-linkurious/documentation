@@ -28,8 +28,14 @@ h1:hover a, h2:hover a, h3:hover a {
     opacity: 1;
 }
 
-.menu ul ul {
+.menu ul, .menu ol {
+    margin-left: -20px;
+}
+
+.menu ul ul, ol ol {
     margin-left: -30px;
+    margin-top: 5px;
+    margin-bottom: 10px;
 }
 
 a {
@@ -39,4 +45,10 @@ a {
 
 a:hover, a:active {
     text-decoration: underline;
+}
+
+a.current {
+    color: #212121;
+    text-decoration: none;
+    font-weight: bold;
 }
