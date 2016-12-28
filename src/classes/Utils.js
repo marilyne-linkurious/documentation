@@ -84,7 +84,7 @@ class Utils {
       // extract lines
       c = match[1].trim();
       if (c[0] === '*') { c = c.substr(1); c = c.trim(); }
-      lines = c.split(/[\r\n]+\s*[*][ ]*/);
+      lines = c.split(/[\r\n]+\s*[*][ ]?/);
 
       // extract @keys and lines
       comment = {file: file, keys: {}, lines: []};
@@ -119,6 +119,10 @@ class Utils {
    * @returns {string} HTML content
    */
   static renderMarkdown(markdown) {
+
+    // hack to fix code highlighting
+    markdown = markdown.replace(/```JS(?:ON)?\n/ig, '```js\n');
+
     return marky(markdown, {
       sanitize: true,            // remove script tags and stuff
       linkify: true,             // turn orphan URLs into hyperlinks
