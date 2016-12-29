@@ -22,7 +22,8 @@ watch.watchTree(sourceFolder, () => {
     book.log = function(m) { console.log(' * ' + m); };
     book.generateSite(targetFolder, false, false);
   } catch(e) {
-    fatal(e.stack);
+    console.log('GENERATION FAILED');
+    console.log(e.stack);
   }
 
 });

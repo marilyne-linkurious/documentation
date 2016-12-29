@@ -6,11 +6,6 @@ Linkurious is a Web-application server, it needs to be installed on a server and
 
 Technical requirements for the machine used to install the Linkurious Web-application server.
 
-The installed components are:
- - A NodeJS-based Web-application server
- - An Elasticsearch engine
- - A NodeJS-based process manager to supervise the server and Elasticsearch
-
 ### Hardware
 
 For a standard installation of Linkurious, the recommended hardware is:
@@ -50,9 +45,9 @@ The *Linkurious server* can be deployed on the following platforms:
 - Mac OS X
   - OS X 10.10+ (OS X Lion and more recent)
 
-### Java Virtual Machine
+### Java JDK
 
-Linkurious' embedded [Elasticsearch](https://www.elastic.co/products/elasticsearch) engine requires *Oracle Java SE Development Kit (JDK)* 7+.
+Linkurious' embedded [Elasticsearch]({{es.product.link}}) engine requires *Oracle Java SE Development Kit (JDK)* 7+.
 
 You can [download the latest *JDK* from Oracle's website](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 <!-- from: http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html -->
@@ -70,7 +65,7 @@ Linkurious uses an embedded SQLite database for persistence. This database requi
 Some older Linux distributions don't have this version of GLIBC available.
 You can check the version available on your system on http://distrowatch.com.
 
-If SQLite does not work on your system, please refer to the [Internal database](internal-database) documentation section to learn how to use alternative databases.
+If SQLite does not work on your system, please refer to the [internal database](/internal-database) documentation section to learn how to use alternative databases.
 
 ## Linkurious Client
 

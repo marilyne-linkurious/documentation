@@ -9,6 +9,7 @@
 const fs = require('fs-extra');
 const path = require('path');
 const Utils = require('./Utils');
+const BookSiteGenerator = require('./BookSiteGenerator');
 
 /**
  * @typedef {object} Entry
@@ -55,7 +56,6 @@ class Book {
     this.config = config;
     this.referencedContent = referencedContent;
     this.options = Utils.defaults(options, {annotation: 'doc'});
-    this.template = fs.readFileSync(this._path(this.config.template), {encoding: 'utf8'});
 
     this._assignKeys();
     this.checkOrphanContent();
@@ -64,7 +64,7 @@ class Book {
   /**
    * @returns {string}
    */
-  static get CONFIG_FILE() { return '.book.json'; }
+  static get CONFIG_FILE() { return 'book.json'; }
 
   /**
    * @returns {string}
@@ -73,7 +73,7 @@ class Book {
 
   checkOrphanContent() {
     // check that all content files in `rootDir`/content are referenced in `config`
-    const markdownContent = Utils.getAllFiles(this._path(Book.CONTENT_DIR), '.md');
+    const markdownContent = Utils.getAllFiles(this._path(Book.CONTENT_DIR), /\.md$/);
     const notReferenced = Utils.difference(markdownContent, this.referencedContent);
     if (notReferenced.length > 0) {
       throw new Error('Some Markdown files are not referenced:\n' + notReferenced.join('\n'));
@@ -91,6 +91,14 @@ class Book {
     } else {
       return path.resolve(this.rootDir, relativePath);
     }
+  }
+
+  /**
+   * @param {string} content relative content path
+   * @returns {string} absolute path
+   */
+  resolveContent(content) {
+    return this._path(Book.CONTENT_DIR, content);
   }
 
   /**
@@ -139,11 +147,9 @@ class Book {
   generateSite(target, forceDownloadProject, createMissingMarkdown) {
     const t = Date.now();
 
-    this.log(`Generating site in ${target}...`);
-    fs.emptyDirSync(target);
-
     this._checkMarkdownFiles(!!createMissingMarkdown);
 
+    // get project code
     const projectSources = path.resolve(target, '..', path.basename(target) + '-project');
     if (!fs.existsSync(projectSources) || forceDownloadProject) {
       this.log(`Cloning project code (${this.config.project})...`);
@@ -152,129 +158,24 @@ class Book {
       this.log(`Using cached copy of (${this.config.project})...`);
     }
 
-    const variables = this._getVariables(projectSources);
-    const references = this._getReferences();
-    this.checkVariableIntegrity(variables, references);
-
-    this.log('Generating HTML content from Markdown templates...');
-    this._generateHtmlFile(
-      {name: this.config.name, content: this.config.description, key: ''}, target, variables
-    );
-    const generateEntry = entry => {
-      // make entry dir + file
-      let entryTarget = path.resolve(target, entry.key);
-      fs.emptyDirSync(entryTarget);
-      this._generateHtmlFile(entry, entryTarget, variables);
-    };
-    this.config.index.forEach(entry => {
-      generateEntry(entry);
-      if (!entry.children) { return; }
-      entry.children.forEach(subEntry => {
-        generateEntry(subEntry);
-      });
-    });
-
-    const assetsSource = this._path(this.config.assets);
-    const assetsTarget = path.resolve(target, path.basename(assetsSource));
-    this.log(`Copying assets from "${assetsSource}"...`);
-    fs.copySync(assetsSource, assetsTarget);
+    const generator = new BookSiteGenerator(this, target, projectSources);
+    generator.generate();
 
     this.log(`Done in ${((Date.now() - t) / 1000).toFixed(2)}s :)`);
-  }
-
-  /**
-   * @param {Entry} entry relative path of a markdown content file
-   * @param {string} targetPath
-   * @param {Map<string, Variable>} variables
-   */
-  _generateHtmlFile(entry, targetPath, variables) {
-    let htmlBody;
-    const mdPath = this._path(Book.CONTENT_DIR, entry.content);
-    if (Utils.isFile(mdPath)) {
-      htmlBody = this._getHtmlContent(mdPath, variables);
-    } else {
-      htmlBody = Utils.renderMarkdown(this._makeIndexMarkdown(entry));
-    }
-
-    // first pass: render {{variables}} in template
-    let htmlPage = this._renderTemplate(
-      this.template,
-      variables,
-      {body: htmlBody, title: entry.name},
-      true
-    );
-
-    // tag links to current page
-    htmlPage = htmlPage.replace(
-      new RegExp(`href=(["']/${entry.key}["'])`, 'g'),
-      `href=$1 class="current"`
-    );
-
-    if (this.config.externalLinksToBlank) {
-      // make external link open in a new tab
-      htmlPage = htmlPage.replace(
-        /(href=["']https?:\/\/)/ig,
-        `rel="noopener noreferrer" target="_blank" $1`
-      );
-    }
-
-    // make all links absolute
-    htmlPage = htmlPage.replace(
-      /(href|src)=(["'])(\/)/ig,
-      `$1=$2${this.config.siteRoot}$3`
-    );
-
-    fs.writeFileSync(path.resolve(targetPath, 'index.html'), htmlPage);
-  }
-
-  /**
-   * @param {Entry} entry
-   * @param {Entry[]} entry.children
-   * @private
-   */
-  _makeIndexMarkdown(entry) {
-    const bullet = this.config.numbering ? '1.' : '-';
-    return entry.children.reduce((md, child) => {
-        return `${md}\n${bullet} [${child.name}](/${child.key})`;
-    }, `# ${entry.name}\n`) + '\n';
-  }
-
-  /**
-   * @param {string} markdownPath Markdown file path
-   * @param {Map<string, Variable>} variables
-   * @returns {string}
-   */
-  _getHtmlContent(markdownPath, variables) {
-    return Utils.renderMarkdown(this._getMarkdownContent(markdownPath, variables));
-  }
-
-  /**
-   * @param {string} mdPath
-   * @param {Map<string, Variable>} variables
-   * @returns {string}
-   */
-  _getMarkdownContent(mdPath, variables) {
-    let mdBody;
-    try {
-      mdBody = fs.readFileSync(mdPath, {encoding: 'utf8'});
-    } catch(e) {
-      throw new Error('Could not read file "' + mdPath + '": ' + e.message);
-    }
-    return this._renderTemplate(mdBody, variables, null, false);
   }
 
   /**
    * @param {string} projectSources
    * @returns {Map.<string, Variable>}
    */
-  _getVariables(projectSources) {
+  getDefinedVariables(projectSources) {
     const annotation = this.options.annotation;
 
     /** @type {Map<string, Variable>} */
     const variables = new Map();
 
     this.log(`Extracting @${annotation} variable from project code...`);
-    Utils.getAllFiles(projectSources, '.js').forEach(jsFile => {
+    Utils.getAllFiles(projectSources, /\.js$/).forEach(jsFile => {
       Utils.extractComments(jsFile).forEach(comment => {
         if (!(annotation in comment.keys)) { return; }
         let key = comment.keys[annotation];
@@ -332,7 +233,7 @@ class Book {
   /**
    * @returns {Map.<string, Reference>}
    */
-  _getReferences() {
+  getVariableReferences() {
     /** @type {Map<string, Reference>} */
     const references = new Map();
 
@@ -345,34 +246,6 @@ class Book {
     });
 
     return references;
-  }
-
-  /**
-   * @param {string} body The template body
-   * @param {Map<String, Variable>} variables
-   * @param {Object<String>} [variableOverrides={}]
-   * @param {boolean} [renderMarkdown=false]
-   * @returns {*}
-   */
-  _renderTemplate(body, variables, variableOverrides, renderMarkdown) {
-    if (!variableOverrides) { variableOverrides = {}; }
-
-    Utils.forReferences(body, referenceKey => {
-      let value;
-      if (referenceKey in variableOverrides) {
-        value = variableOverrides[referenceKey];
-      } else if (variables.has(referenceKey)) {
-        value = variables.get(referenceKey).markdown && renderMarkdown
-          ? Utils.renderMarkdown(variables.get(referenceKey).text)
-          : variables.get(referenceKey).text;
-      } else {
-        throw new ReferenceError(`Variable reference "${referenceKey}" could nto be resolved.`);
-      }
-
-      body = body.replace(new RegExp('\\{\\{' + referenceKey + '}}', 'g'), value);
-    });
-
-    return body;
   }
 
   /**

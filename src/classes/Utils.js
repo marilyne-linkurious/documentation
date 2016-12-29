@@ -33,19 +33,19 @@ class Utils {
    * Get all files recursively.
    *
    * @param {string} dir
-   * @param {string} suffix
+   * @param {RegExp} regexp
    * @returns {Array<String>}
    */
-  static getAllFiles(dir, suffix) {
+  static getAllFiles(dir, regexp) {
     let files = [];
     const fileNames = fs.readdirSync(dir);
     for (let fileName of fileNames) {
       let filePath = path.resolve(dir, fileName);
       let stat = fs.statSync(filePath);
-      if (stat.isFile() && fileName.endsWith(suffix)) {
+      if (stat.isFile() && fileName.match(regexp)) {
         files.push(filePath);
       } else if (stat.isDirectory()) {
-        files = files.concat(Utils.getAllFiles(filePath, suffix));
+        files = files.concat(Utils.getAllFiles(filePath, regexp));
       }
     }
     return files;
@@ -142,7 +142,7 @@ class Utils {
       sanitize: true,            // remove script tags and stuff
       linkify: true,             // turn orphan URLs into hyperlinks
       highlightSyntax: true,     // run highlights on fenced code blocks
-      prefixHeadingIds: true,    // prevent DOM id collisions
+      prefixHeadingIds: false,    // prevent DOM id collisions
       serveImagesWithCDN: false, // use npm's CDN to proxy images over HTTPS
       debug: false,              // console.log() all the things
       package: null              // npm package metadata
@@ -180,6 +180,19 @@ class Utils {
       return stats.isFile();
     } catch(e) {
       return false;
+    }
+  }
+
+  /**
+   *
+   * @param {string} string
+   * @param {RegExp} re
+   * @param {function(string...)} cb
+   */
+  static forEachMatch(string, re, cb) {
+    let match;
+    while ((match = re.exec(string)) !== null) {
+      cb.apply(undefined, match.slice(1));
     }
   }
 }

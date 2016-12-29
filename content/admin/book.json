@@ -2,7 +2,8 @@
   "name": "Linkurious Administrator documentation",
   "project": "git@github.com:Linkurious/linkurious-server.git#develop",
   "variables": {
-    "download.link": "https://linkurio.us/my-account/"
+    "download.link": "https://linkurio.us/my-account/",
+    "es.product.link": "https://www.elastic.co/products/elasticsearch"
   },
   "assets": "assets",
   "numbering": true,
@@ -16,11 +17,11 @@
       "name": "Getting started",
       "children": [
         {"name": "Technical requirements", "key": "requirements", "content": "getting-started/requirements.md"},
-        {"name": "Download Linkurious", "key": "download", "content": "getting-started/download.md"},
-        {"name": "Install Linkurious", "key": "install", "content": "getting-started/install.md"}
+        {"name": "Downloading", "key": "download", "content": "getting-started/download.md"},
+        {"name": "Installing", "key": "install", "content": "getting-started/install.md"},
+        {"name": "Start/stop", "content": "getting-started/start-stop.md"}
       ]
     },
-    {"name": "Start/stop", "content": "start-stop.md"},
     {
       "name": "Troubleshooting",
       "content": "troubleshoot/index.md",
@@ -43,6 +44,7 @@
     {
       "name": "Updating Linkurious",
       "content": "updating/index.md",
+      "key": "updating",
       "children": [
         {"name": "Check for updates", "content": "updating/check.md"},
         {"name": "Backing up your data", "content": "updating/backup.md"},
@@ -51,12 +53,13 @@
     },
     {
       "name": "Configure data-sources",
+      "key": "configure-sources",
       "content": "data-sources/index.md",
       "children": [
-        {"name": "Neo4j", "key": "config-neo4j", "content": "data-sources/neo4j.md"},
-        {"name": "DataStax Enterprise Graph", "key": "config-dse", "content": "data-sources/titan.md"},
-        {"name": "AllegroGraph", "key": "config-allegrograph", "content": "data-sources/allegro.md"},
-        {"name": "Titan", "key": "config-titan", "content": "data-sources/titan.md"}
+        {"name": "Neo4j", "key": "configure-neo4j", "content": "data-sources/neo4j.md"},
+        {"name": "DataStax Enterprise Graph", "key": "configure-dse", "content": "data-sources/titan.md"},
+        {"name": "AllegroGraph", "key": "configure-allegrograph", "content": "data-sources/allegro.md"},
+        {"name": "Titan", "key": "configure-titan", "content": "data-sources/titan.md"}
       ]
     },
     {

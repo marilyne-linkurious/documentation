@@ -57,6 +57,27 @@ a.current {
     font-weight: bold;
 }
 
+a.external {
+    color: #b9844d;
+    /*text-decoration: underline;*/
+}
+
 .content {
     margin: 10px 40px;
+}
+
+code {
+    color: #666;
+    background-color: #fff;
+    padding: 0 3px;
+    -webkit-box-shadow: 1px 1px 2px 0 #ddd;
+    -moz-box-shadow: 1px 1px 2px 0 #ddd;
+    box-shadow: 1px 1px 2px 0 #ddd;
+}
+
+blockquote {
+    background: #fcf8e3;
+    border-left: 15px solid #faebcc;
+    color: #8a6d3b;
+    padding: 5px 10px;
 }
