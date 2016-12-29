@@ -1,21 +1,23 @@
 {
   "name": "Linkurious Administrator documentation",
   "project": "git@github.com:Linkurious/linkurious-server.git#develop",
-  "variables": {},
-  "siteRoot": "/documentation/site",
-  "description": "main.md",
-  "template": "template.html",
+  "variables": {
+    "download.link": "https://linkurio.us/my-account/"
+  },
   "assets": "assets",
   "numbering": true,
+  "externalLinksToBlank": true,
+  "siteRoot": "/documentation/site",
+  "template": "template.html",
+  "description": "main.md",
   "index": [
     {"name": "Introduction", "content": "intro.md"},
     {
       "name": "Getting started",
-      "content": "getting-started/index.md",
       "children": [
-        {"name": "Technical requirements", "content": "getting-started/requirements.md"},
-        {"name": "Download", "content": "getting-started/download.md"},
-        {"name": "Install", "content": "getting-started/install.md"}
+        {"name": "Technical requirements", "key": "requirements", "content": "getting-started/requirements.md"},
+        {"name": "Download Linkurious", "key": "download", "content": "getting-started/download.md"},
+        {"name": "Install Linkurious", "key": "install", "content": "getting-started/install.md"}
       ]
     },
     {"name": "Start/stop", "content": "start-stop.md"},
@@ -74,6 +76,7 @@
     },
     {
       "name": "Internal database",
+      "key": "internal-database",
       "content": "sql-db/config.md",
       "children": [
         {"name": "Migrating to MySQL", "key": "sql-migration", "content": "sql-db/migration.md"}

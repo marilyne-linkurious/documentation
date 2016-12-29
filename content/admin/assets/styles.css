@@ -13,18 +13,22 @@ body {
     padding: 0 1em;
 }
 
-h1 a, h2 a, h3 a {
+h1 a, h2 a, h3 a, h4 a {
     margin-right: 5px;
     opacity: 0.1;
 }
 
-h1, h2, h3 {
+h2, h3, h4 {
+    padding-top: 1em;
+}
+
+h1, h2, h3, h4 {
     padding-bottom: 0.3em;
     /*font-size: 2em;*/
     border-bottom: 1px solid #eee;
 }
 
-h1:hover a, h2:hover a, h3:hover a {
+h1:hover a, h2:hover a, h3:hover a, h4:hover {
     opacity: 1;
 }
 
@@ -51,4 +55,8 @@ a.current {
     color: #212121;
     text-decoration: none;
     font-weight: bold;
+}
+
+.content {
+    margin: 10px 40px;
 }

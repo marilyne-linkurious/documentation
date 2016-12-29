@@ -20,7 +20,7 @@ watch.watchTree(sourceFolder, () => {
   try {
     const book = BookParser.parse(sourceFolder);
     book.log = function(m) { console.log(' * ' + m); };
-    book.generateSite(targetFolder, false, true);
+    book.generateSite(targetFolder, false, false);
   } catch(e) {
     fatal(e.stack);
   }

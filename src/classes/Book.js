@@ -41,6 +41,7 @@ class Book {
    * @param {string} config.name
    * @param {string} config.assets
    * @param {boolean} [config.numbering]
+   * @param {boolean} [config.externalLinksToBlank]
    * @param {string} config.siteRoot
    * @param {string} config.template HTML template file
    * @param {string} config.description
@@ -55,7 +56,6 @@ class Book {
     this.referencedContent = referencedContent;
     this.options = Utils.defaults(options, {annotation: 'doc'});
     this.template = fs.readFileSync(this._path(this.config.template), {encoding: 'utf8'});
-    this.numbering = !!config.numbering;
 
     this._assignKeys();
     this.checkOrphanContent();
@@ -196,6 +196,7 @@ class Book {
       htmlBody = Utils.renderMarkdown(this._makeIndexMarkdown(entry));
     }
 
+    // first pass: render {{variables}} in template
     let htmlPage = this._renderTemplate(
       this.template,
       variables,
@@ -203,15 +204,23 @@ class Book {
       true
     );
 
-    // second pass to tag links to current page
+    // tag links to current page
     htmlPage = htmlPage.replace(
       new RegExp(`href=(["']/${entry.key}["'])`, 'g'),
       `href=$1 class="current"`
     );
 
-    // third pass to make links absolute
+    if (this.config.externalLinksToBlank) {
+      // make external link open in a new tab
+      htmlPage = htmlPage.replace(
+        /(href=["']https?:\/\/)/ig,
+        `rel="noopener noreferrer" target="_blank" $1`
+      );
+    }
+
+    // make all links absolute
     htmlPage = htmlPage.replace(
-      /(href|src)=(["'])(\/)/g,
+      /(href|src)=(["'])(\/)/ig,
       `$1=$2${this.config.siteRoot}$3`
     );
 
@@ -224,7 +233,7 @@ class Book {
    * @private
    */
   _makeIndexMarkdown(entry) {
-    const bullet = this.numbering ? '1.' : '-';
+    const bullet = this.config.numbering ? '1.' : '-';
     return entry.children.reduce((md, child) => {
         return `${md}\n${bullet} [${child.name}](/${child.key})`;
     }, `# ${entry.name}\n`) + '\n';
@@ -390,6 +399,7 @@ class Book {
     }
   }
 
+  // noinspection JSMethodCanBeStatic
   log(msg) {
     console.log(msg);
   }
@@ -399,7 +409,7 @@ class Book {
    */
   _generateMarkdownMenu() {
     this.log(`Generating menu...`);
-    const bullet = this.numbering ? '1.' : '-';
+    const bullet = this.config.numbering ? '1.' : '-';
     return `${bullet} [Home](/)\n${this.__generateMarkdownMenu('', bullet, this.config.index)}`;
   }
 

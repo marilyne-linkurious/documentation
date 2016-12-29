@@ -66,6 +66,7 @@ class BookParser {
       variables: {required: true, type: 'object'},
       template: {required: true, check: ['file', rootPath]},
       numbering: {required: false, type: 'boolean'},
+      externalLinksToBlank: {required: false, type: 'boolean'},
       siteRoot: {required: true, check: ['startsWith', '/', false]},
       assets: {required: true, check: ['dir', rootPath]},
       index: {
