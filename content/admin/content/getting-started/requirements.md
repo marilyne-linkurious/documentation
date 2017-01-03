@@ -29,7 +29,7 @@ Please refer to [Elasticsearch's hardware requirements guide](https://www.elasti
 
 ### Operating System
 
-The *Linkurious server* can be deployed on the following platforms:
+Linkurious server can be deployed on the following platforms:
 - Windows
   - Windows 7
   - Windows 8
@@ -49,7 +49,7 @@ The *Linkurious server* can be deployed on the following platforms:
 
 Linkurious' embedded [Elasticsearch]({{es.product.link}}) engine requires *Oracle Java SE Development Kit (JDK)* 7+.
 
-You can [download the latest *JDK* from Oracle's website](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+You can [download the latest JDK from Oracle's website](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 <!-- from: http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html -->
 
 Installation instructions:
@@ -61,11 +61,11 @@ The `JAVA_HOME` environment variable must be set.
 
 ### SQLite and GLIBC 2.14
 
-Linkurious uses an embedded SQLite database for persistence. This database requires GLIBC >= 2.14.
+Linkurious uses an embedded SQLite store for user-data persistence. This database requires GLIBC >= 2.14.
 Some older Linux distributions don't have this version of GLIBC available.
 You can check the version available on your system on http://distrowatch.com.
 
-If SQLite does not work on your system, please refer to the [internal database](/internal-database) documentation section to learn how to use alternative databases.
+If SQLite does not work on your system, please refer to the [user-data store documentation](/user-data-store) section to learn how to use alternative databases.
 
 ## Linkurious Client
 

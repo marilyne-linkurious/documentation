@@ -18,7 +18,12 @@ h1 a, h2 a, h3 a, h4 a {
     opacity: 0.1;
 }
 
-h2, h3, h4 {
+h1 a svg, h2 a svg, h3 a svg, h4 a svg {
+    padding-top: 15px;
+}
+
+
+h1, h2, h3, h4 {
     padding-top: 1em;
 }
 
@@ -80,4 +85,16 @@ blockquote {
     border-left: 15px solid #faebcc;
     color: #8a6d3b;
     padding: 5px 10px;
+}
+
+img {
+    max-width: 80%;
+    -webkit-box-shadow: 3px 3px 15px 0 #ccc;
+    -moz-box-shadow: 3px 3px 15px 0 #ccc;
+    box-shadow: 3px 3px 15px 0 #ccc;
+    display: block;
+}
+
+em {
+    background-color: #f3ffdd;
 }

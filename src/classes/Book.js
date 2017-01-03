@@ -9,7 +9,8 @@
 const fs = require('fs-extra');
 const path = require('path');
 const Utils = require('./Utils');
-const BookSiteGenerator = require('./BookSiteGenerator');
+const SiteGenerator = require('./SiteGenerator');
+const PdfGenerator = require('./PdfGenerator');
 
 /**
  * @typedef {object} Entry
@@ -44,7 +45,8 @@ class Book {
    * @param {boolean} [config.numbering]
    * @param {boolean} [config.externalLinksToBlank]
    * @param {string} config.siteRoot
-   * @param {string} config.template HTML template file
+   * @param {string} config.siteTemplate HTML template file for site output
+   * @param {string} config.pdfTemplate HTML template file for PDF output
    * @param {string} config.description
    * @param {Array<Entry>} config.index
    * @param {Object<String>} config.variables
@@ -139,18 +141,20 @@ class Book {
   }
 
   /**
-   * @param {string} target Target directory
+   * @param {string} outputType 'site' or 'pdf'
+   * @param {string} outputDir Output directory
    * @param {boolean} [forceDownloadProject=false]
    * @param {boolean} [createMissingMarkdown=false]
    * @returns {Promise}
    */
-  generateSite(target, forceDownloadProject, createMissingMarkdown) {
-    const t = Date.now();
+  generate(outputType, outputDir, forceDownloadProject, createMissingMarkdown) {
+    Utils.check.values('outputType', outputType, ['pdf', 'site'], true);
+    Utils.check.dir('output', outputDir);
 
     this._checkMarkdownFiles(!!createMissingMarkdown);
 
     // get project code
-    const projectSources = path.resolve(target, '..', path.basename(target) + '-project');
+    const projectSources = path.resolve(outputDir, 'project');
     if (!fs.existsSync(projectSources) || forceDownloadProject) {
       this.log(`Cloning project code (${this.config.project})...`);
       Utils.gitClone(this.config.project, projectSources);
@@ -158,10 +162,13 @@ class Book {
       this.log(`Using cached copy of (${this.config.project})...`);
     }
 
-    const generator = new BookSiteGenerator(this, target, projectSources);
+    let generator;
+    if (outputType === 'site') {
+      generator = new SiteGenerator(this, outputDir, projectSources);
+    } else if (outputType === 'pdf') {
+      generator = new PdfGenerator(this, outputDir, projectSources);
+    }
     generator.generate();
-
-    this.log(`Done in ${((Date.now() - t) / 1000).toFixed(2)}s :)`);
   }
 
   /**

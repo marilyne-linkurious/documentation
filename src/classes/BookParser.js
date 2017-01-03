@@ -17,12 +17,13 @@ class BookParser {
    * Checks that the book.json file is correct.
    * Checks that all referenced files exist.
    *
-   * @param {string} dir
+   * @param {string} inputDirectory
    * @return {Book} the parsed book
    */
-  static parse(dir) {
-    const configPath = path.resolve(dir, Book.CONFIG_FILE);
-    dir = path.resolve(dir);
+  static parse(inputDirectory) {
+    Utils.check.dir('input', inputDirectory);
+    const configPath = path.resolve(inputDirectory, Book.CONFIG_FILE);
+    inputDirectory = path.resolve(inputDirectory);
 
     let fileContent;
     try {
@@ -35,12 +36,12 @@ class BookParser {
     try {
       bookContent = JSON.parse(fileContent);
     } catch(e) {
-      throw new Error(`Could not parse JSON content of "${configPath}: ${e.message}`);
+      throw new Error(`Could not parse JSON content of "${configPath}": ${e.message}`);
     }
 
-    const referencedContent = BookParser._validate(dir, bookContent);
+    const referencedContent = BookParser._validate(inputDirectory, bookContent);
 
-    return new Book(dir, bookContent, referencedContent);
+    return new Book(inputDirectory, bookContent, referencedContent);
   }
 
   /**
@@ -64,7 +65,8 @@ class BookParser {
       project: {required: true, check: 'nonEmpty'},
       description: {required: true, check: checkFilePath},
       variables: {required: true, type: 'object'},
-      template: {required: true, check: ['file', rootPath]},
+      siteTemplate: {required: true, check: ['file', rootPath]},
+      pdfTemplate: {required: true, check: ['file', rootPath]},
       numbering: {required: false, type: 'boolean'},
       externalLinksToBlank: {required: false, type: 'boolean'},
       siteRoot: {required: true, check: ['startsWith', '/', false]},

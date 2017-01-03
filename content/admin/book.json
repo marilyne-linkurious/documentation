@@ -9,7 +9,8 @@
   "numbering": true,
   "externalLinksToBlank": true,
   "siteRoot": "/documentation/site",
-  "template": "template.html",
+  "siteTemplate": "site-template.html",
+  "pdfTemplate": "pdf-template.html",
   "description": "main.md",
   "index": [
     {"name": "Introduction", "content": "intro.md"},
@@ -19,16 +20,15 @@
         {"name": "Technical requirements", "key": "requirements", "content": "getting-started/requirements.md"},
         {"name": "Downloading", "key": "download", "content": "getting-started/download.md"},
         {"name": "Installing", "key": "install", "content": "getting-started/install.md"},
-        {"name": "Start/stop", "content": "getting-started/start-stop.md"}
+        {"name": "Starting and stopping", "key": "start-stop", "content": "getting-started/start-stop.md"}
       ]
     },
     {
       "name": "Troubleshooting",
-      "content": "troubleshoot/index.md",
       "children": [
-        {"name": "Check status", "content": "troubleshoot/status.md"},
-        {"name": "Read logs", "content": "troubleshoot/logs.md"},
-        {"name": "Get support", "content": "troubleshoot/support.md"}
+        {"name": "Checking the status", "content": "troubleshoot/status.md"},
+        {"name": "Reading the logs", "content": "troubleshoot/logs.md"},
+        {"name": "Get support", "key": "support", "content": "troubleshoot/support.md"}
       ]
     },
     {
@@ -47,7 +47,7 @@
       "key": "updating",
       "children": [
         {"name": "Check for updates", "content": "updating/check.md"},
-        {"name": "Backing up your data", "content": "updating/backup.md"},
+        {"name": "Backing up your data", "key": "back-up", "content": "updating/backup.md"},
         {"name": "Update procedure", "content": "updating/update.md"}
       ]
     },
@@ -78,15 +78,17 @@
       ]
     },
     {
-      "name": "Internal database",
-      "key": "internal-database",
+      "name": "User-data store",
+      "key": "user-data-store",
       "content": "sql-db/config.md",
       "children": [
-        {"name": "Migrating to MySQL", "key": "sql-migration", "content": "sql-db/migration.md"}
+        {"name": "Migrating to MySQL", "key": "store-migration", "content": "sql-db/migration.md"},
+        {"name": "Backing-up your store", "key": "store-backup", "content": "sql-db/backup.md"}
       ]
     },
     {
       "name": "Web server",
+      "key": "web-server",
       "content": "www/config.md",
       "children": [
         {"name": "Client analytics", "content": "www/analytics.md"}

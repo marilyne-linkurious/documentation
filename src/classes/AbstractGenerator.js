@@ -11,74 +11,66 @@ const path = require('path');
 const Utils = require('./Utils');
 const Book = require('./Book');
 
+const LINK_MAILTO = /^mailto:[^\s]+$/ig;
 const LINK_ABSOLUTE = /^https?:\/\/[^\s]+$/ig;
 const LINK_RELATIVE = /^\/([a-z0-9-]+)(\/#[a-z0-9-]+)?$/ig;
-const LINK_HASH = /^#([a-zA-Z0-9-]+)$/ig;
+const LINK_HASH = /^#([a-zA-Z0-9=-]+)$/ig;
 
-class BookSiteGenerator {
+class AbstractGenerator {
 
   /**
    * @param {Book} book
    * @param {string} target
    * @param {string} projectSources
+   * @param {string} htmlTemplateBody
    */
-  constructor(book, target, projectSources) {
+  constructor(book, target, projectSources, htmlTemplateBody) {
     //noinspection JSUnresolvedVariable
     this.book = book;
     this.target = target;
     this.projectSources = projectSources;
-    this.templateBody = fs.readFileSync(book._path(book.config.template), {encoding: 'utf8'});
+    this.htmlTemplateBody = htmlTemplateBody;
 
     // index entry keys
     this.entryKeys = new Set();
-    this._forEntries(entry => {
+    this.forEntries(entry => {
       this.entryKeys.add(entry.key);
     });
 
     // image references
-    this.imageReferences = this.getImageReferences();
-    this.checkImageReferences();
+    this.imageReferences = this._getImageReferences();
+    this._checkImageReferences();
 
     // extract variables and references, check integrity
     this.variables = this.book.getDefinedVariables(this.projectSources);
     this.variableReferences = this.book.getVariableReferences();
     this.book.checkVariableIntegrity(this.variables, this.variableReferences);
+
+    this.siteRoot = this.book.config.siteRoot;
   }
 
   log(msg) {
     this.book.log(msg);
   }
 
+  /**
+   * @abstract
+   */
+  $generate() {
+    throw new Error('$generate: not implemented');
+  }
+
+  /**
+   * @abstract
+   */
   generate() {
     this.log(`Generating site in ${this.target}...`);
     fs.emptyDirSync(this.target);
 
-    this.log('Generating HTML content from Markdown templates...');
-    this._generateHtmlFile(
-      {name: this.book.config.name, content: this.book.config.description, key: ''},
-      this.target,
-      this.variables
-    );
-
-    this._forEntries(entry => {
-      // make entry dir + file
-      let entryTarget = path.resolve(this.target, entry.key);
-      fs.emptyDirSync(entryTarget);
-      this._generateHtmlFile(entry, entryTarget, this.variables);
-    });
-
-    const assetsSource = this.book._path(this.book.config.assets);
-    const assetsTarget = path.resolve(this.target, path.basename(assetsSource));
-    this.log(`Copying assets from "${assetsSource}"...`);
-    fs.copySync(assetsSource, assetsTarget);
-
-    this.log(`Copying ${this.imageReferences.size} referenced images...`);
-    for (let imageRef of this.imageReferences.values()) {
-      fs.copySync(imageRef.key, path.resolve(this.target, imageRef.contentKey, imageRef.url));
-    }
+    this.$generate();
   }
 
-  checkImageReferences() {
+  _checkImageReferences() {
     for (let imgRef of this.imageReferences.values()) {
       if (imgRef.url.indexOf('/') !== -1) {
         throw new Error(
@@ -93,9 +85,8 @@ class BookSiteGenerator {
 
   /**
    * @param {function(Entry)} cb
-   * @private
    */
-  _forEntries(cb) {
+  forEntries(cb) {
     this.book.config.index.forEach(entry => {
       cb(entry);
       if (!entry.children) { return; }
@@ -108,12 +99,12 @@ class BookSiteGenerator {
   /**
    * @returns {Map.<string, {key: string, url: string, file: string}>} indexed by absolute path
    */
-  getImageReferences() {
+  _getImageReferences() {
     /** @type {Map.<string, {key: string, url: string, file: string, contentKey: string}>} */
     const references = new Map();
 
     this.log(`Extract image references from markdown files...`);
-    this._forEntries(entry => {
+    this.forEntries(entry => {
       if (!entry.content) { return; }
       const mdPath = this.book.resolveContent(entry.content);
       const mdBody = fs.readFileSync(mdPath, {encoding: 'utf8'});
@@ -132,27 +123,24 @@ class BookSiteGenerator {
 
   /**
    * @param {Entry} entry relative path of a markdown content file
-   * @param {string} targetPath
-   * @param {Map<string, Variable>} variables
    */
-  _generateHtmlFile(entry, targetPath, variables) {
+  generateHtml(entry) {
 
     let htmlBody;
     const mdPath = this.book.resolveContent(entry.content);
     if (Utils.isFile(mdPath)) {
       // render Markdown template
-      htmlBody = this._getHtmlContent(mdPath, variables);
+      htmlBody = this._getHtmlContent(mdPath);
     } else {
-      htmlBody = Utils.renderMarkdown(this._makeMarkdownIndex(entry));
+      htmlBody = this.$generateMissingContentHtml(entry);
     }
 
-    this._checkInternalLinks(htmlBody, entry.content);
+    this.$checkInternalLinks(htmlBody, entry.content);
 
     // render HTML template
-    let htmlPage = this._renderTemplate(
-      this.templateBody,
-      variables,
-      {body: htmlBody, title: entry.name},
+    let htmlPage = this.renderTemplate(
+      this.htmlTemplateBody,
+      {body: htmlBody, title: entry.name, 'entry.key': entry.key},
       true
     );
 
@@ -170,63 +158,61 @@ class BookSiteGenerator {
       );
     }
 
-    // make all links absolute
-    htmlPage = htmlPage.replace(
-      /(href|src)=(["'])(\/)/ig,
-      `$1=$2${this.book.config.siteRoot}$3`
-    );
+    htmlPage = this.fixLinksRoot(htmlPage);
 
-    fs.writeFileSync(path.resolve(targetPath, 'index.html'), htmlPage);
+    return htmlPage;
   }
 
   /**
-   * @param {Entry} entry
-   * @param {Entry[]} entry.children
-   * @private
+   * Make all links absolute
+   *
+   * @param {string} html
+   * @returns {string}
    */
-  _makeMarkdownIndex(entry) {
-    const bullet = this.book.config.numbering ? '1.' : '-';
-    return entry.children.reduce((md, child) => {
-      return `${md}\n${bullet} [${child.name}](/${child.key})`;
-    }, `# ${entry.name}\n`) + '\n';
+  fixLinksRoot(html) {
+    return html.replace(/(href|src)=(["'])(\/)/ig, `$1=$2${this.siteRoot}$3`);
+  }
+
+  /**
+   * @abstract
+   * @param {Entry} entry
+   * @returns {string}
+   */
+  $generateMissingContentHtml(entry) {
+    throw new Error('$generateMissingContentHtml: not implemented')
   }
 
   /**
    * @param {string} markdownPath Markdown file path
-   * @param {Map<string, Variable>} variables
    * @returns {string}
    */
-  _getHtmlContent(markdownPath, variables) {
-    return Utils.renderMarkdown(this._getMarkdownContent(markdownPath, variables));
+  _getHtmlContent(markdownPath) {
+    return Utils.renderMarkdown(this.$getMarkdownContent(markdownPath));
   }
 
   /**
    * @param {string} mdPath
-   * @param {Map<string, Variable>} variables
    * @returns {string}
    */
-  _getMarkdownContent(mdPath, variables) {
+  $getMarkdownContent(mdPath) {
     let mdTemplate;
     try {
       mdTemplate = fs.readFileSync(mdPath, {encoding: 'utf8'});
     } catch(e) {
       throw new Error('Could not read file "' + mdPath + '": ' + e.message);
     }
-    return this._renderTemplate(mdTemplate, variables, null, false);
+    return this.renderTemplate(mdTemplate, null, false);
   }
 
   /**
    * @param {string} htmlBody
    * @param {string} mdPath
    * @throws {Error} if an internal link is broken.
-   * @private
    */
-  _checkInternalLinks(htmlBody, mdPath) {
+  $checkInternalLinks(htmlBody, mdPath) {
     Utils.forEachMatch(htmlBody, /\shref=["'](.+?)['"]/ig, url => {
-      if (url.match(LINK_HASH)) {
-        // ignore hash links
-      } else if (url.match(LINK_ABSOLUTE)) {
-        // ignore absolute links
+      if (url.match(LINK_MAILTO) || url.match(LINK_HASH) || url.match(LINK_ABSOLUTE)) {
+        // don't change mailto/hash/absolute
       } else if (url.match(LINK_RELATIVE)) {
         // remove leading "/" and "#anchor" part, then check for existence in entryKey index
         const entryKey = url.slice(1).split('/#')[0];
@@ -234,29 +220,30 @@ class BookSiteGenerator {
           throw new Error(`Broken internal link "${entryKey}" in file "${mdPath}"`);
         }
       } else {
-        throw new Error(`Unexpected link URL: "${url}" in file "${mdPath}"`);
+        throw new Error(
+          `Unexpected link URL: "${url}" in file "${mdPath}" (internal links must start with "/")`
+        );
       }
     });
   }
 
   /**
    * @param {string} body The template body
-   * @param {Map<String, Variable>} variables
    * @param {Object<String>} [variableOverrides={}]
    * @param {boolean} [renderMarkdown=false]
    * @returns {*}
    */
-  _renderTemplate(body, variables, variableOverrides, renderMarkdown) {
+  renderTemplate(body, variableOverrides, renderMarkdown) {
     if (!variableOverrides) { variableOverrides = {}; }
 
     Utils.forReferences(body, referenceKey => {
       let value;
       if (referenceKey in variableOverrides) {
         value = variableOverrides[referenceKey];
-      } else if (variables.has(referenceKey)) {
-        value = variables.get(referenceKey).markdown && renderMarkdown
-          ? Utils.renderMarkdown(variables.get(referenceKey).text)
-          : variables.get(referenceKey).text;
+      } else if (this.variables.has(referenceKey)) {
+        value = this.variables.get(referenceKey).markdown && renderMarkdown
+          ? Utils.renderMarkdown(this.variables.get(referenceKey).text)
+          : this.variables.get(referenceKey).text;
       } else {
         throw new ReferenceError(`Variable reference "${referenceKey}" could not be resolved.`);
       }
@@ -269,4 +256,4 @@ class BookSiteGenerator {
 
 }
 
-module.exports = BookSiteGenerator;
+module.exports = AbstractGenerator;
