@@ -1,11 +1,34 @@
-# Configuring data-sources
+By default, Linkurious is configured to connect to a Neo4j database at `localhost:7474`.
+
+There are [several ways to edit data-source configuration](#edit-the-data-source-configuration)
+if you need this to change this default configuration or if you want to add an additional database.
+
+## Supported vendors
 
 Linkurious can connect to some of the the most popular graph databases:
-- [Neo4j](/configure-neo4j)
-- [DataStax Enterprise graph](/configure-dse)
-- [AllegroGraph](/configure-allegrograph)
-- [Titan DB](/configure-titan)
+{{entry.menu}}
 
-In addition, Linkurious is able to connect to several graph databases at the same time
+## Multi-database support
+
+Linkurious is able to connect to several graph databases at the same time
 and lets you switch from one database to another seamlessly.
 
+## Edit the data-source configuration
+
+### Using the Web user interface
+
+Using an administrator account, access the *admin* > *data* menu to edit the current data-source configuration:
+![admin-data menu](menu-data.png)
+
+Edit the data-source configuration to match your graph database
+![edit data-source configuration form](edit-source-form.png)
+
+Submit the changes by hitting the *Save configuration* button
+![save data-source configuration](edit-source-submit.png)
+
+### Using the configuration file
+
+Edit the configuration file located at `linkurious/data/config/{{config.file}}`.
+
+See details for each supported graph database vendor:
+{{entry.menu}}

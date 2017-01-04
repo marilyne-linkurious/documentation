@@ -1,5 +1,3 @@
-# Checking for updates
-
 ## About menu
 Administrators can manually check if updates of Linkurious are available by opening the "about" menu from
  *Dashboard* > *account menu* > *about*.

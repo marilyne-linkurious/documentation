@@ -1,5 +1,3 @@
-# Technical requirements
-
 Linkurious is a Web-application server, it needs to be installed on a server and can then be accessed by multiple users using their Web browser.
 
 ## Linkurious Server

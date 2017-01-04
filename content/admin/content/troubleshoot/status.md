@@ -1,5 +1,3 @@
-# Getting Linkurious' server status
-
 ## Process monitoring
 
 Linkurious starts 3 separate processes when launched:

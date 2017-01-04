@@ -1,5 +1,3 @@
-# Reading the logs
-
 The logs of the application are located in `linkurious/data/manager/logs` folder:
 - `Linkurious-Server-out-0.log`: Linkurious server standard output
 - `Linkurious-Server-error-0.log`: Linkurious server error output

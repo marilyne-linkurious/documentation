@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{title}} - Linkurious docs</title>
+    <title>{{entry.title}} - Linkurious docs</title>
     <link rel="stylesheet" href="/assets/atom-light.css?{{random}}" />
     <link rel="stylesheet" href="/assets/styles.css?{{random}}" />
 </head>
@@ -17,7 +17,10 @@
         </td>
         <td width="80%" valign="top">
             <div style="position: absolute; top: 0; right: 0; padding: 10px">Linkurious v{{package.version}}</div>
-            <div class="content">{{body}}</div>
+            <div class="content">
+                <h1>{{entry.title}}</h1>
+                {{entry.html.body}}
+            </div>
         </td>
     </tr>
 </table>

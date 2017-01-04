@@ -1,30 +1,28 @@
-# Installing
-
 ## Linux systems
 1. Unzip Linkurious' archive: `>unzip linkurious-linux-v{{package.version}}.zip`
 2. Enter the Linkurious folder: `>cd linkurious-linux`
-3. Check the configuration file at `linkurious-linux/data/config/production.json` (see [how to configure a data-source](/configure-sources))
+3. Check the configuration file at `linkurious-linux/data/config/{{config.file}}` (see [how to configure a data-source](/configure-sources))
 4. Make Java JDK 7+ is installed (type `javac -version` in a terminal), if needed, [install Java](/requirements/#java-jdk).  
 
-See [how to start Linkurious on Linux](/start-stop/#linux-systems).
+See [how to start Linkurious on Linux](/start/#linux-systems).
 
 ## Windows systems
 
 1. Unzip Linkurious' archive (right-click on the file, then "Extract all")
 2. Enter the `linkurious-windows` folder
-3. Check the configuration file at `linkurious-windows/data/config/production.json` (see [how to configure a data-source](/configure-sources)) 
+3. Check the configuration file at `linkurious-windows/data/config/{{config.file}}` (see [how to configure a data-source](/configure-sources)) 
 4. Make sure that you have Oracle Java JDK 7+ installed (see [Java JDK requirements](/requirements/#java-jdk))
 
-See [how to start Linkurious on Windows](/start-stop/#windows-systems).
+See [how to start Linkurious on Windows](/start/#windows-systems).
 
 ## Mac OS X systems
 
 1. Unzip Linkurious' archive: `>unzip linkurious-osx-v{{package.version}}.zip`
 2. Enter the Linkurious folder: `>cd linkurious-osx`
-3. Check the configuration file at `linkurious-osx/data/config/production.json` (see [how to configure a data-source](/configure-sources))
+3. Check the configuration file at `linkurious-osx/data/config/{{config.file}}` (see [how to configure a data-source](/configure-sources))
 4. Make Java JDK 7+ is installed (type `javac -version` in a terminal), if needed, [install Java](/requirements/#java-jdk).  
 
-See [how to start Linkurious on Mac OS X](/start-stop/#mac-os-x-systems).
+See [how to start Linkurious on Mac OS X](/start/#mac-os-x-systems).
 
 # Installing as a service.
 
@@ -52,8 +50,8 @@ Linkurious as a system service on *Linux* and *Mac OS X*.
 Linkurious is designed to run a single instance per machine.
 While it is not recommended and with no guarantee to work, it is possible to run multiple instances of Linkurious by doing the following:
 
-Copy the entire linkurious directory to a new place, and edit the `data/config/production.json` file:
-You will need to change ``listenPort`` to set a different port from the one used in the original `production.json` file.
+Copy the entire linkurious directory to a new place, and edit the `data/config/{{config.file}}` file:
+You will need to change `listenPort` to set a different port from the one used in the original `{{config.file}}` file.
 You may also edit `graphdb` and `db.storage`.
 
 This is an example of a second instance of Linkurious served on `http://localhost:3001`, that calls the Neo4j API on the port `7475`:

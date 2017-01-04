@@ -31,9 +31,12 @@ class AbstractGenerator {
     this.projectSources = projectSources;
     this.htmlTemplateBody = htmlTemplateBody;
 
-    // index entry keys
+    // index entry keys + set entry parents
     this.entryKeys = new Set();
-    this.forEntries(entry => {
+    this.forEntries((entry, parentEntry) => {
+      if (parentEntry) {
+        entry.parent = parentEntry;
+      }
       this.entryKeys.add(entry.key);
     });
 
@@ -84,14 +87,14 @@ class AbstractGenerator {
   }
 
   /**
-   * @param {function(Entry)} cb
+   * @param {function(Entry, Entry?)} cb
    */
   forEntries(cb) {
     this.book.config.index.forEach(entry => {
       cb(entry);
       if (!entry.children) { return; }
       entry.children.forEach(subEntry => {
-        cb(subEntry);
+        cb(subEntry, entry);
       });
     });
   }
@@ -126,21 +129,26 @@ class AbstractGenerator {
    */
   generateHtml(entry) {
 
+    const entryVarOverrides = this.$makeEntryVariables(entry);
+
     let htmlBody;
     const mdPath = this.book.resolveContent(entry.content);
     if (Utils.isFile(mdPath)) {
       // render Markdown template
-      htmlBody = this._getHtmlContent(mdPath);
+      htmlBody = this.$getHtmlContent(mdPath, entryVarOverrides);
     } else {
       htmlBody = this.$generateMissingContentHtml(entry);
     }
 
     this.$checkInternalLinks(htmlBody, entry.content);
 
+    entryVarOverrides['entry.html.body'] = htmlBody;
+
     // render HTML template
     let htmlPage = this.renderTemplate(
+      mdPath,
       this.htmlTemplateBody,
-      {body: htmlBody, title: entry.name, 'entry.key': entry.key},
+      entryVarOverrides,
       true
     );
 
@@ -184,24 +192,54 @@ class AbstractGenerator {
 
   /**
    * @param {string} markdownPath Markdown file path
+   * @param {object} variableOverrides
    * @returns {string}
    */
-  _getHtmlContent(markdownPath) {
-    return Utils.renderMarkdown(this.$getMarkdownContent(markdownPath));
+  $getHtmlContent(markdownPath, variableOverrides) {
+    return Utils.renderMarkdown(this.$getMarkdownContent(markdownPath, variableOverrides));
+  }
+
+  /**
+   * Generate variables that are specific to a given entry
+   *
+   * @param {Entry} entry
+   * @returns {object} variable overrides for the markdown generator
+   */
+  $makeEntryVariables(entry) {
+    const vars = {
+      'entry.key': entry.key,
+      'entry.title': entry.parent ? `${entry.parent.name}: ${entry.name}` : entry.name,
+    };
+    if (entry.children) {
+      vars['entry.menu'] = this.makeMarkdownIndex(entry.children);
+    }
+    return vars;
+  }
+
+  /**
+   * @param {Entry[]} entryChildren
+   * @return {string} a markdown list of sub-entries with links
+   */
+  makeMarkdownIndex(entryChildren) {
+    const bullet = this.book.config.numbering ? '1.' : '-';
+    return entryChildren.reduce((md, child) => {
+        return `${md}\n${bullet} [${child.name}](/${child.key})`;
+      }, '') + '\n';
   }
 
   /**
    * @param {string} mdPath
+   * @param {object} variableOverrides
    * @returns {string}
    */
-  $getMarkdownContent(mdPath) {
+  $getMarkdownContent(mdPath, variableOverrides) {
     let mdTemplate;
     try {
       mdTemplate = fs.readFileSync(mdPath, {encoding: 'utf8'});
     } catch(e) {
       throw new Error('Could not read file "' + mdPath + '": ' + e.message);
     }
-    return this.renderTemplate(mdTemplate, null, false);
+    return this.renderTemplate(mdPath, mdTemplate, variableOverrides, false);
   }
 
   /**
@@ -228,12 +266,13 @@ class AbstractGenerator {
   }
 
   /**
+   * @param {string} templatePath
    * @param {string} body The template body
    * @param {Object<String>} [variableOverrides={}]
    * @param {boolean} [renderMarkdown=false]
    * @returns {*}
    */
-  renderTemplate(body, variableOverrides, renderMarkdown) {
+  renderTemplate(templatePath, body, variableOverrides, renderMarkdown) {
     if (!variableOverrides) { variableOverrides = {}; }
 
     Utils.forReferences(body, referenceKey => {
@@ -245,7 +284,9 @@ class AbstractGenerator {
           ? Utils.renderMarkdown(this.variables.get(referenceKey).text)
           : this.variables.get(referenceKey).text;
       } else {
-        throw new ReferenceError(`Variable reference "${referenceKey}" could not be resolved.`);
+        throw new ReferenceError(
+          `Variable reference "${referenceKey}" could not be resolved in "${templatePath}".`
+        );
       }
 
       body = body.replace(new RegExp('\\{\\{' + referenceKey + '}}', 'g'), value);

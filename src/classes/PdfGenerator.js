@@ -25,9 +25,8 @@ class PdfGenerator extends AbstractGenerator {
       path.resolve(target, 'pdf'),
       projectSources,
       `
-       <div style="page-break-before: always"></div>
-       <a id="_{{entry.key}}_">&nbsp;</a>
-       {{body}}`
+       <h1 style="page-break-before: always"><a id="_{{entry.key}}_">&nbsp;</a>{{entry.title}}</h1>
+       {{entry.html.body}}`
     );
     this.siteRoot = '.';
   }
@@ -37,10 +36,8 @@ class PdfGenerator extends AbstractGenerator {
    */
   $generate() {
     // single page template
-    const htmlTemplate = fs.readFileSync(
-      this.book._path(this.book.config.pdfTemplate),
-      {encoding: 'utf8'}
-    );
+    const htmlTemplatePath = this.book._path(this.book.config.pdfTemplate);
+    const htmlTemplate = fs.readFileSync(htmlTemplatePath, {encoding: 'utf8'});
     const templateParts = htmlTemplate.split('{{body}}', 2);
 
     const targetFile = path.resolve(this.target, 'index.html');
@@ -52,7 +49,7 @@ class PdfGenerator extends AbstractGenerator {
     this.log('Generating HTML content from Markdown templates...');
 
     // html template (prefix)
-    appendHtml(this.fixLinksRoot(this.renderTemplate(templateParts[0])));
+    appendHtml(this.fixLinksRoot(this.renderTemplate(htmlTemplatePath, templateParts[0])));
 
     appendHtml(this.generateHtml(
       {name: this.book.config.name, content: this.book.config.description, key: ''}
@@ -61,7 +58,7 @@ class PdfGenerator extends AbstractGenerator {
     this.forEntries(entry => { appendHtml(this.generateHtml(entry)); });
 
     // html template (suffix)
-    appendHtml(this.fixLinksRoot(this.renderTemplate(templateParts[1])));
+    appendHtml(this.fixLinksRoot(this.renderTemplate(htmlTemplatePath, templateParts[1])));
 
     fs.closeSync(htmlFd);
 
@@ -94,11 +91,13 @@ class PdfGenerator extends AbstractGenerator {
   }
 
   /**
+   *
    * @param {string} mdPath
+   * @param {object} variableOverrides
    * @returns {string}
    */
-  $getMarkdownContent(mdPath) {
-    let md = super.$getMarkdownContent(mdPath);
+  $getMarkdownContent(mdPath, variableOverrides) {
+    let md = super.$getMarkdownContent(mdPath, variableOverrides);
 
     // fix image links (relative to "images" folder)
     md = md.replace(/(!\[[^\]]*?])\(([^)]+?)\)/ig, `$1(/images/$2)`);

@@ -1,5 +1,3 @@
-# Importing data into Neo4j
-
 Linkurious relies on Neo4j to store the data.
 The data importation is thus not handled by our solution.
 Many options exist to import data into Neo4j:

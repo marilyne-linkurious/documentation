@@ -1,5 +1,3 @@
-# Downloading
-
 ## Where to download from
 
 The latest version of Linkurious can be downloaded from at {{download.link}}.

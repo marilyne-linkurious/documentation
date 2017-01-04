@@ -34,7 +34,7 @@ class SiteGenerator extends AbstractGenerator {
     this.log('Generating HTML content from Markdown templates...');
     this.generateHtmlFile(
       this.target,
-      {name: this.book.config.name, content: this.book.config.description, key: ''}
+      {name: this.book.config.name, key: '', content: this.book.config.description}
     );
 
     this.forEntries(entry => {
@@ -66,29 +66,13 @@ class SiteGenerator extends AbstractGenerator {
     );
   }
 
-
-
-
   /**
    * @param {Entry} entry
    * @returns {string}
    */
   $generateMissingContentHtml(entry) {
-    return Utils.renderMarkdown(this._makeMarkdownIndex(entry));
+    return Utils.renderMarkdown(this.makeMarkdownIndex(entry.children));
   }
-
-  /**
-   * @param {Entry} entry
-   * @param {Entry[]} entry.children
-   * @private
-   */
-  _makeMarkdownIndex(entry) {
-    const bullet = this.book.config.numbering ? '1.' : '-';
-    return entry.children.reduce((md, child) => {
-      return `${md}\n${bullet} [${child.name}](/${child.key})`;
-    }, `# ${entry.name}\n`) + '\n';
-  }
-
 }
 
 module.exports = SiteGenerator;

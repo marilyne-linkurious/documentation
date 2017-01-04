@@ -17,6 +17,7 @@ const PdfGenerator = require('./PdfGenerator');
  * @property {string} key Entry key
  * @property {string} name Entry name
  * @property {string} content Markdown file path
+ * @property {Entry|undefined} parent the parent entry
  * @property {Array<Entry>|undefined} children Sub-entries
  */
 
@@ -264,6 +265,10 @@ class Book {
     this.log('Checking variables/references integrity...');
     const errors = [];
     for (let reference of references.values()) {
+      if (reference.key.startsWith('entry.')) {
+        // ignore entry-specific variables
+        continue;
+      }
       if (!variables.has(reference.key)) {
         errors.push(`Reference "${reference.key}" used in "${reference.file}" is never defined.`);
       }

@@ -3,7 +3,8 @@
   "project": "git@github.com:Linkurious/linkurious-server.git#develop",
   "variables": {
     "download.link": "https://linkurio.us/my-account/",
-    "es.product.link": "https://www.elastic.co/products/elasticsearch"
+    "es.product.link": "https://www.elastic.co/products/elasticsearch",
+    "config.file": "production.json"
   },
   "assets": "assets",
   "numbering": true,
@@ -20,15 +21,16 @@
         {"name": "Technical requirements", "key": "requirements", "content": "getting-started/requirements.md"},
         {"name": "Downloading", "key": "download", "content": "getting-started/download.md"},
         {"name": "Installing", "key": "install", "content": "getting-started/install.md"},
-        {"name": "Starting and stopping", "key": "start-stop", "content": "getting-started/start-stop.md"}
+        {"name": "Starting Linkurious", "key": "start", "content": "getting-started/start.md"},
+        {"name": "Stopping Linkurious", "key": "stop", "content": "getting-started/stop.md"}
       ]
     },
     {
       "name": "Troubleshooting",
       "children": [
-        {"name": "Checking the status", "content": "troubleshoot/status.md"},
-        {"name": "Reading the logs", "content": "troubleshoot/logs.md"},
-        {"name": "Get support", "key": "support", "content": "troubleshoot/support.md"}
+        {"name": "Checking Linkurious' status", "key": "status", "content": "troubleshoot/status.md"},
+        {"name": "Reading the logs", "key": "logs", "content": "troubleshoot/logs.md"},
+        {"name": "Getting support", "key": "support", "content": "troubleshoot/support.md"}
       ]
     },
     {
@@ -38,7 +40,7 @@
         {"name": "Neo4j", "key": "import-neo4j", "content": "importing/neo4j.md"},
         {"name": "DataStax Enterprise Graph", "key": "import-dse", "content": "importing/dse.md"},
         {"name": "AllegroGraph", "key": "import-allegrograph", "content": "importing/allegro.md"},
-        {"name": "Titan", "key": "import-titan", "content": "importing/titan.md"}
+        {"name": "Titan DB", "key": "import-titan", "content": "importing/titan.md"}
       ]
     },
     {
@@ -46,9 +48,9 @@
       "content": "updating/index.md",
       "key": "updating",
       "children": [
-        {"name": "Check for updates", "content": "updating/check.md"},
-        {"name": "Backing up your data", "key": "back-up", "content": "updating/backup.md"},
-        {"name": "Update procedure", "content": "updating/update.md"}
+        {"name": "Checking for updates", "key": "check-version", "content": "updating/check.md"},
+        {"name": "Backing up your data", "key": "backup", "content": "updating/backup.md"},
+        {"name": "Update procedure", "key": "update-procedure", "content": "updating/update.md"}
       ]
     },
     {
@@ -59,12 +61,7 @@
         {"name": "Neo4j", "key": "configure-neo4j", "content": "data-sources/neo4j.md"},
         {"name": "DataStax Enterprise Graph", "key": "configure-dse", "content": "data-sources/dse.md"},
         {"name": "AllegroGraph", "key": "configure-allegrograph", "content": "data-sources/allegro.md"},
-        {"name": "Titan DB", "key": "configure-titan", "content": "data-sources/titan.md"}
-      ]
-    },
-    {
-      "name": "Configure data-sources (advanced)",
-      "children": [
+        {"name": "Titan DB", "key": "configure-titan", "content": "data-sources/titan.md"},
         {"name": "Alternative IDs", "content": "data-sources-advanced/alternative-ids.md"},
         {"name": "Advanced settings", "content": "data-sources-advanced/config.md"}
       ]
@@ -72,9 +69,14 @@
     {
       "name": "Search index",
       "content": "search/index.md",
+      "key": "search",
       "children": [
-        {"name": "ElasticSearch configuration", "key": "config-es", "content": "search/es.md"},
-        {"name": "ElasticSearch on AWS", "content": "search/es-on-aws.md"}
+        {"name": "Neo4j", "key": "search-neo4j", "content": "search/neo4j.md"},
+        {"name": "DataStax Enterprise Graph", "key": "search-dse", "content": "search/dse.md"},
+        {"name": "AllegroGraph", "key": "search-allegrograph", "content": "search/allegrograph.md"},
+        {"name": "Titan DB", "key": "search-titan", "content": "search/titan.md"},
+        {"name": "Configuring ElasticSearch", "key": "es-config", "content": "search/es.md"},
+        {"name": "Using ElasticSearch on AWS", "key": "es-on-aws", "content": "search/es-on-aws.md"}
       ]
     },
     {
