@@ -52,14 +52,14 @@
       ]
     },
     {
-      "name": "Configure data-sources",
+      "name": "Configuring data-sources",
       "key": "configure-sources",
       "content": "data-sources/index.md",
       "children": [
         {"name": "Neo4j", "key": "configure-neo4j", "content": "data-sources/neo4j.md"},
-        {"name": "DataStax Enterprise Graph", "key": "configure-dse", "content": "data-sources/titan.md"},
+        {"name": "DataStax Enterprise Graph", "key": "configure-dse", "content": "data-sources/dse.md"},
         {"name": "AllegroGraph", "key": "configure-allegrograph", "content": "data-sources/allegro.md"},
-        {"name": "Titan", "key": "configure-titan", "content": "data-sources/titan.md"}
+        {"name": "Titan DB", "key": "configure-titan", "content": "data-sources/titan.md"}
       ]
     },
     {

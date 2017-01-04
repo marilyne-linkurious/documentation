@@ -132,8 +132,9 @@ class Book {
   _checkMarkdownFiles(createMissing) {
     this.log(`Check all markdown files (creating missing: ${createMissing})...`);
     this.referencedContent.forEach(filePath => {
-      if (createMissing) {
-        fs.ensureFileSync(filePath)
+      if (createMissing && !fs.existsSync(filePath)) {
+        fs.ensureFileSync(filePath);
+        fs.writeFileSync(filePath, `<!-- todo: ${path.basename(filePath)} -->`, {encoding: 'utf8'});
       } else {
         Utils.check.file('file', filePath);
       }

@@ -1,28 +1,56 @@
 # Internal database
 
-Linkurious uses an internal SQL database to store its state. The state includes:
+Linkurious uses an SQL database to store user-data. The database contains:
 - visualizations
 - users
 - user-groups
 - access-rights
 
-By default, the internal SQL database is stored as a SQLite database (file based).
+By default, the user-data store is a [SQLite](https://sqlite.org/about.html) *file-based* database.
 This makes Linkurious easy to deploy.
 
-Example configuration with SQLite:
-```
-MEH
+For deployment at scale (more than a couple users), we recommend switching to
+one of the supported *server-based* databases:
+ - [MySQL](https://www.mysql.com/products/community/)
+ - [MariaDB](https://mariadb.org/about/)
+
+## Configure with SQLite
+SQLite if the default user-data store of Linkurious.
+
+```js
+"db": {
+    "name": "linkurious",
+    "options": {
+      "dialect": "sqlite"
+      "storage": "server/database.sqlite"
+    }
+}
 ```
 
-For deployment at scale (more than a couple users), we recommend to change the configuration to use
-an external database such as MySQL or MariaDB.
+## Configure with MySQL
+```js
+"db": {
+    "name": "linkurious",
+    "username": "MYSQL_USER_NAME",
+    "password": "MYSQL_PASSWORD",
+    "options": {
+      "dialect": "mysql",
+      "host": "MYSQL_HOST",
+      "port": 3306
+    }
+}
+```
 
-Example of configuration with MySQL:
-```
-MEH
-```
-
-Example of configuration with MariaDB:
-```
-MEH
+## Configure with MariaDB
+```js
+"db": {
+    "name": "linkurious",
+    "username": "MARIADB_USER_NAME",
+    "password": "MARIADB_PASSWORD",
+    "options": {
+      "dialect": "mariadb",
+      "host": "MARIADB_HOST",
+      "port": 3306
+    }
+}
 ```

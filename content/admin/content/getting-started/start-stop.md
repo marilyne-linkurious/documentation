@@ -32,11 +32,9 @@ Alternatively, run the `menu.bat` script and select *Start Linkurious processes*
 > If so, click on Authorize access.
 
 Content of the `linkurious-windows` directory:
-
 ![Content of the linkurious-windows directory](folder-windows.png)
 
 Linkurious starting up on Windows:
-
 ![startup window](startup.png)
 
 ## Stopping
