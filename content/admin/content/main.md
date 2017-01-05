@@ -25,7 +25,3 @@ var re = /[^f]+\s/g;
 ```
 
 
-my config ideas:
----
-
-{{config}}

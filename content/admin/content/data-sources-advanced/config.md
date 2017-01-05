@@ -13,7 +13,7 @@ They can be changed in the configuration file (`linkurious/data/config{{config.f
 - `searchAddAllThreshold` (default: `500`): The maximum number of search results that the user can add to a Visualization at once.
 - `searchThreshold` (default: `3000`): The maximum number of search results that can be returned.
 - `minSearchQueryLength` (default: `3`): The number of characters needed to trigger a search query. Set `1` to provide live results from the first character typed by the user.
-- `analyzer` (default: `"standard"`): The custom analyzer aimed at analyzing a specific language text. (see [available language analysers](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-lang-analyzer.html)).
+<!-- `analyzer` (default: `"standard"`): The custom analyzer aimed at analyzing a specific language text. (see [available language analysers](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-lang-analyzer.html)). -->
  
 ## Graph exploration settings
  

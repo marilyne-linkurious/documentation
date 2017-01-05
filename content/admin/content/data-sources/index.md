@@ -1,7 +1,7 @@
-By default, Linkurious is configured to connect to a Neo4j database at `localhost:7474`.
+By default, Linkurious is configured to connect to a Neo4j database at `127.0.0.1:7474`.
 
 There are [several ways to edit data-source configuration](#edit-the-data-source-configuration)
-if you need this to change this default configuration or if you want to add an additional database.
+if you need to change the default configuration, or if you want to add an additional data-source.
 
 ## Supported vendors
 
@@ -17,7 +17,7 @@ and lets you switch from one database to another seamlessly.
 
 ### Using the Web user interface
 
-Using an administrator account, access the *admin* > *data* menu to edit the current data-source configuration:
+Using an administrator account, access the *Admin* > *Data* menu to edit the current data-source configuration:
 ![admin-data menu](menu-data.png)
 
 Edit the data-source configuration to match your graph database

@@ -4,6 +4,7 @@
   "variables": {
     "download.link": "https://linkurio.us/my-account/",
     "es.product.link": "https://www.elastic.co/products/elasticsearch",
+    "es": "Elasticsearch",
     "config.file": "production.json"
   },
   "assets": "assets",

@@ -27,10 +27,10 @@ Supported `graphdb` options for Titan DB:
 
 - `url` (*required*): URL of the Gremlin server (must be a WebSocket URL, i.e. start with `ws://`)
 - `configurationPath` (*required*): Path to the Gremlin configuration file *on the Gremlin server*
-- `alternativeNodeId` (optional): Name of the node property to use as reference in visualizations (see [alternative IDs](/alternative-ids))
-- `alternativeEdgeId` (optional): Name of the edge property to use as reference in visualizations
-- `latitudeProperty` (optional): Name of the node property to use for latitude (used in geo mode)
-- `longitudeProperty` (optional): Name of the node property to use for longitude (used in geo mode)
+- `alternativeNodeId`: Name of the node property to use as reference in visualizations (see [alternative IDs](/alternative-ids))
+- `alternativeEdgeId`: Name of the edge property to use as reference in visualizations
+- `latitudeProperty`: Name of the node property to use for latitude (used in geo mode)
+- `longitudeProperty`: Name of the node property to use for longitude (used in geo mode)
 
 ## Search with Titan DB
 

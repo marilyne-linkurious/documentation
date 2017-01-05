@@ -27,14 +27,14 @@ Supported `graphdb` options for AllegroGraph:
 
 - `url` (*required*): URL of the AllegroGraph server 
 - `repository` (*required*): Name of the repository to use
-- `create` (optional): `true` to let Linkurious create the repository if it does not exist
-- `user` (optional): AllegroGraph user (if credentials are enabled)
-- `password` (optional): AllegroGraph password (if credentials are enabled) 
+- `create`: `true` to let Linkurious create the repository if it does not exist
+- `user`: AllegroGraph user (if credentials are enabled)
+- `password`: AllegroGraph password (if credentials are enabled) 
 - `namespace` (optional, default `http://linkurio.us`): Namespace to use
-- `idPropertyName` (optional): Name of the virtual property containing node URIs
+- `idPropertyName`: Name of the virtual property containing node URIs
 - `categoryPredicate` (optional, default `rdf:type`): Predicate used to extract node categories
-- `latitudeProperty` (optional): Name of the node property to use for latitude (used in geo mode)
-- `longitudeProperty` (optional): Name of the node property to use for longitude (used in geo mode)
+- `latitudeProperty`: Name of the node property to use for latitude (used in geo mode)
+- `longitudeProperty`: Name of the node property to use for longitude (used in geo mode)
           
 ## Search with AllegroGraph
 

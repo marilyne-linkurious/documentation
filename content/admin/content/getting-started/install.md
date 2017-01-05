@@ -54,18 +54,18 @@ Copy the entire linkurious directory to a new place, and edit the `data/config/{
 You will need to change `listenPort` to set a different port from the one used in the original `{{config.file}}` file.
 You may also edit `graphdb` and `db.storage`.
 
-This is an example of a second instance of Linkurious served on `http://localhost:3001`, that calls the Neo4j API on the port `7475`:
+This is an example of a second instance of Linkurious served on `http://127.0.0.1:3001`, that calls the Neo4j API on the port `7475`:
 
 ```js
 {
   "dataSources": [{
     "graphdb": {
       "vendor": "neo4j",
-      "url": "http://localhost:7475"
+      "url": "http://127.0.0.1:7475"
     },
     "index": {
       "vendor": "elasticSearch",
-      "host": "localhost",
+      "host": "127.0.0.1",
       "port": 9201
     }
   }],
@@ -86,7 +86,7 @@ This is an example of a second instance of Linkurious served on `http://localhos
 }
 ```
 
-If you use the Elasticsearch software bundled with Linkurious, you will also need to
+If you use the {{es}} software bundled with Linkurious, you will also need to
 modify the configuration in `system/elasticsearch/config/elasticsearch.yml` to set an alternate port
 to the default of 9201.
 

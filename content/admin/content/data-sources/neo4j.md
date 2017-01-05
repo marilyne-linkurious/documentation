@@ -27,16 +27,16 @@ Example Neo4j configuration:
 Supported `graphdb` options with Neo4j:
 
 - `url` (*required*): URL of the Neo4j server
-- `user` (optional): Neo4j user (if credentials are enabled, see [Neo4j credentials](#neo4j-credentials))
-- `password` (optional): Neo4j password (if credentials are enabled)
-- `proxy` (optional): URL of the proxy to use to connect to Neo4j
-- `allowSelfSigned` (optional): `true` to allow the Neo4j server to use a self-signed SSL certificate
-- `alternativeNodeId` (optional): Name of the node property to use as reference in visualizations (see [alternative IDs](/alternative-ids))
-- `alternativeEdgeId` (optional): Name of the edge property to use as reference in visualizations
-- `latitudeProperty` (optional): Name of the node property to use for latitude (used in geo mode)
-- `longitudeProperty` (optional): Name of the node property to use for longitude (used in geo mode)
-<!-- `webAdmin` (URL): -->
-<!-- `writeURL` (URL): {check: 'httpUrl'},-->
+- `user`: Neo4j user (if credentials are enabled, see [Neo4j credentials](#neo4j-credentials))
+- `password`: Neo4j password (if credentials are enabled)
+- `proxy`: URL of the proxy to use to connect to Neo4j
+- `allowSelfSigned`: `true` to allow the Neo4j server to use a self-signed SSL certificate
+- `alternativeNodeId`: Name of the node property to use as reference in visualizations (see [alternative IDs](/alternative-ids))
+- `alternativeEdgeId`: Name of the edge property to use as reference in visualizations
+- `latitudeProperty`: Name of the node property to use for latitude (used in geo mode)
+- `longitudeProperty`: Name of the node property to use for longitude (used in geo mode)
+<!-- `webAdmin` (URL): not used at all -->
+<!-- `writeURL` (URL): not fully functional -->
 
 ## Search with Neo4j
 
@@ -53,6 +53,6 @@ If you just installed Neo4j, these steps will help you create credentials:
 
 Alternatively, you can disable credentials in Neo4j by editing the Neo4j configuration at `neo4j/conf/neo4j.conf`
 and uncommenting the following line:
-```shell
+```sh
 dbms.security.auth_enabled=false
 ```

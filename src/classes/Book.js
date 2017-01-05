@@ -58,7 +58,7 @@ class Book {
     this.rootDir = rootDir;
     this.config = config;
     this.referencedContent = referencedContent;
-    this.options = Utils.defaults(options, {annotation: 'doc'});
+    this.options = Utils.defaults(options, {annotation: 'mdoc'});
 
     this._assignKeys();
     this.checkOrphanContent();
@@ -213,8 +213,8 @@ class Book {
       file: Book.CONFIG_FILE
     });
 
-    // generating random token
-    variables.set('random', {
+    // generating the current timestamp (in milliseconds)
+    variables.set('now', {
       key: 'menu',
       text: Date.now() + '',
       builtin: true,

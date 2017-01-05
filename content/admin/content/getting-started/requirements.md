@@ -18,12 +18,12 @@ For hardware requirements regarding your graph database, please refer to these g
 - [AllegroGraph: hardware and performance tuning](http://franz.com/agraph/allegrograph/agraph_performance_tuning.lhtml)
 - [Titan: *Google Groups* discussion on hardware requirements](https://groups.google.com/forum/#!topic/aureliusgraphs/0wWk9AzHyTM)
 
-#### Elasticsearch
+#### {{es}}
 
-Linkurious includes an embedded Elasticsearch instance for search capabilities.
+Linkurious includes an embedded {{es}} instance for search capabilities.
 Please keep in mind that this embedded instance will only work for smaller graphs (less than 50M nodes + edges).
-For larger graphs, you will need to deploy an Elasticsearch cluster.
-Please refer to [Elasticsearch's hardware requirements guide](https://www.elastic.co/guide/en/elasticsearch/guide/current/hardware.html) for details.
+For larger graphs, you will need to deploy an {{es}} cluster.
+Please refer to [{{es}}'s hardware requirements guide](https://www.elastic.co/guide/en/elasticsearch/guide/current/hardware.html) for details.
 
 ### Operating System
 
@@ -45,7 +45,7 @@ Linkurious server can be deployed on the following platforms:
 
 ### Java JDK
 
-Linkurious' embedded [Elasticsearch]({{es.product.link}}) engine requires *Oracle Java SE Development Kit (JDK)* 7+.
+Linkurious' embedded [{{es}}]({{es.product.link}}) engine requires *Oracle Java SE Development Kit (JDK)* 7+.
 
 You can [download the latest JDK from Oracle's website](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 <!-- from: http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html -->

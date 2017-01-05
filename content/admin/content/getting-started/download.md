@@ -12,8 +12,8 @@ You will then see the downloadable files:
 
 The *ZIP* file contains:
  - A [NodeJS](https://nodejs.org)-based Web-application server
- - An [Elasticsearch]({{es.product.link}}) engine
- - A NodeJS-based process manager to supervise the server and Elasticsearch
+ - An [{{es}}]({{es.product.link}}) engine
+ - A NodeJS-based process manager to supervise the server and {{es}}
 
 ## Staying up-to-date
 
