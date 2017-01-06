@@ -99,11 +99,12 @@
     },
     {
       "name": "Access control",
+      "key": "access",
       "content": "access/index.md",
       "children": [
-        {"name": "Users, groups and rights", "content": "access/users.md"},
+        {"name": "Users, groups and rights", "key": "access-rights", "content": "access/users.md"},
         {"name": "LDAP", "content": "access/ldap.md"},
-        {"name": "Single Sign-On (SSO)", "content": "access/sso.md"},
+        {"name": "Single Sign-On (SSO)", "key": "sso", "content": "access/sso.md"},
         {"name": "SSO with Google", "content": "access/sso-google.md"},
         {"name": "SSO with Azure AD", "content": "access/sso-azure.md"},
         {"name": "SSO with OpenID Connect", "content": "access/sso-openid-connect.md"}
