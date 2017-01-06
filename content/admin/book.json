@@ -5,7 +5,8 @@
     "download.link": "https://linkurio.us/my-account/",
     "es.product.link": "https://www.elastic.co/products/elasticsearch",
     "es": "Elasticsearch",
-    "config.file": "production.json"
+    "config.file": "production.json",
+    "config": "`linkurious/data/config/production.json`"
   },
   "assets": "assets",
   "numbering": true,
@@ -102,12 +103,11 @@
       "key": "access",
       "content": "access/index.md",
       "children": [
-        {"name": "Users, groups and rights", "key": "access-rights", "content": "access/users.md"},
+        {"name": "Users, groups and rights", "key": "users", "content": "access/users.md"},
         {"name": "LDAP", "content": "access/ldap.md"},
-        {"name": "Single Sign-On (SSO)", "key": "sso", "content": "access/sso.md"},
-        {"name": "SSO with Google", "content": "access/sso-google.md"},
-        {"name": "SSO with Azure AD", "content": "access/sso-azure.md"},
-        {"name": "SSO with OpenID Connect", "content": "access/sso-openid-connect.md"}
+        {"name": "SSO with Azure AD", "key": "sso-azure", "content": "access/sso-azure.md"},
+        {"name": "SSO with Google", "key": "sso-google", "content": "access/sso-google.md"},
+        {"name": "SSO with OpenID Connect", "key": "sso-openid", "content": "access/sso-openid-connect.md"}
       ]
     },
     {

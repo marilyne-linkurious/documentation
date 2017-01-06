@@ -1,7 +1,7 @@
 ## Configuration file
 
 To edit the Neo4j data-source configuration, you can either [use the Web user-interface](/configure-sources/#using-the-web-user-interface)
-or edit the configuration file located at `linkurious/data/config/{{config.file}}`.
+or edit the configuration file located at {{config}}.
 
 Example Neo4j configuration:
 ```json

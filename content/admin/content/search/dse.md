@@ -28,7 +28,7 @@ Follow these steps to use DSE Search and integrate it with Linkurious:
 
 ### Integrate with Linkurious
 
-Set the `dataSources.index.vendor` key to `dseSearch` in the configuration (`linkurious/data/config/{{config.file}}`):
+Set the `dataSources.index.vendor` key to `dseSearch` in the configuration ({{config}}):
 ```json
 {
   "dataSources": [

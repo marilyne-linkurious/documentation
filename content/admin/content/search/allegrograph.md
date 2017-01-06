@@ -22,7 +22,7 @@ If you already have a free-text index, skip the next step.
 
 ### Integrate with Linkurious
 
-Set the `dataSources.index.vendor` key to `allegroGraphSearch` in the configuration (`linkurious/data/config/{{config.file}}`):
+Set the `dataSources.index.vendor` key to `allegroGraphSearch` in the configuration ({{config}}):
 ```json
 {
   "dataSources": [

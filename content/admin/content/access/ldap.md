@@ -1,8 +1,9 @@
 
 In Linkurious, administrators manage other user accounts.
-User accounts are identified by either a login or an email address.
-If Linkurious is connected to an LDAP service (preferably OpenLDAP or Active Directory), 
-users are authenticated each time they sign in. 
+User accounts are identified by either a login or an e-mail address.
+
+If Linkurious is connected to an LDAP service (preferably OpenLDAP or Active Directory),
+users are authenticated using the external service at each log-in.
 
 If you have a LDAP service running in your network, you can use it to authenticate users in Linkurious. 
 

@@ -48,7 +48,7 @@ Follow these steps to use install this Neo4j plugin:
 Once the `neo4j-to-elasticsearch` plugin is installed, you need to change
 the data-source configuration to use the `neo2es` vendor.
 
-Set the `dataSources.index.vendor` key to `neo2es` in the configuration (`linkurious/data/config/{{config.file}}`):
+Set the `dataSources.index.vendor` key to `neo2es` in the configuration ({{config}}):
 ```json
 {
   "dataSources": [

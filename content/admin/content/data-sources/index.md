@@ -28,7 +28,7 @@ Submit the changes by hitting the *Save configuration* button
 
 ### Using the configuration file
 
-Edit the configuration file located at `linkurious/data/config/{{config.file}}`.
+Edit the configuration file located at {{config}}.
 
 See details for each supported graph database vendor:
 {{entry.menu}}

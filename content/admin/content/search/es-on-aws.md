@@ -35,7 +35,7 @@ Visit the [Amazon {{es}} Service page](https://aws.amazon.com/elasticsearch-serv
 8. When your cluster is deployed, copy the "Endpoint" host name
    ![](AWS-ES-8.png)
 9. Stop the Linkurious server
-10. Open the configuration file (`linkurious/data/config/{{config.file}}`) and edit the following fields:
+10. Open the configuration file ({{config}}) and edit the following fields:
     ```js
     {
       // [...]
