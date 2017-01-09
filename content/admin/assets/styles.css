@@ -11,6 +11,40 @@ body {
     margin: 1em;
     border: 1px solid #eee;
     padding: 0 1em;
+    max-width: 100%;
+    overflow: auto
+}
+
+.menu {
+    /*border-right: 1px solid #eee;*/
+    display: block;
+    position: fixed;
+    top:0;
+    left: 0;
+    margin: 0;
+    max-height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 300px;
+    /*border:1px solid blue;*/
+}
+
+.main > .menu > div, .main > .content > div {
+    margin: 15px 15px 50px 15px;
+}
+
+.content {
+    width: calc(100% - 300px);
+    display: block;
+    /*border:1px solid red;*/
+    padding: 0;
+    margin: 0;
+    right: 0;
+    top: 0;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: fixed;
 }
 
 h1 a, h2 a, h3 a, h4 a {
@@ -37,6 +71,11 @@ h1:hover a, h2:hover a, h3:hover a, h4:hover {
     opacity: 1;
 }
 
+.menu li {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
 .menu ul, .menu ol {
     margin-left: -20px;
 }
@@ -59,16 +98,13 @@ a:hover, a:active {
 a.current {
     color: #212121;
     text-decoration: none;
-    font-weight: bold;
+    background-color: #ebedfb;
+    font-weight: bolder;
 }
 
 a.external {
     color: #b9844d;
     /*text-decoration: underline;*/
-}
-
-.content {
-    margin: 10px 40px;
 }
 
 code {

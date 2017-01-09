@@ -6,7 +6,10 @@ if you need to change the default configuration, or if you want to add an additi
 ## Supported vendors
 
 Linkurious can connect to some of the the most popular graph databases:
-{{entry.menu}}
+- [Neo4j](/configure-neo4j)
+- [DataStax Enterprise Graph](/configure-dse)
+- [AllegroGraph](/configure-allegrograph)
+- [Titan DB](/configure-titan)
 
 ## Multi-database support
 
