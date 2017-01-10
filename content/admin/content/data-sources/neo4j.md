@@ -1,3 +1,6 @@
+
+Neo4j is supported from version 2.0.
+
 ## Configuration file
 
 To edit the Neo4j data-source configuration, you can either [use the Web user-interface](/configure-sources/#using-the-web-user-interface)

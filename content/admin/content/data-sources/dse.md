@@ -1,3 +1,6 @@
+
+DataStax Enterprise Graph is supported from version 5.0.4.
+
 ## Configuration file
 
 To edit the DSE Graph data-source configuration, you can either [use the Web user-interface](/configure-sources/#using-the-web-user-interface)

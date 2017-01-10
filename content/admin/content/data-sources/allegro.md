@@ -1,3 +1,6 @@
+
+AllegroGraph is supported from versions 5.0.
+
 ## Configuration file
 
 To edit the AllegroGraph data-source configuration, you can either [use the Web user-interface](/configure-sources/#using-the-web-user-interface)

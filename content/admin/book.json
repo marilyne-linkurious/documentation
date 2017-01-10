@@ -6,7 +6,11 @@
     "es.product.link": "https://www.elastic.co/products/elasticsearch",
     "es": "Elasticsearch",
     "config.file": "production.json",
-    "config": "`linkurious/data/config/production.json`"
+    "config": "`linkurious/data/config/production.json`",
+    "graph.vendors": "Neo4j, DataStax, and AllegroGraph",
+    "graph.vendor.menu": "- [Neo4j](/configure-neo4j)\n- [DataStax Enterprise Graph](/configure-dse)\n- [AllegroGraph](/configure-allegrograph)\n- [Titan DB](/configure-titan)\n",
+    "apidoc.url": "https://linkurious.github.io/server-apidoc/",
+    "auth.providers": "LDAP, Active Directory, Windows Azure Active Directory, Google Suite"
   },
   "assets": "assets",
   "numbering": true,
@@ -16,7 +20,6 @@
   "pdfTemplate": "pdf-template.html",
   "description": "main.md",
   "index": [
-    {"name": "Introduction", "content": "intro.md"},
     {
       "name": "Getting started",
       "children": [

@@ -100,6 +100,13 @@ class AbstractGenerator {
   }
 
   /**
+   * @returns {Entry}
+   */
+  getMainEntry() {
+    return {name: this.book.config.name, key: '', content: this.book.config.description};
+  }
+
+  /**
    * @returns {Map.<string, {key: string, url: string, file: string}>} indexed by absolute path
    */
   _getImageReferences() {
@@ -107,19 +114,25 @@ class AbstractGenerator {
     const references = new Map();
 
     this.log(`Extract image references from markdown files...`);
-    this.forEntries(entry => {
-      if (!entry.content) { return; }
-      const mdPath = this.book.resolveContent(entry.content);
-      const mdBody = fs.readFileSync(mdPath, {encoding: 'utf8'});
 
-      Utils.forEachMatch(mdBody, /!\[[^\]]*]\(([^)]+)\)/g, imageUrl => {
-        const imagePath = path.resolve(mdPath, '..', imageUrl);
-        references.set(
-          imagePath,
-          {key: imagePath, url: imageUrl, file: mdPath, contentKey: entry.key}
-        );
-      });
-    });
+    const extractImageReferences = entry => {
+      {
+        if (!entry.content) { return; }
+        const mdPath = this.book.resolveContent(entry.content);
+        const mdBody = fs.readFileSync(mdPath, {encoding: 'utf8'});
+
+        Utils.forEachMatch(mdBody, /!\[[^\]]*]\(([^)]+)\)/g, imageUrl => {
+          const imagePath = path.resolve(mdPath, '..', imageUrl);
+          references.set(
+            imagePath,
+            {key: imagePath, url: imageUrl, file: mdPath, contentKey: entry.key}
+          );
+        });
+      }
+    };
+
+    extractImageReferences(this.getMainEntry());
+    this.forEntries(entry => extractImageReferences(entry));
 
     return references;
   }
@@ -135,7 +148,7 @@ class AbstractGenerator {
     const mdPath = this.book.resolveContent(entry.content);
     if (Utils.isFile(mdPath)) {
       // render Markdown template
-      htmlBody = this.$getHtmlContent(mdPath, entryVarOverrides);
+      htmlBody = this.$getHtmlContent(mdPath, entryVarOverrides, entry);
     } else {
       htmlBody = this.$generateMissingContentHtml(entry);
     }
@@ -154,8 +167,8 @@ class AbstractGenerator {
 
     // tag links to current page
     htmlPage = htmlPage.replace(
-      new RegExp(`href=(["']/${entry.key}["'])`, 'g'),
-      `href=$1 class="current"`
+      new RegExp(`href="(/${entry.key})"`, 'g'),
+      `href="$1" class="current"`
     );
 
     if (this.book.config.externalLinksToBlank) {
@@ -193,10 +206,11 @@ class AbstractGenerator {
   /**
    * @param {string} markdownPath Markdown file path
    * @param {object} variableOverrides
+   * @param {Entry} entry
    * @returns {string}
    */
-  $getHtmlContent(markdownPath, variableOverrides) {
-    return Utils.renderMarkdown(this.$getMarkdownContent(markdownPath, variableOverrides));
+  $getHtmlContent(markdownPath, variableOverrides, entry) {
+    return Utils.renderMarkdown(this.$getMarkdownContent(markdownPath, variableOverrides, entry));
   }
 
   /**
@@ -230,16 +244,25 @@ class AbstractGenerator {
   /**
    * @param {string} mdPath
    * @param {object} variableOverrides
+   * @param {Entry} entry
    * @returns {string}
    */
-  $getMarkdownContent(mdPath, variableOverrides) {
+  $getMarkdownContent(mdPath, variableOverrides, entry) {
     let mdTemplate;
     try {
       mdTemplate = fs.readFileSync(mdPath, {encoding: 'utf8'});
     } catch(e) {
       throw new Error('Could not read file "' + mdPath + '": ' + e.message);
     }
-    return this.renderTemplate(mdPath, mdTemplate, variableOverrides, false);
+    let mdBody = this.renderTemplate(mdPath, mdTemplate, variableOverrides, false);
+
+    // prefix hash links with current content-key
+    mdBody = mdBody.replace(
+      /([^!]\[[^\]]*?])\(#([a-z0-9-]+)\)/ig,
+      `$1(/${entry.key}/#$2)`
+    );
+
+    return mdBody;
   }
 
   /**
@@ -251,6 +274,7 @@ class AbstractGenerator {
     Utils.forEachMatch(htmlBody, /\shref=["'](.+?)['"]/ig, url => {
       if (url.match(LINK_MAILTO) || url.match(LINK_HASH) || url.match(LINK_ABSOLUTE)) {
         // don't change mailto/hash/absolute
+        // hash links will fix prefixed with content-key in generateHtml
       } else if (url.match(LINK_RELATIVE)) {
         // remove leading "/" and "#anchor" part, then check for existence in entryKey index
         const entryKey = url.slice(1).split('/#')[0];

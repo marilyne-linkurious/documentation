@@ -1,3 +1,6 @@
+
+Titan DB is supported from version 1.0.
+
 ## Configuration file
 
 To edit the Titan DB data-source configuration, you can either [use the Web user-interface](/configure-sources/#using-the-web-user-interface)

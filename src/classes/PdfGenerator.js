@@ -25,7 +25,7 @@ class PdfGenerator extends AbstractGenerator {
       path.resolve(target, 'pdf'),
       projectSources,
       `
-       <h1 style="page-break-before: always"><a id="_{{entry.key}}_">&nbsp;</a>{{entry.title}}</h1>
+       <h1 style="page-break-before: always"><a id="{{entry.key}}__">&nbsp;</a>{{entry.title}}</h1>
        {{entry.html.body}}`
     );
     this.siteRoot = '.';
@@ -73,13 +73,13 @@ class PdfGenerator extends AbstractGenerator {
     }
 
     // todo: use https://www.npmjs.com/package/pdfcrowd to generate a PDF with working anchor links
-    this.log(`Generating PDF file...`);
-    const options = { format: 'Letter' };
-    const html = fs.readFileSync(targetFile, {encoding: 'utf8'});
-    pdf.create(html, options).toFile(path.resolve(this.target, 'index.pdf'), function(err, res) {
-      if (err) return console.log(err);
-      console.log(res);
-    });
+    // this.log(`Generating PDF file...`);
+    // const options = { format: 'Letter' };
+    // const html = fs.readFileSync(targetFile, {encoding: 'utf8'});
+    // pdf.create(html, options).toFile(path.resolve(this.target, 'index.pdf'), function(err, res) {
+    //   if (err) return console.log(err);
+    //   console.log(res);
+    // });
   }
 
   /**
@@ -90,24 +90,36 @@ class PdfGenerator extends AbstractGenerator {
     return '';
   }
 
+  generateHtml(entry) {
+    const html = super.generateHtml(entry);
+    // - fix title anchors
+    // - will not break page anchors: they already contain "__" at the end and will not match
+    return html.replace(
+      /<a id="([a-z0-9-]+)"\s(class="deep-link")\shref="#[a-z0-9-]+"/g,
+      '<a id="' + entry.key + '__$1" $2 href="#' + entry.key + '__$1"'
+    );
+  }
+
   /**
    *
    * @param {string} mdPath
    * @param {object} variableOverrides
+   * @param {Entry} entry
    * @returns {string}
    */
-  $getMarkdownContent(mdPath, variableOverrides) {
-    let md = super.$getMarkdownContent(mdPath, variableOverrides);
+  $getMarkdownContent(mdPath, variableOverrides, entry) {
+    let md = super.$getMarkdownContent(mdPath, variableOverrides, entry);
 
     // fix image links (relative to "images" folder)
     md = md.replace(/(!\[[^\]]*?])\(([^)]+?)\)/ig, `$1(/images/$2)`);
 
     // fix internal links (make anchors)
-    return md.replace(/([^!]\[[^\]]*?])\(\/([^)]+?)(\/#[^)]+?)?\)/ig, '$1(#_$2_)');
+    return md.replace(/([^!]\[[^\]]*?])\(\/([^)]+?)(?:\/#([^)]+?))?\)/ig, '$1(#$2__$3)');
   }
 
   $checkInternalLinks(htmlBody, mdPath) {
-    Utils.forEachMatch(htmlBody, /\shref="#namedest=([^"]+?)"/ig, key => {
+    Utils.forEachMatch(htmlBody, /\shref="#([^"_]+?)__([^"]*)"/ig, (key, titleId) => {
+      //console.log(JSON.stringify(key + '-->' + titleId, null, ' '))
       if (!this.entryKeys.has(key)) {
         throw new Error(`Broken internal link "${key}" in file "${mdPath}"`);
       }

@@ -1,4 +1,6 @@
 
+ElasticSearch is supported from 1.4+ (for `elasticSearch` connector) and from version 2.0 (for `elasticSearch2` connector).
+
 ## Embedded {{es}}
 
 Linkurious ships with an embedded {{es}} server (**version {{es.version}}**).

@@ -34,7 +34,7 @@ class SiteGenerator extends AbstractGenerator {
     this.log('Generating HTML content from Markdown templates...');
     this.generateHtmlFile(
       this.target,
-      {name: this.book.config.name, key: '', content: this.book.config.description}
+      this.getMainEntry()
     );
 
     this.forEntries(entry => {

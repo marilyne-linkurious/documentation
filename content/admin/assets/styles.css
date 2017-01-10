@@ -33,7 +33,8 @@ body {
     margin: 15px 15px 50px 15px;
 }
 
-.content {
+/* multi-page version */
+.main > .content {
     width: calc(100% - 300px);
     display: block;
     /*border:1px solid red;*/
@@ -45,6 +46,11 @@ body {
     overflow-y: scroll;
     overflow-x: hidden;
     position: fixed;
+}
+
+/* single-page version */
+body > .content {
+    margin: 20px;
 }
 
 h1 a, h2 a, h3 a, h4 a {
