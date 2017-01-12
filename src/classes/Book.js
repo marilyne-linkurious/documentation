@@ -45,7 +45,6 @@ class Book {
    * @param {string} config.assets
    * @param {boolean} [config.numbering]
    * @param {boolean} [config.externalLinksToBlank]
-   * @param {string} config.siteRoot
    * @param {string} config.siteTemplate HTML template file for site output
    * @param {string} config.pdfTemplate HTML template file for PDF output
    * @param {string} config.description
@@ -204,15 +203,6 @@ class Book {
       });
     });
 
-    // generating menu variable
-    variables.set('menu', {
-      key: 'menu',
-      text: Utils.renderMarkdown(this._generateMarkdownMenu()),
-      builtin: true,
-      markdown: false,
-      file: Book.CONFIG_FILE
-    });
-
     // generating the current timestamp (in milliseconds)
     variables.set('now', {
       key: 'menu',
@@ -293,8 +283,8 @@ class Book {
   /**
    * @returns {string}
    */
-  _generateMarkdownMenu() {
-    this.log(`Generating menu...`);
+  _generateMarkdownMainMenu() {
+    //this.log(`Generating main menu...`);
     const bullet = this.config.numbering ? '1.' : '-';
     return `${bullet} [Home](/)\n${this.__generateMarkdownMenu('', bullet, this.config.index)}`;
   }

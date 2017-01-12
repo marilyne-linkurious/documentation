@@ -15,7 +15,6 @@
   "assets": "assets",
   "numbering": true,
   "externalLinksToBlank": true,
-  "siteRoot": "/documentation/site",
   "siteTemplate": "site-template.html",
   "pdfTemplate": "pdf-template.html",
   "description": "main.md",

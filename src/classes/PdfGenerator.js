@@ -28,7 +28,6 @@ class PdfGenerator extends AbstractGenerator {
        <h1 style="page-break-before: always"><a id="{{entry.key}}__">&nbsp;</a>{{entry.title}}</h1>
        {{entry.html.body}}`
     );
-    this.siteRoot = '.';
   }
 
   /**
@@ -41,6 +40,10 @@ class PdfGenerator extends AbstractGenerator {
     const templateParts = htmlTemplate.split('{{body}}', 2);
 
     const targetFile = path.resolve(this.target, 'index.html');
+    const context = {
+      pathToRoot: '.',
+      currentKey: ''
+    };
 
     /** @type {number} */
     const htmlFd = fs.openSync(targetFile, 'a');
@@ -49,7 +52,12 @@ class PdfGenerator extends AbstractGenerator {
     this.log('Generating HTML content from Markdown templates...');
 
     // html template (prefix)
-    appendHtml(this.fixLinksRoot(this.renderTemplate(htmlTemplatePath, templateParts[0])));
+    appendHtml(
+      this.fixLinksRoot(
+        this.renderTemplate(htmlTemplatePath, templateParts[0], {}, context),
+        '.'
+      )
+    );
 
     appendHtml(this.generateHtml(
       {name: this.book.config.name, content: this.book.config.description, key: ''}
@@ -58,7 +66,12 @@ class PdfGenerator extends AbstractGenerator {
     this.forEntries(entry => { appendHtml(this.generateHtml(entry)); });
 
     // html template (suffix)
-    appendHtml(this.fixLinksRoot(this.renderTemplate(htmlTemplatePath, templateParts[1])));
+    appendHtml(
+      this.fixLinksRoot(
+        this.renderTemplate(htmlTemplatePath, templateParts[1], {}, context),
+        '.'
+      )
+    );
 
     fs.closeSync(htmlFd);
 
@@ -84,10 +97,19 @@ class PdfGenerator extends AbstractGenerator {
 
   /**
    * @param {Entry} entry
+   * @param {RenderContext} context
    * @returns {string}
    */
-  $generateMissingContentHtml(entry) {
+  $generateMissingContentHtml(entry, context) {
     return '';
+  }
+
+  /**
+   * @param {Entry} entry
+   * @returns {string}
+   */
+  pathToRoot(entry) {
+    return '.';
   }
 
   generateHtml(entry) {
@@ -100,26 +122,23 @@ class PdfGenerator extends AbstractGenerator {
     );
   }
 
-  /**
-   *
-   * @param {string} mdPath
-   * @param {object} variableOverrides
-   * @param {Entry} entry
-   * @returns {string}
-   */
-  $getMarkdownContent(mdPath, variableOverrides, entry) {
-    let md = super.$getMarkdownContent(mdPath, variableOverrides, entry);
-
-    // fix image links (relative to "images" folder)
-    md = md.replace(/(!\[[^\]]*?])\(([^)]+?)\)/ig, `$1(/images/$2)`);
+  fixMarkdownLinks(mdBody, context) {
+    //var mbBody = super.fixMarkdownLinks(mdBody, context);
 
     // fix internal links (make anchors)
-    return md.replace(/([^!]\[[^\]]*?])\(\/([^)]+?)(?:\/#([^)]+?))?\)/ig, '$1(#$2__$3)');
+    mdBody = mdBody.replace(/([^!]\[[^\]]*?])\(\/([^)]+?)(?:\/#([^)]+?))?\)/ig, '$1(#$2__$3)');
+
+    // fix image links (relative to "images" folder)
+    mdBody = mdBody.replace(
+      /(!\[[^\]]*])\(([^)]+?)\)/ig,
+      `$1(${context.pathToRoot}/images/$2)`
+    );
+
+    return mdBody;
   }
 
   $checkInternalLinks(htmlBody, mdPath) {
-    Utils.forEachMatch(htmlBody, /\shref="#([^"_]+?)__([^"]*)"/ig, (key, titleId) => {
-      //console.log(JSON.stringify(key + '-->' + titleId, null, ' '))
+    Utils.forEachMatch(htmlBody, /\shref="#([^"_]+?)__([^"]*)"/ig, key => {
       if (!this.entryKeys.has(key)) {
         throw new Error(`Broken internal link "${key}" in file "${mdPath}"`);
       }

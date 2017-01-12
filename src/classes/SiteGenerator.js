@@ -51,7 +51,7 @@ class SiteGenerator extends AbstractGenerator {
 
     this.log(`Copying ${this.imageReferences.size} referenced images...`);
     for (let imageRef of this.imageReferences.values()) {
-      fs.copySync(imageRef.key, path.resolve(this.target, imageRef.contentKey, imageRef.url));
+      fs.copySync(imageRef.key, path.resolve(this.target, 'images', imageRef.url));
     }
   }
 
@@ -68,10 +68,11 @@ class SiteGenerator extends AbstractGenerator {
 
   /**
    * @param {Entry} entry
+   * @param {RenderContext} context
    * @returns {string}
    */
-  $generateMissingContentHtml(entry) {
-    return Utils.renderMarkdown(this.makeMarkdownIndex(entry.children));
+  $generateMissingContentHtml(entry, context) {
+    return this.renderMarkdown(this.makeMarkdownIndex(entry.children), context);
   }
 }
 

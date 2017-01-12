@@ -69,7 +69,6 @@ class BookParser {
       pdfTemplate: {required: true, check: ['file', rootPath]},
       numbering: {required: false, type: 'boolean'},
       externalLinksToBlank: {required: false, type: 'boolean'},
-      siteRoot: {required: true, check: ['startsWith', '/', false]},
       assets: {required: true, check: ['dir', rootPath]},
       index: {
         required: true,

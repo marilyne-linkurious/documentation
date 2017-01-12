@@ -12,7 +12,7 @@ The user-access system is configured within the `access` configuration key in th
 - `widget` (default: `true`): Enable to publish visualizations online.
    Published visualizations are accessible by anonymous users.
 - `externalUserDefaultGroupId`: Default *group id* set automatically for new external users (from LDAP, AD or any other external provider).
-- `ldap`: The connection to the LDAP service (see [how to configure LDAP](/ldap/#ldap)).
+- `ldap`: The connection to the LDAP service (see [how to configure LDAP](/ldap/#openldap)).
 - `msActiveDirectory`: The connection to the Microsoft Active Directory service (see [how to configure Active Directory](/ldap/#active-directory)).
 - `oauth2`: The connection to an OAuth2/OpenID Connect identity provider.
 <!-- 
