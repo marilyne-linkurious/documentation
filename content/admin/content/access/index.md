@@ -15,6 +15,8 @@ The user-access system is configured within the `access` configuration key in th
 - `ldap`: The connection to the LDAP service (see [how to configure LDAP](/ldap/#openldap)).
 - `msActiveDirectory`: The connection to the Microsoft Active Directory service (see [how to configure Active Directory](/ldap/#active-directory)).
 - `oauth2`: The connection to an OAuth2/OpenID Connect identity provider.
+- `floatingLicenses` (default: `Infinity`): The maximum number of users that can connect to Linkurious at the same time.
+
 <!-- 
 `loginTimeout` (: 3600. Log the user out after a period of inactivity (in second). 
 -->
