@@ -128,7 +128,7 @@ class PdfGenerator extends AbstractGenerator {
     // fix image links (relative to "images" folder)
     mdBody = mdBody.replace(
       /(!\[[^\]]*])\(([^)]+?)\)/ig,
-      `$1(${context.pathToRoot}/images/$2)`
+      `$1(${context.pathToRoot}/images/${context.currentKey}__$2)`
     );
 
     return mdBody;
