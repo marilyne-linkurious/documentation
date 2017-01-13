@@ -33,6 +33,28 @@ for (let k of ['input', 'output', 'outputType', 'watch', 'createMissing', 'refre
   console.log(' - ' + k + ': ' + cli[k]);
 }
 
+/**
+ * @param {number} duration
+ * @param {function} fn
+ * @returns {Function}
+ */
+const debounce = (duration, fn) => {
+  let active = false;
+  return function() {
+    const orgThis = this;
+    const orgArgs = Array.prototype.slice.call(arguments, 0);
+
+    // first call of the sequence
+    if (!active) {
+      active = true;
+      setTimeout(() => {
+        active = false;
+        fn.apply(orgThis, orgArgs);
+      }, duration);
+    }
+  };
+};
+
 const doGenerate = () => {
   const t = Date.now();
   const book = BookParser.parse(cli.input);
@@ -43,7 +65,7 @@ const doGenerate = () => {
 
 const doWatch = (folder, action) => {
   const watch = require('watch');
-  watch.watchTree(folder, () => {
+  watch.watchTree(folder, debounce(100, () => {
     console.log('Watched folder changed...');
     try {
       action();
@@ -51,7 +73,7 @@ const doWatch = (folder, action) => {
       console.log('GENERATION FAILED');
       printError(e, true);
     }
-  });
+  }));
 };
 
 if (cli.watch) {

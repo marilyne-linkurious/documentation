@@ -56,6 +56,14 @@ class AbstractGenerator {
     this.book.checkVariableIntegrity(this.variables, this.variableReferences);
   }
 
+  copyImages() {
+    this.log(`Copying ${this.imageReferences.size} referenced images...`);
+    for (let imageRef of this.imageReferences.values()) {
+      let target = path.resolve(this.target, 'images', imageRef.key);
+      fs.copySync(imageRef.path, target);
+    }
+  }
+
   log(msg) {
     this.book.log(msg);
   }
@@ -84,7 +92,7 @@ class AbstractGenerator {
           `Illegal image URL (contains a "/"): "${imgRef.url}" in file "${imgRef.file}"`
         );
       }
-      if (!fs.existsSync(imgRef.key)) {
+      if (!fs.existsSync(imgRef.path)) {
         throw new Error(`Broken image reference "${imgRef.url}" in file "${imgRef.file}"`)
       }
     }
@@ -115,7 +123,10 @@ class AbstractGenerator {
    */
   _getImageReferences() {
     /** @type {Map.<string, {key: string, url: string, file: string, contentKey: string}>} */
-    const references = new Map();
+    const referencesByPath = new Map();
+
+    // for collision detection
+    const referencesByKey = new Map();
 
     this.log(`Extract image references from markdown files...`);
 
@@ -126,11 +137,33 @@ class AbstractGenerator {
         const mdBody = fs.readFileSync(mdPath, {encoding: 'utf8'});
 
         Utils.forEachMatch(mdBody, /!\[[^\]]*]\(([^)]+)\)/g, imageUrl => {
+          if (!imageUrl.match(/^[A-Za-z0-9_.-]+$/)) {
+            throw new Error(`Invalid image url: "${imageUrl}" in file "${entry.content}"`)
+          }
+
           const imagePath = path.resolve(mdPath, '..', imageUrl);
-          references.set(
-            imagePath,
-            {key: imagePath, url: imageUrl, file: mdPath, contentKey: entry.key}
-          );
+          const imageRef = {
+            key: entry.key + '__' + imageUrl,
+            path: imagePath,
+            url: imageUrl,
+            file: mdPath,
+            contentKey: entry.key
+          };
+
+          /// check for image collisions on "imageUrl"
+          const imageRefCollision = referencesByKey.get(imageRef.key);
+          if (imageRefCollision) {
+            // two reference with same "key" and same "path" are Ok, just ignore the duplicate ref
+            if (imageRef.path === imageRefCollision.path) { return; }
+
+            throw new Error(
+              `Image "${imageRef.url}" referenced in "${imageRef.file
+              }" collides with other relative reference from "${imageRefCollision.file}".`
+            );
+          }
+
+          referencesByKey.set(imageRef.key, imageRef);
+          referencesByPath.set(imageRef.path, imageRef);
         });
       }
     };
@@ -138,7 +171,7 @@ class AbstractGenerator {
     extractImageReferences(this.getMainEntry());
     this.forEntries(entry => extractImageReferences(entry));
 
-    return references;
+    return referencesByPath;
   }
 
   /**
@@ -293,7 +326,7 @@ class AbstractGenerator {
     // fix image links (relative to "images" folder)
     mdBody = mdBody.replace(
       /(!\[[^\]]*])\(([^)]+?)\)/ig,
-      `$1(${context.pathToRoot}/images/$2)`
+      `$1(${context.pathToRoot}/images/${context.currentKey}__$2)`
     );
 
     return mdBody;

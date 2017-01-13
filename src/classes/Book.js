@@ -157,10 +157,10 @@ class Book {
     // get project code
     const projectSources = path.resolve(outputDir, 'project');
     if (!fs.existsSync(projectSources) || forceDownloadProject) {
-      this.log(`Cloning project code (${this.config.project})...`);
+      this.log(`Cloning project code (${this.config.project}) to ${projectSources}...`);
       Utils.gitClone(this.config.project, projectSources);
     } else {
-      this.log(`Using cached copy of (${this.config.project})...`);
+      this.log(`Using cached copy of project from ${projectSources}...`);
     }
 
     let generator;

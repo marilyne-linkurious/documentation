@@ -80,10 +80,7 @@ class PdfGenerator extends AbstractGenerator {
     this.log(`Copying assets from "${assetsSource}"...`);
     fs.copySync(assetsSource, assetsTarget);
 
-    this.log(`Copying ${this.imageReferences.size} referenced images...`);
-    for (let imageRef of this.imageReferences.values()) {
-      fs.copySync(imageRef.key, path.resolve(this.target, 'images', imageRef.url));
-    }
+    this.copyImages();
 
     // todo: use https://www.npmjs.com/package/pdfcrowd to generate a PDF with working anchor links
     // this.log(`Generating PDF file...`);
