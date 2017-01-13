@@ -8,7 +8,7 @@
   "numbering": true,
   "externalLinksToBlank": true,
   "siteTemplate": "site-template.html",
-  "pageTemplate": "pdf-template.html",
+  "pageTemplate": "page-template.html",
   "description": "main.md",
   "index": [
     {
