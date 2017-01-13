@@ -1,25 +1,27 @@
 {
-  "name": "mdoc",
-  "description": "A docgen alternative capable of fetching documentation blocs from code comments",
+  "name": "documentation",
+  "description": "Linkurioous Enterprise documentation",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "//": "invoked using >npm run [script-name]",
-    "admin": "src/makeDoc.js content/admin",
-    "user": "src/makeDoc.js content/user"
+    "admin-site": "dokapi -i content/admin/ -o output/admin/ -t site",
+    "admin-page": "dokapi -i content/admin/ -o output/admin/ -t page",
+    "admin": "npm run admin-site && npm run admin-page",
+
+    "user-site": "dokapi -i content/user/ -o output/user/ -t site",
+    "user-page": "dokapi -i content/user/ -o output/user/ -t page",
+    "user": "npm run user-site && npm run user-page",
+
+    "make-all": "npm run user && npm run admin",
+
+    "watch-admin-site": "dokapi -i content/admin/ -o output/admin/ -t site -w",
+    "watch-admin-page": "dokapi -i content/admin/ -o output/admin/ -t page -w",
+    "watch-user-site": "dokapi -i content/user/ -o output/user/ -t site -w",
+    "watch-user-page": "dokapi -i content/user/ -o output/user/ -t page -w"
   },
   "dependencies": {
   },
   "devDependencies": {
-    "bluebird": "latest",
-    "fs-extra": "latest",
-    "valcheck": "1.0.4",
-    "lodash.difference": "4.4.0",
-    "esprima": "3.1.x",
-    "lodash": "4.17.x",
-    "marky-markdown": "9.0.1",
-    "watch": "1.0.1",
-    "commander": "2.9.0",
-    "html-pdf": "2.1.0"
+    "dokapi": "1.0.2"
   }
 }

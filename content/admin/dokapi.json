@@ -16,7 +16,7 @@
   "numbering": true,
   "externalLinksToBlank": true,
   "siteTemplate": "site-template.html",
-  "pdfTemplate": "pdf-template.html",
+  "pageTemplate": "pdf-template.html",
   "description": "main.md",
   "index": [
     {

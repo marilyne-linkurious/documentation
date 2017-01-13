@@ -6,8 +6,7 @@ logs
 npm-debug.log*
 
 .idea/**
-site
-site-project
+
 output
 
 # Runtime data
