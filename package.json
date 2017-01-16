@@ -12,27 +12,18 @@
     "user-page": "node run.js user page",
     "user": "node run.js user all",
 
-<<<<<<< HEAD
-    "apidoc-examples-site": "dokapi -i content/apidoc-examples/ -o output/apidoc-examples/ -t site",
-    "apidoc-examples-page": "dokapi -i content/apidoc-examples/ -o output/apidoc-examples/ -t page",
-    "apidoc-examples": "npm run apidoc-examples-site && npm run apidoc-examples-page",
+    "apidoc-examples-site": "node run.js apidoc-examples site",
+    "apidoc-examples-page": "node run.js apidoc-examples page",
+    "apidoc-examples": "node run.js apidoc-examples all",
 
-    "make-all": "npm run user && npm run admin && npm run apidoc-examples",
-
-    "watch-admin-site": "dokapi -i content/admin/ -o output/admin/ -t site -w",
-    "watch-admin-page": "dokapi -i content/admin/ -o output/admin/ -t page -w",
-    "watch-user-site": "dokapi -i content/user/ -o output/user/ -t site -w",
-    "watch-user-page": "dokapi -i content/user/ -o output/user/ -t page -w",
-    "watch-apidoc-examples-site": "dokapi -i content/apidoc-examples/ -o output/apidoc-examples/ -t site -w",
-    "watch-apidoc-examples-page": "dokapi -i content/apidoc-examples/ -o output/apidoc-examples/ -t page -w"
-=======
     "all": "node run.js all all",
 
     "admin-site-watch": "node run.js admin site true",
     "admin-page-watch": "node run.js admin page true",
-    "user-site-watch": "node run.js user site  true",
-    "user-page-watch": "node run.js user page true"
->>>>>>> master
+    "user-site-watch": "node run.js user site true",
+    "user-page-watch": "node run.js user page true",
+    "apidoc-examples-site-watch": "node run.js apidoc-examples site true",
+    "apidoc-examples-page-watch": "node run.js apidoc-examples page true"
   },
   "dependencies": {
   },
