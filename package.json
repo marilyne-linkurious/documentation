@@ -4,24 +4,24 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "admin-site": "node run.js admin site",
-    "admin-page": "node run.js admin page",
-    "admin": "node run.js admin all",
+    "admin-site": "node make.js admin site",
+    "admin-page": "node make.js admin page",
+    "admin": "node make.js admin all",
 
-    "user-site": "node run.js user site",
-    "user-page": "node run.js user page",
-    "user": "node run.js user all",
+    "user-site": "node make.js user site",
+    "user-page": "node make.js user page",
+    "user": "node make.js user all",
 
-    "all": "node run.js all all",
+    "all": "node make.js all all",
 
-    "admin-site-watch": "node run.js admin site true",
-    "admin-page-watch": "node run.js admin page true",
-    "user-site-watch": "node run.js user site  true",
-    "user-page-watch": "node run.js user page true"
+    "admin-site-watch": "node make.js admin site true",
+    "admin-page-watch": "node make.js admin page true",
+    "user-site-watch": "node make.js user site  true",
+    "user-page-watch": "node make.js user page true"
   },
   "dependencies": {
   },
   "devDependencies": {
-    "dokapi": "1.0.9"
+    "dokapi": "1.0.10"
   }
 }
