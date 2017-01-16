@@ -1,0 +1,13 @@
+body {
+  background-color: #fff;
+  font-family: Serif;
+  font-size: 15pt;
+}
+
+.menu {
+  display: none;
+}
+
+a, code, blockquote {
+  color: #000;
+}
