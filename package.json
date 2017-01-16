@@ -1,27 +1,27 @@
 {
   "name": "documentation",
-  "description": "Linkurioous Enterprise documentation",
+  "description": "Linkurious Enterprise documentation",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "admin-site": "dokapi -i content/admin/ -o output/admin/ -t site",
-    "admin-page": "dokapi -i content/admin/ -o output/admin/ -t page",
-    "admin": "npm run admin-site && npm run admin-page",
+    "admin-site": "node run.js admin site",
+    "admin-page": "node run.js admin page",
+    "admin": "node run.js admin all",
 
-    "user-site": "dokapi -i content/user/ -o output/user/ -t site",
-    "user-page": "dokapi -i content/user/ -o output/user/ -t page",
-    "user": "npm run user-site && npm run user-page",
+    "user-site": "node run.js user site",
+    "user-page": "node run.js user page",
+    "user": "node run.js user all",
 
-    "make-all": "npm run user && npm run admin",
+    "all": "node run.js all all",
 
-    "watch-admin-site": "dokapi -i content/admin/ -o output/admin/ -t site -w",
-    "watch-admin-page": "dokapi -i content/admin/ -o output/admin/ -t page -w",
-    "watch-user-site": "dokapi -i content/user/ -o output/user/ -t site -w",
-    "watch-user-page": "dokapi -i content/user/ -o output/user/ -t page -w"
+    "admin-site-watch": "node run.js admin site true",
+    "admin-page-watch": "node run.js admin page true",
+    "user-site-watch": "node run.js user site  true",
+    "user-page-watch": "node run.js user page true"
   },
   "dependencies": {
   },
   "devDependencies": {
-    "dokapi": "1.0.5"
+    "dokapi": "1.0.7"
   }
 }
