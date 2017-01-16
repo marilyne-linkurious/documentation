@@ -2,6 +2,7 @@
 'use strict';
 
 const path = require('path');
+const fs = require('fs');
 const Dokapi = require('dokapi');
 
 // (docName|"all") ["site"|"page"] [watch?]
@@ -11,7 +12,7 @@ const outputType = args[1];
 const watch = args[2] === 'true';
 
 const OUTPUT_TYPES = ['site', 'page'];
-const DOC_NAMES = ['user', 'admin'];
+const DOC_NAMES = fs.readdirSync(path.resolve(__dirname, 'content'));
 
 /**
  * @param {string} docName or "all"
@@ -20,10 +21,10 @@ const DOC_NAMES = ['user', 'admin'];
  */
 const makeAllArgs = (docName, outputType) => {
   if (docName === 'all') {
-    return DOC_NAMES.map(docName => makeAllArgs(docName, outputType));
+    return DOC_NAMES.reduce((res, n) => res.concat(makeAllArgs(n, outputType)), []);
   }
   if (outputType === 'all') {
-    return OUTPUT_TYPES.map(outputType => makeAllArgs(docName, outputType));
+    return OUTPUT_TYPES.reduce((res, t) => res.concat(makeAllArgs(docName, t)), []);
   }
   return [{
     input: path.resolve(__dirname, 'content', docName),
@@ -35,7 +36,7 @@ const makeAllArgs = (docName, outputType) => {
   }];
 };
 
-//console.log(JSON.stringify(makeAllArgs(docName, outputType), null, ' '))
+// console.log(JSON.stringify(makeAllArgs(docName, outputType), null, ' '))
 
 // make all args
 makeAllArgs(docName, outputType).forEach(args => {
