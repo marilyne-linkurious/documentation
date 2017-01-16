@@ -9,6 +9,8 @@ const docName = args[0];
 const outputType = args[1];
 const watch = args[2] === 'true';
 
+const OUTPUT_TYPES = ['site', 'page'];
+const DOC_NAMES = ['user', 'admin'];
 
 /**
  * @param {string} docName or "all"
@@ -17,14 +19,10 @@ const watch = args[2] === 'true';
  */
 const makeAllArgs = (docName, outputType) => {
   if (docName === 'all') {
-    return []
-      .concat(makeAllArgs('user', outputType))
-      .concat(makeAllArgs('admin', outputType));
+    return DOC_NAMES.map(docName => makeAllArgs(docName, outputType));
   }
   if (outputType === 'all') {
-    return []
-      .concat(makeAllArgs(docName, 'site'))
-      .concat(makeAllArgs(docName, 'page'));
+    return OUTPUT_TYPES.map(outputType => makeAllArgs(docName, outputType));
   }
   return [{
     input: path.resolve(__dirname, 'content', docName),
@@ -41,5 +39,10 @@ const makeAllArgs = (docName, outputType) => {
 // make all args
 makeAllArgs(docName, outputType).forEach(args => {
   const dok = new Dokapi(args);
-  dok.run();
+  try {
+    dok.run();
+  } catch(e) {
+    dok.printError(e);
+    process.exit(1);
+  }
 });
