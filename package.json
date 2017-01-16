@@ -12,12 +12,18 @@
     "user-page": "dokapi -i content/user/ -o output/user/ -t page",
     "user": "npm run user-site && npm run user-page",
 
-    "make-all": "npm run user && npm run admin",
+    "apidoc-examples-site": "dokapi -i content/apidoc-examples/ -o output/apidoc-examples/ -t site",
+    "apidoc-examples-page": "dokapi -i content/apidoc-examples/ -o output/apidoc-examples/ -t page",
+    "apidoc-examples": "npm run apidoc-examples-site && npm run apidoc-examples-page",
+
+    "make-all": "npm run user && npm run admin && npm run apidoc-examples",
 
     "watch-admin-site": "dokapi -i content/admin/ -o output/admin/ -t site -w",
     "watch-admin-page": "dokapi -i content/admin/ -o output/admin/ -t page -w",
     "watch-user-site": "dokapi -i content/user/ -o output/user/ -t site -w",
-    "watch-user-page": "dokapi -i content/user/ -o output/user/ -t page -w"
+    "watch-user-page": "dokapi -i content/user/ -o output/user/ -t page -w",
+    "watch-apidoc-examples-site": "dokapi -i content/apidoc-examples/ -o output/apidoc-examples/ -t site -w",
+    "watch-apidoc-examples-page": "dokapi -i content/apidoc-examples/ -o output/apidoc-examples/ -t page -w"
   },
   "dependencies": {
   },

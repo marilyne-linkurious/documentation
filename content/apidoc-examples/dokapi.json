@@ -1,0 +1,18 @@
+{
+  "name": "Linkurious Apidoc Examples",
+  "variables": {
+  },
+  "project": "git@github.com:Linkurious/documentation.git#master",
+  "assets": "assets",
+  "siteTemplate": "site-template.html",
+  "pageTemplate": "page-template.html",
+  "description": "main.md",
+  "index": [
+    {
+      "name": "Getting started",
+      "children": [
+        {"name": "Technical requirements", "key": "requirements", "content": "getting-started/requirements.md"}
+      ]
+    }
+  ]
+}
