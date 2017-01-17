@@ -5,7 +5,7 @@
 function evalCode(src, log) {
     src = 'try { with (sandbox) {' + src + '} } catch (e) {sandbox.console.log(e)}';
     new Function('sandbox', src) ({
-        request: request.defaults({log: log}), console: {log: log}, window: null, document: null, alert: null
+        request: request.defaults({json: true, log: log}), console: {log: log}, window: null, document: null, alert: null
     });
 }
 

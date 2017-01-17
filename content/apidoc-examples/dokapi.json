@@ -10,7 +10,7 @@
     {
       "name": "Getting started",
       "children": [
-        {"name": "Technical requirements", "key": "requirements", "content": "getting-started/requirements.md"}
+        {"name": "Get server status", "key": "get-server-status", "content": "getting-started/get-server-status.md"}
       ]
     }
   ]
