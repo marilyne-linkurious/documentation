@@ -19,7 +19,8 @@ const makeAllArgs = (docName, outputType) => {
   if (docName === 'all') {
     return []
       .concat(makeAllArgs('user', outputType))
-      .concat(makeAllArgs('admin', outputType));
+      .concat(makeAllArgs('admin', outputType))
+      .concat(makeAllArgs('apidoc-examples', outputType));
   }
   if (outputType === 'all') {
     return []

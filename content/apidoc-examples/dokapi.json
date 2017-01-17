@@ -2,7 +2,7 @@
   "name": "Linkurious Apidoc Examples",
   "variables": {
   },
-  "project": "git@github.com:Linkurious/documentation.git#master",
+  "project": "./content/apidoc-examples",
   "assets": "assets",
   "siteTemplate": "site-template.html",
   "pageTemplate": "page-template.html",
