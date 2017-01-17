@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Linkurious docs</title>
-    <link rel="stylesheet" href="/assets/styles.css?{{now}}" />
-    <link rel="stylesheet" href="/assets/atom-light.css?{{now}}" />
+    <link rel="stylesheet" href="/assets/styles.css?{{now}}" type="text/css" />
+    <link rel="stylesheet" href="/assets/print-styles.css?{{now}}" media="print" type="text/css" />
+    <link rel="stylesheet" href="/assets/atom-light.css?{{now}}" type="text/css" />
 </head>
 <body>
-    <div style="position: absolute; top: 0; right: 0; padding: 10px">Linkurious v{{package.version}}</div>
+    <div class="version page">Linkurious v{{package.version}}</div>
     <div class="content">
         {{body}}
     </div>
