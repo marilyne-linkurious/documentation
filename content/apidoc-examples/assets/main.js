@@ -32,7 +32,7 @@ window.onload = function() {
             var textarea = $('<textarea>');
             responseDiv.append(textarea);
             // we create a textarea (an uneditable codemirror box) for the response
-            var responseBox = CodeMirror.fromTextArea(textarea.get(0));
+            var responseBox = CodeMirror.fromTextArea(textarea.get(0), {readOnly: true});
 
             // we execute the code in a sandbox. console.log is redirected to the responseBox
             evalCode(requestBox.getValue(), function(text) {
