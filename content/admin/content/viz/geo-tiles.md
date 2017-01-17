@@ -1,4 +1,3 @@
-<!-- todo: geo-tiles.md -->
 
 Linkurious supports displaying nodes with geographic coordinates (latitude and longitude) on a map.
 
@@ -28,27 +27,27 @@ Example configuration:
 ```json
 "leaflet": [
   {
-    overlay: true,
-    name: 'Stamen Toner Lines',
-    thumbnail: '',
-    urlTemplate: 'http://stamen-tiles-{s}.a.ssl.fastly.net/toner-lines/{z}/{x}/{y}.png',
-    attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-    subdomains: 'abcd',
-    id: null,
-    accessToken: null,
-    minZoom: 2,
-    maxZoom: 20
+    "overlay": true,
+    "name": "Stamen Toner Lines",
+    "thumbnail": "",
+    "urlTemplate": "http://stamen-tiles-{s}.a.ssl.fastly.net/toner-lines/{z}/{x}/{y}.png",
+    "attribution": "Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>",
+    "subdomains": "abcd",
+    "id": null,
+    "accessToken": null,
+    "minZoom": 2,
+    "maxZoom": 20
   },
   {
-    name: 'MapBox Streets',
-    thumbnail: '/assets/img/MapBox_Streets.png',
-    urlTemplate: 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}',
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery &copy <a href="http://mapbox.com">Mapbox</a>',
-    subdomains: null,
-    id: 'mapbox.streets',
-    accessToken: 'pk.eyJ1Ijoic2hleW1hbm4iLCJhIjoiY2lqNGZmanhpMDAxaHc4bTNhZGFrcHZleiJ9.VliJNQs7QBK5e5ZmYl9RTw',
-    minZoom: 2,
-    maxZoom: 20
+    "name": "MapBox Streets",
+    "thumbnail": "/assets/img/MapBox_Streets.png",
+    "urlTemplate": "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
+    "attribution": "Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery &copy <a href="http://mapbox.com">Mapbox</a>",
+    "subdomains": null,
+    "id": "mapbox.streets",
+    "accessToken": "pk.eyJ1Ijoic2hleW1hbm4iLCJhIjoiY2lqNGZmanhpMDAxaHc4bTNhZGFrcHZleiJ9.VliJNQs7QBK5e5ZmYl9RTw",
+    "minZoom": 2,
+    "maxZoom": 20
   }
 ]
 ```
