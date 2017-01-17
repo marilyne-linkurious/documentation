@@ -23,15 +23,6 @@
     <script src="/assets/codemirror/codemirror.js"></script>
     <script src="/assets/codemirror/javascript.js"></script>
 
-    <!--Scroll menu-->
-    <script lang="javascript">
-        window.onload = function() {
-            // scroll "current" menu item into visible pane TODO fix this
-            var offset = document.getElementsByClassName('current')[0].offsetTop;
-            document.getElementsByClassName('menu')[0].scrollTop = offset - 15;
-        }
-    </script>
-
     <!--request.js (https://github.com/iriscouch/browser-request + tweak for error logging)-->
     <script src="/assets/request.js"></script>
 
@@ -47,7 +38,7 @@
         </div>
     </div>
 
-    <div class="content">
+    <div class="content" style="display: none">
         <div>
             <h1>{{entry.title}}</h1>
             {{entry.html.body}}

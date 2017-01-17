@@ -10,12 +10,20 @@ function evalCode(src, log) {
 }
 
 window.onload = function() {
+    // scroll "current" menu item into visible pane
+    var offset = document.getElementsByClassName('current')[0].offsetTop;
+    document.getElementsByClassName('menu')[0].scrollTop = offset - 15;
+
+    var allRequestBoxes = [];
+
     // for each textarea (created by dokapi)
     _.forEach($('textarea'), function(textarea) {
         // we replace it with a codemirror box
         var requestBox = CodeMirror.fromTextArea(textarea, {
             lineNumbers: true
         });
+
+        allRequestBoxes.push(requestBox);
 
         var div = $('<div>');
         // we create the button to execute the code
@@ -51,5 +59,11 @@ window.onload = function() {
         });
 
         div.insertAfter(requestBox.getWrapperElement());
+    });
+
+    // show content after every codemirror block was created
+    $('.content').css("display", "block");
+    _.forEach(allRequestBoxes, function(codeMirrorBox) {
+       codeMirrorBox.refresh();
     });
 };
