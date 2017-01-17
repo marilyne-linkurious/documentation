@@ -1,4 +1,9 @@
-First page
+Testo inizio
 
 {{editfile:test.js}}
-dd
+
+Testo a metà
+
+{{editfile:test2.js}}
+
+Testo dopo

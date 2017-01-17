@@ -2,17 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{entry.title}} - Linkurious docs</title>
+    <title>{{entry.title}} - Linkurious APIDoc examples</title>
+
+    <!--TODO-->
     <link rel="stylesheet" href="/assets/atom-light.css?{{now}}" />
     <link rel="stylesheet" href="/assets/styles.css?{{now}}" />
+
+    <!--Lodash-->
+    <script src="/assets/lodash.min.js"></script>
+
+    <!--jQuery-->
+    <script src="/assets/jquery-3.1.1.min.js"></script>
+
+    <!--Bootstrap-->
+    <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+
+    <!--Codemirror-->
+    <link rel="stylesheet" href="/assets/codemirror/codemirror.css">
+    <script src="/assets/codemirror/codemirror.js"></script>
+    <script src="/assets/codemirror/javascript.js"></script>
+
+    <!--Scroll menu-->
     <script lang="javascript">
-      window.onload = function() {
-        // scroll "current" menu item into visible pane
-        var offset = document.getElementsByClassName('current')[0].offsetTop;
-        document.getElementsByClassName('menu')[0].scrollTop = offset - 15;
-      }
+        window.onload = function() {
+            // scroll "current" menu item into visible pane TODO fix this
+            var offset = document.getElementsByClassName('current')[0].offsetTop;
+            document.getElementsByClassName('menu')[0].scrollTop = offset - 15;
+        }
     </script>
-    
+
+    <!--main.js-->
+    <script src="/assets/main.js"></script>
 </head>
 <body>
 

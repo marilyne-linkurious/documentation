@@ -1,2 +1,2 @@
-var a = 22;
+var a = 23;
 console.log(a);
