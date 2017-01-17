@@ -12,4 +12,4 @@ or the [Talend connector](https://github.com/Zenika/talend-neo4j-connector).
 - If you want to get help from professionals, we can get you in touch with great people.
 - If you are still not sure about whether you can get your data in Linkurious, [contact us](/support), we will be happy to answer your questions.
 
-Finally, if you want to quickly try Linkurious Enterprise with an example dataset, you can download a [Neo4j-compatible example dataset](https://neo4j.com/developer/example-data/).
+Finally, if you want to quickly try {{lke}} with an example dataset, you can download a [Neo4j-compatible example dataset](https://neo4j.com/developer/example-data/).
