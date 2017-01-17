@@ -1,2 +1,6 @@
-var a = 22;
-console.log(a);
+req.get({
+    json: true,
+    uri: 'http://crunchbase.linkurio.us/api/status'
+}, function(err, res) {
+    console.log(res.body);
+});

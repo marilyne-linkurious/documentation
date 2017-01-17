@@ -45,6 +45,12 @@ var DEFAULT_TIMEOUT = 3 * 60 * 1000 // 3 minutes
 //
 
 function request(options, callback) {
+  var originalCallback = callback;
+  var logFunc = options.log;
+  callback = function(err, res) {try {originalCallback(err, res)} catch (e) {
+    logFunc(e); // shhh
+  }};
+
   // The entry-point to the API: prep the options object and pass the real work to run_xhr.
   if(typeof callback !== 'function')
     throw new Error('Bad callback given: ' + callback)
@@ -342,7 +348,9 @@ shortcuts.forEach(function(shortcut) {
     if(typeof opts === 'string')
       opts = {'method':method, 'uri':opts};
     else {
+      var log = opts.log;
       opts = JSON.parse(JSON.stringify(opts));
+      opts.log = log;
       opts.method = method;
     }
 
