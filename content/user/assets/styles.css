@@ -1,10 +1,14 @@
+/* latin */
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
 
 body {
-    color: #212121;
-    font-family: "Helvetica Neue", "Calibri Light", Roboto, sans-serif;
+    color: #313042;
+    background-color: #f2f2f2;
+    font-family: "Lato", "Helvetica Neue", Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     letter-spacing: 0.02em;
+    font-size: 16px;
 }
 
 .highlight {
@@ -16,7 +20,6 @@ body {
 }
 
 .menu {
-    /*border-right: 1px solid #eee;*/
     display: block;
     position: fixed;
     top:0;
@@ -25,27 +28,23 @@ body {
     max-height: 100%;
     overflow-x: hidden;
     overflow-y: scroll;
-    width: 300px;
-    /*border:1px solid blue;*/
+    width: 280px;
 }
 
 .main > .menu > div, .main > .content > div {
-    margin: 15px 15px 50px 15px;
+    margin: 30px 30px 60px 30px;
+}
+
+.content {
+    background-color: #fff;
+    max-width: 1000px;
+    margin-left: 300px;
+    margin-right: 20px;
 }
 
 /* multi-page version */
 .main > .content {
-    width: calc(100% - 300px);
-    display: block;
-    /*border:1px solid red;*/
-    padding: 0;
-    margin: 0;
-    right: 0;
-    top: 0;
     height: 100%;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    position: fixed;
 }
 
 /* single-page version */
@@ -69,21 +68,34 @@ h1, h2, h3, h4 {
 
 h1, h2, h3, h4 {
     padding-bottom: 0.3em;
-    /*font-size: 2em;*/
-    border-bottom: 1px solid #eee;
+    border-bottom: 2px solid #f2f2f2;
 }
 
 h1:hover a, h2:hover a, h3:hover a, h4:hover {
     opacity: 1;
 }
 
+.content p {
+    line-height: 1.6em;
+}
+
 .menu li {
-    margin-top: 15px;
+    padding: 5px 0;
+    line-height: 1.5em;
+}
+
+.menu div > ol > li > a {
     font-weight: bold;
 }
 
 .menu ul, .menu ol {
     margin-left: -20px;
+    list-style-type: none;
+}
+
+.menu > div > ul, 
+.menu > div > ol {
+    margin-left: -40px;
 }
 
 .menu ul ul, ol ol {
@@ -92,20 +104,42 @@ h1:hover a, h2:hover a, h3:hover a, h4:hover {
     margin-bottom: 10px;
 }
 
-a {
-    color: #4078c0;
-    text-decoration: none;
+.version.site {
+    position: absolute; 
+    top: 10px; 
+    right: 20px;
 }
 
-a:hover, a:active {
-    text-decoration: underline;
+.version.page {
+    position: absolute; 
+    top: 0; 
+    right: 0; 
+    padding: 10px;
+}
+
+
+a {
+  color: #EA5565;
+  text-decoration: none;
+}
+
+.menu a {
+    color: #313042;
+}
+
+a:hover,
+a:active {
+  color: #EA5565;
+  text-decoration: none;
 }
 
 a.current {
-    color: #212121;
+    color: #fff;
     text-decoration: none;
-    background-color: #ebedfb;
-    font-weight: bolder;
+    background-color: #EA5565;
+    padding: 5px;
+    left: -5px;
+    position: relative;
 }
 
 a.external {
@@ -114,12 +148,12 @@ a.external {
 }
 
 code {
-    color: #666;
-    background-color: #fff;
+    color: #000;
+    background-color: #f2f2f2;
     padding: 0 3px;
-    -webkit-box-shadow: 1px 1px 2px 0 #ddd;
-    -moz-box-shadow: 1px 1px 2px 0 #ddd;
-    box-shadow: 1px 1px 2px 0 #ddd;
+    -webkit-box-shadow: 1px 1px 2px 0 #aaa;
+    -moz-box-shadow: 1px 1px 2px 0 #aaa;
+    box-shadow: 1px 1px 2px 0 #aaa;
 }
 
 blockquote {
@@ -131,15 +165,50 @@ blockquote {
 }
 
 img {
-    max-width: 80%;
+    max-width: 100%;
     -webkit-box-shadow: 3px 3px 15px 0 #ccc;
     -moz-box-shadow: 3px 3px 15px 0 #ccc;
     box-shadow: 3px 3px 15px 0 #ccc;
+    border: 1px solid #ccc;
     display: block;
-    margin: 10px;
-    opacity: 0.8;
 }
 
 em {
     background-color: #f3ffdd;
 }
+
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #666666;
+  border: 0;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #000000;
+}
+::-webkit-scrollbar-track {
+  background: #DEDEDE;
+  border: 0;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #DEDEDE;
+}
+::-webkit-scrollbar-track:active {
+  background: #DEDEDE;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
