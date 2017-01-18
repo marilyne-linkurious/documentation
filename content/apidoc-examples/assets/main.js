@@ -3,10 +3,18 @@
  * @param {function} log Log function
  */
 function evalCode(src, log) {
-    src = 'try { with (sandbox) {' + src + '} } catch (e) {sandbox.console.log(e)}';
-    new Function('sandbox', src) ({
-        request: request.defaults({json: true, log: log}), console: {log: log}, window: null, document: null, alert: null
-    });
+    src = 'with (sandbox) {' + src + '}';
+    try {
+        new Function('sandbox', src)({
+            request: request.defaults({json: true, log: log, jar: true}),
+            console: {log: log},
+            window: null,
+            document: null,
+            alert: null
+        });
+    } catch (e) {
+        log(e)
+    }
 }
 
 window.onload = function() {

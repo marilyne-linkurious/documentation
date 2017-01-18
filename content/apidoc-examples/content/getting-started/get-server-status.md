@@ -1,3 +1,3 @@
-intro text
+intro text to get server status
 
-{{editfile:getserverstatus.js}}
+{{editfile:getstatus.js}}
