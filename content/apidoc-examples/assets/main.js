@@ -6,7 +6,7 @@ function evalCode(src, log) {
     src = 'with (sandbox) {' + src + '}';
     try {
         new Function('sandbox', src)({
-            request: request.defaults({json: true, log: log, jar: true}),
+            request: request.defaults({json: true, log: log}),
             console: {log: log},
             window: null,
             document: null,

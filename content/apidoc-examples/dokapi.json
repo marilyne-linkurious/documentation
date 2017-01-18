@@ -11,8 +11,27 @@
       "name": "Getting started",
       "children": [
         {"name": "Get server status", "key": "get-server-status", "content": "getting-started/get-server-status.md"},
-        {"name": "Discover data-sources", "key": "discover-data-sources", "content": "getting-started/discover-data-sources.md"},
-        {"name": "Login/Logout", "key": "login-logout", "content": "getting-started/login-logout.md"}
+        {"name": "Discover data-sources", "key": "discover-data-sources", "content": "getting-started/discover-data-sources.md"}
+      ]
+    },
+    {
+      "name": "Visualizations",
+      "children": [
+      ]
+    },
+    {
+      "name": "Search",
+      "children": [
+      ]
+    },
+    {
+      "name": "Alerts",
+      "children": [
+      ]
+    },
+    {
+      "name": "Widgets",
+      "children": [
       ]
     }
   ]
