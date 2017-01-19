@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{entry.title}} - Linkurious docs</title>
+    <title>{{entry.title}} - Linkurious user manual</title>
     <link rel="stylesheet" href="/assets/styles.css?{{now}}" type="text/css" />
     <link rel="stylesheet" href="/assets/print-styles.css?{{now}}" media="print" type="text/css" />
     <link rel="stylesheet" href="/assets/atom-light.css?{{now}}" type="text/css" />
+    <link rel="shortcut icon" href="/assets/favicon.ico">
     <script lang="javascript">
       window.onload = function() {
         // scroll "current" menu item into visible pane
@@ -16,23 +17,74 @@
 </head>
 <body>
 
-<div class="main">
-    <div class="version site">Linkurious v{{package.version}}</div>
+<header>
+    <a class="switch" href="#" onclick="toggleNav()">
+        <div class="burger-container">
+          <div class="burger-bar1"></div>
+          <div class="burger-bar2"></div>
+          <div class="burger-bar3"></div>
+        </div>
+        <span class="logo">
+            User manual of <img src="/assets/logo-linkurious.png" alt="Linkurious" height="12">
+        </span>
+    </a>
+    <nav class="switch-menu">
+        <ul>
+            <li><a href="https://linkurio.us">Home</a></li>
+            <li><a href="#">Administrator manual</a></li>
+            <li><a href="#">Server SDK</a></li>
+            <li><a href="#">Visualization SDK</a></li>
+        </ul>
+    </nav>
+    <nav class="content-menu">
+        <h1>{{entry.title}}</h1>
+    </nav>
+</header>
 
+<div class="main">
     <div class="menu">
+        <div class="info box-decorator">
+            Welcome to the user manual of Linkurious v{{package.version}}.
+            Click on the menu above to access other documentations.
+        </div>
         <div>
-            Linkurious user doc.
             {{menu}}
         </div>
     </div>
 
-    <div class="content">
+    <div class="content box-decorator">
         <div>
+            <span class="filler">&nbsp;</span>
             <h1>{{entry.title}}</h1>
             {{entry.html.body}}
         </div>
     </div>
+
+    <div class="content-nav">
+        {{entry.previous}}
+        {{entry.next}}
+    </div>
 </div>
+
+<script type="text/javascript">
+    function toggleNav() {
+        var switchMenu = document.getElementsByClassName("switch-menu")[0];
+        var contentMenu = document.getElementsByClassName("content-menu")[0];
+        var burger = document.getElementsByClassName("burger-container")[0];
+
+        if (!switchMenu.style.display || switchMenu.style.display == "none") {
+            switchMenu.style.display = "block";
+            contentMenu.style.display = "none";
+        }
+        else {
+            switchMenu.style.display = "none";
+            contentMenu.style.display = "block";
+        }
+        
+        burger.classList.toggle('burger-change');
+    }
+
+</script>
 
 </body>
 </html>

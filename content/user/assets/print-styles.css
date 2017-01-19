@@ -1,13 +1,45 @@
 body {
+  margin: auto;
+  padding: auto;
+  color: #000;
   background-color: #fff;
   font-family: Serif;
-  font-size: 15pt;
+  font-size: 12pt;
 }
 
-.menu {
+header,
+.menu,
+.content-nav {
   display: none;
 }
 
-a, code, blockquote {
+.content {
+  margin: 0!important;
+  padding: 0;
+  max-width: auto;
+  height: auto;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.content > div {
+  margin: 0;
+  padding: 0;
+}
+
+a, code, blockquote, em {
   color: #000;
+  background-color: #fff;
+}
+
+img, code {
+  border: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+h1, h2, h3, h4 {
+  padding: auto;
 }
