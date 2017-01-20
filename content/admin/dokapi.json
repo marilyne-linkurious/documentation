@@ -18,7 +18,9 @@
   "externalLinksToBlank": true,
   "siteTemplate": "site-template.html",
   "pageTemplate": "page-template.html",
-  "description": "main.md",
+  "main": {
+    "content": "main.md"
+  },
   "index": [
     {
       "name": "Getting started",
