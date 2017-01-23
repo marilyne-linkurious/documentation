@@ -11,7 +11,9 @@
       "name": "Getting started",
       "children": [
         {"name": "Get server status", "key": "get-server-status", "content": "getting-started/get-server-status.md"},
-        {"name": "Discover data-sources", "key": "discover-data-sources", "content": "getting-started/discover-data-sources.md"}
+        {"name": "Discover data-sources", "key": "discover-data-sources", "content": "getting-started/discover-data-sources.md"},
+        {"name": "User login", "key": "user-login", "content": "getting-started/user-login.md"},
+        {"name": "Obtain an API key", "key": "obtain-an-api-key", "content": "getting-started/obtain-an-api-key.md"}
       ]
     },
     {

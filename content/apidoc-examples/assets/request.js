@@ -60434,6 +60434,7 @@ function getXHR () {
 		// Note: this doesn't actually make an http request.
 		try {
 			xhr.open('GET', global.XDomainRequest ? '/' : 'https://example.com')
+			xhr.withCredentials = true
 		} catch(e) {
 			xhr = null
 		}
@@ -60608,7 +60609,7 @@ ClientRequest.prototype._onFinish = function () {
 			headers: headers,
 			body: body,
 			mode: 'cors',
-			credentials: opts.withCredentials ? 'include' : 'same-origin'
+			credentials: 'include'
 		}).then(function (response) {
 			self._fetchResponse = response
 			self._connect()
@@ -60619,6 +60620,7 @@ ClientRequest.prototype._onFinish = function () {
 		var xhr = self._xhr = new global.XMLHttpRequest()
 		try {
 			xhr.open(self._opts.method, self._opts.url, true)
+			xhr.withCredentials = true
 		} catch (err) {
 			process.nextTick(function () {
 				self.emit('error', err)
@@ -60629,9 +60631,6 @@ ClientRequest.prototype._onFinish = function () {
 		// Can't set responseType on really old browsers
 		if ('responseType' in xhr)
 			xhr.responseType = self._mode.split(':')[0]
-
-		if ('withCredentials' in xhr)
-			xhr.withCredentials = !!opts.withCredentials
 
 		if (self._mode === 'text' && 'overrideMimeType' in xhr)
 			xhr.overrideMimeType('text/plain; charset=x-user-defined')
