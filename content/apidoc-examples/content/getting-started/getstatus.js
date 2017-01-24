@@ -1,5 +1,5 @@
 request.get({
-    uri: 'http://crunchbase.linkurio.us/api/status'
+    uri: '{{baseurl}}/api/status'
 }, function(err, res) {
     console.log(res.body);
 });

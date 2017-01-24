@@ -1,11 +1,15 @@
 {
   "name": "Linkurious Apidoc Examples",
   "variables": {
+    "baseurl": "http://localhost:3000",
+    "apikey": "b3e3617ddd283c2ea0457e610ca8c139"
   },
   "assets": "assets",
   "siteTemplate": "site-template.html",
   "pageTemplate": "page-template.html",
-  "description": "main.md",
+  "main": {
+    "content": "main.md"
+  },
   "index": [
     {
       "name": "Getting started",
@@ -17,12 +21,12 @@
       ]
     },
     {
-      "name": "Visualizations",
+      "name": "Search",
       "children": [
       ]
     },
     {
-      "name": "Search",
+      "name": "Visualizations",
       "children": [
       ]
     },
