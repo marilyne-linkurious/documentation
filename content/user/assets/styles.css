@@ -157,6 +157,7 @@ header > nav > ul > li > a:hover {
 /* single-page version */
 body > .content {
     margin: 20px;
+    padding: 10px;
 }
 
 .content-nav {
