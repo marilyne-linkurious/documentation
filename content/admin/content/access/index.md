@@ -1,11 +1,10 @@
 
 ## Configuring access
 
-The user-access system is configured within the `access` configuration key in the configuration file ({{config}}):
+The user-access system is configured within the `access` configuration 
+key in the configuration file ({{config}}):
 
-- `authRequired` (default: `false`): `true` to reject requests anonymous sessions.
-   If `false`, all sessions will belong to a `"Unique User"` account.
-   Set to `false` to launch Linkurious for the first time and create account, or if there is a single user.
+- `authRequired` (default: `false`): `true` to reject requests anonymous sessions, see [how to enable authentication](/enabling-auth).
 - `dataEdition` (default: `true`): Enable the creation, edition, and deletion of nodes and edges in all data-sources.
    Permissions can fine-tuned for each user-group, see [the documentation about users and groups](/users).
    If `false`, all edition requests sent through Linkurious to the data-sources will be rejected.

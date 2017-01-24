@@ -5,6 +5,7 @@
     "download.link": "https://linkurio.us/my-account/",
     "es.product.link": "https://www.elastic.co/products/elasticsearch",
     "es": "Elasticsearch",
+    "lke": "Linkurious",
     "config.file": "production.json",
     "config": "`linkurious/data/config/production.json`",
     "graph.vendors": "Neo4j, DataStax, and AllegroGraph",
@@ -17,7 +18,9 @@
   "externalLinksToBlank": true,
   "siteTemplate": "site-template.html",
   "pageTemplate": "page-template.html",
-  "description": "main.md",
+  "main": {
+    "content": "main.md"
+  },
   "index": [
     {
       "name": "Getting started",
@@ -79,6 +82,7 @@
         {"name": "DataStax Enterprise Graph", "key": "search-dse", "content": "search/dse.md"},
         {"name": "AllegroGraph", "key": "search-allegrograph", "content": "search/allegrograph.md"},
         {"name": "Titan DB", "key": "search-titan", "content": "search/titan.md"},
+        {"name": "Properties disclosure", "key": "properties-disclosure", "content": "search/data-disclosure.md"},
         {"name": "Configuring ElasticSearch", "key": "es-config", "content": "search/es.md"},
         {"name": "Using ElasticSearch on AWS", "key": "es-on-aws", "content": "search/es-on-aws.md"}
       ]
@@ -105,6 +109,7 @@
       "key": "access",
       "content": "access/index.md",
       "children": [
+        {"name": "Enabling authentication", "key": "enabling-auth", "content": "access/enable-auth.md"},
         {"name": "Users, groups and rights", "key": "users", "content": "access/users.md"},
         {"name": "LDAP", "content": "access/ldap.md"},
         {"name": "SSO with Azure AD", "key": "sso-azure", "content": "access/sso-azure.md"},
