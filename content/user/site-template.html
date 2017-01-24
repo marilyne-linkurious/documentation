@@ -18,27 +18,31 @@
 <body>
 
 <header>
-    <a class="switch" href="#" onclick="toggleNav()">
-        <div class="burger-container">
-          <div class="burger-bar1"></div>
-          <div class="burger-bar2"></div>
-          <div class="burger-bar3"></div>
-        </div>
-        <span class="logo">
-            User manual of <img src="/assets/logo-linkurious.png" alt="Linkurious" height="12">
-        </span>
-    </a>
-    <nav class="switch-menu">
-        <ul>
-            <li><a href="https://linkurio.us">Home</a></li>
-            <li><a href="#">Administrator manual</a></li>
-            <li><a href="#">Server SDK</a></li>
-            <li><a href="#">Visualization SDK</a></li>
-        </ul>
-    </nav>
+    <div class="logo">
+        User manual of <img src="/assets/logo-linkurious.png" alt="Linkurious" height="12">
+    </div>
+
     <nav class="content-menu">
         <h1>{{entry.title}}</h1>
+
+        <div class="switch dropdown">
+          <button class="dropbtn">
+              <div class="burger-container">
+                  <div class="burger-bar1"></div>
+                  <div class="burger-bar2"></div>
+                  <div class="burger-bar3"></div>
+            </div>
+          </button>
+          <div class="dropdown-content">
+            <a href="#" class="separator">Other versions of this document</a>
+            <a href="#">Administrator manual</a>
+            <a href="#">Server SDK documentation</a>
+            <a href="#" class="separator">Visualization SDK (Ogma) documentation</a>
+            <a href="https://linkurio.us">Linkurious website</a>
+          </div>
+        </div>
     </nav>
+
 </header>
 
 <div class="main">

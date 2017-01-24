@@ -17,7 +17,7 @@ header {
     top: 0;
     height: 56px;
     width: 100%;
-    overflow-x: auto;
+    overflow-x: visible; /* for the dropdown menu */
     background-color: #1E1D32;
     color: #fff;
     border-bottom: 1px solid #141229;
@@ -41,7 +41,6 @@ header h1 {
     .content h1 { display: block; }
     .content .filler { height: 0; }
     .menu { width: 240px !important; }
-    .switch { padding: 0 0 0 10px !important; width: 240px !important; }
     .content { margin: 70px 10px 30px 250px !important; }
     .menu > div { margin: 10px !important; }
     .content-nav { margin: 0 10px 30px 250px !important; }
@@ -50,7 +49,6 @@ header h1 {
 @media (max-width: 640px) {
     body { font-size: 12px; }
     .menu { width: 200px !important; }
-    .switch { padding: 0 10px !important; width: 240px !important; }
     .content { margin: 60px 0 30px 200px !important; }
     .menu > div { margin: 10px !important; }
     .content-nav { margin: 0 20px 30px 220px !important; }
@@ -62,14 +60,16 @@ header h1 {
     .content .filler { height: 30px !important; }
 }
 
-.switch {
-    color: #fff;
-    width: 260px;
-    float: left;
-    font-weight: bold;
-    line-height: 56px;
-    margin: 0;
+.logo {
     padding: 0 20px;
+    float: left;
+    line-height: 56px;
+}
+
+.switch {
+    float: right;
+    padding: 0 20px;
+    cursor: pointer;
 }
 
 .switch:hover {
@@ -107,8 +107,8 @@ header > nav > ul > li > a:hover {
 }
 
 .content-menu {
-    float: left;
-    margin-left: 20px;
+    margin-left: 280px;
+    padding-left: 40px;
 }
 
 .highlight {
@@ -274,6 +274,13 @@ a.current {
     position: relative;
 }
 
+a.previous:hover,
+a.previous:active,
+a.next:hover,
+a.next:active {
+    text-decoration: underline;
+}
+
 code {
     color: #000;
     background-color: #f9f9f9;
@@ -307,13 +314,6 @@ em {
 
 /* BURGER ICON */
 
-.burger-container {
-    display: inline-block;
-    cursor: pointer;
-    margin: 12px 10px 0 0;
-    float: left;
-}
-
 .burger-bar1, .burger-bar2, .burger-bar3 {
     width: 30px;
     height: 4px;
@@ -336,6 +336,55 @@ em {
 
 a:hover .burger-bar1, a:hover .burger-bar2, a:hover .burger-bar3 {
     background-color: #EA5565;
+}
+
+
+/* Style The Dropdown Button */
+.dropbtn {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    height: 55px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    right: 0; /*Right-aligned Dropdown Content*/
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 340px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: #141229;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content .separator {
+    border-bottom: 2px solid #DEDEDE;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    color: #EA5565;
+    background-color: #f1f1f1;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
 
