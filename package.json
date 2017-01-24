@@ -22,6 +22,6 @@
   "dependencies": {
   },
   "devDependencies": {
-    "dokapi": "1.0.16"
+    "dokapi": "1.0.18"
   }
 }
