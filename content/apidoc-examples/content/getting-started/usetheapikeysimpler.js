@@ -1,7 +1,8 @@
 request.get({
   uri: '{{baseurl}}/api/{{datasource.readonly}}/graph/schema/nodeTypes/properties',
-  headers: {
-    Authorization: 'Basic ' + btoa('{{simpleuser.username}}:{{apikey}}')
+  auth: {
+    user: '{{simpleuser.username}}',
+    pass: '{{apikey}}'
   }
 }, function(err, res) {
   console.log(res.body);
