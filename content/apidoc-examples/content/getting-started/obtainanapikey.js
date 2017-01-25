@@ -2,8 +2,8 @@
 request.post({
   uri: '{{baseurl}}/api/auth/login',
   body: {
-    usernameOrEmail: 'admin',
-    password: 'demo_admin'
+    usernameOrEmail: '{{admin.username}}',
+    password: '{{admin.password}}'
   }
 }, function(err, res) {
   request.post({
@@ -11,9 +11,14 @@ request.post({
     body: {
       name: 'demo_app',
       groups: [1], // we can act on behalf of every user belonging to the default group
-      rights: ["visualization.read", "visualization.create", "visualization.edit", "visualization.delete", "visualization.list", "visualizationFolder.create", "visualizationFolder.edit", "visualizationFolder.delete", "visualizationShare.read", "visualizationShare.create", "visualizationShare.delete", "sandbox", "widget.read", "widget.create", "widget.edit", "widget.delete", "graphItem.read", "graphItem.create", "graphItem.edit", "graphItem.delete", "graphItem.search", "savedGraphQuery.read", "savedGraphQuery.create", "savedGraphQuery.edit", "savedGraphQuery.delete", "graph.rawRead", "graph.rawWrite", "graph.shortestPath", "alert.read", "alert.doAction", "schema"]
+      rights: ["visualization.read", "visualization.create", "visualization.edit", "visualization.delete", "visualization.list"]
     }
   }, function(err, res) {
     console.log(res.body);
+    console.log('');
+
+    request.get({
+      uri: '{{baseurl}}/api/auth/logout' // let's logout too
+    }, function(err, res) {});
   });
 });
