@@ -15,11 +15,11 @@
     "apidoc.url": "https://linkurious.github.io/server-apidoc/",
     "auth.providers": "LDAP, Active Directory, Windows Azure Active Directory, Google Suite"
   },
-  "assets": "assets",
+  "assets": "../shared/assets",
   "numbering": true,
   "externalLinksToBlank": true,
-  "siteTemplate": "site-template.html",
-  "pageTemplate": "page-template.html",
+  "siteTemplate": "../shared/site-template.html",
+  "pageTemplate": "../shared/page-template.html",
   "main": {
     "content": "main.md"
   },
