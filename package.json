@@ -26,7 +26,7 @@
   "dependencies": {
   },
   "devDependencies": {
-    "dokapi": "1.0.18",
+    "dokapi": "1.0.19",
     "fs-extra": "2.0.0"
   }
 }
