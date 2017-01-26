@@ -66,6 +66,10 @@ header h1 {
     line-height: 56px;
 }
 
+.logo::first-letter {
+    text-transform: uppercase;
+}
+
 .switch {
     float: right;
     padding: 0 20px;
@@ -73,7 +77,8 @@ header h1 {
 }
 
 .switch:hover {
-    background-color: #141229;
+    background-color: #42445a;
+    /*background-color: #141229;*/
 }
 
 header > nav.switch-menu {
@@ -104,6 +109,10 @@ header > nav > ul > li > a.active,
 header > nav > ul > li > a:hover {
     color: #EA5565;
     background: #141229;
+}
+
+header > nav .version {
+    margin: 0 20px;
 }
 
 .content-menu {
@@ -354,9 +363,16 @@ a:hover .burger-bar1, a:hover .burger-bar2, a:hover .burger-bar3 {
     display: inline-block;
 }
 
+div.dropdown-text {
+    float: left;
+    line-height: 55px;
+    font-size: 18px;
+    margin-right: 10px
+}
+
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-    right: 0; /*Right-aligned Dropdown Content*/
+    right: 0; /* Right-aligned Dropdown Content */
     display: none;
     position: absolute;
     background-color: #f9f9f9;
@@ -389,7 +405,7 @@ a:hover .burger-bar1, a:hover .burger-bar2, a:hover .burger-bar3 {
 }
 
 
-/* WEBKIT SCROLLBAR SYLING */
+/* WEBKIT SCROLLBAR STYLING */
 
 ::-webkit-scrollbar {
   width: 4px;
@@ -425,3 +441,60 @@ a:hover .burger-bar1, a:hover .burger-bar2, a:hover .burger-bar3 {
   background: transparent;
 }
 
+/* POPUP */
+
+#popupLayer {
+    z-index: 1000;
+    display: none;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000;
+    opacity: 0.7;
+}
+#versionPopup {
+    z-index: 1001;
+    display: none;
+    border: 1px solid #000;
+    background-color: #fff;
+    position: fixed;
+    /* center the element */
+    top: 100px;
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    /* give it dimensions */
+    height: 450px;
+    max-height: 80%;
+    width: 400px;
+    overflow-y: hidden;
+    box-shadow: 3px 3px 5px 0 #000;
+}
+#versionList {
+    height: 415px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+#versionList a:hover {
+    text-decoration: underline;
+}
+#versionPopup .head {
+    padding: 5px 10px;
+    background-color: rgb(30, 29, 50);
+    height: 25px;
+    color: #fff;
+}
+#versionClose {
+    display: block;
+    float: right;
+    cursor: pointer;
+}
+#versionClose:hover {
+    background-color: #fff;
+    color: rgb(30, 29, 50);
+}

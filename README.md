@@ -16,10 +16,13 @@ Generated sites/pages are in:
 ## Development
 
 Run the watcher for the target you want to edit:
-- user-doc site: `>npm run user-site-watch`
-- user-doc page: `>npm run user-page-watch`
-- admin-doc site: `>npm run admin-site-watch`
-- admin-doc page: `>npm run admin-page-watch`
+- user-doc site: `>npm run watch-user-site`
+- user-doc page: `>npm run watch-user-page`
+- user-doc (all): `>npm run watch-user`
+- admin-doc site: `>npm run watch-admin-site`
+- admin-doc page: `>npm run watch-admin-page`
+- admin-doc (all): `>npm run watch-admin`
+- all: `>npm run watch-all`
 
 Then edit any file in `content/*/`, all changes will be detected and
 the site/page will be re-generated in real-time.

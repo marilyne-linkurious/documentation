@@ -1,7 +1,9 @@
 {
-  "name": "Linkurious Administrator documentation",
+  "name": "Linkurious administration manual",
   "project": "git@github.com:Linkurious/linkurious-server.git#develop",
   "variables": {
+    "doc": "manual",
+    "docname": "administration manual",
     "download.link": "https://linkurio.us/my-account/",
     "es.product.link": "https://www.elastic.co/products/elasticsearch",
     "es": "Elasticsearch",
