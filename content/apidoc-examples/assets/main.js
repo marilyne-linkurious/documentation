@@ -54,6 +54,8 @@ function hyperlinkOverlay(cm) {
 
 /**
  * Add to any tag with id 'cm-url' an anchor that redirects to the content.
+ *
+ * TODO understand CodeMirror s.t. this doesn't have to be called manually
  */
 function hyperlinkRefresh() {
   _.forEach($('.cm-url'), function (cmurl) {
@@ -101,7 +103,12 @@ window.onload = function() {
             var textarea = $('<textarea>');
             responseDiv.append(textarea);
             // we create a textarea (an uneditable codemirror box) for the response
-            var responseBox = CodeMirror.fromTextArea(textarea.get(0), {readOnly: true});
+            var responseBox = CodeMirror.fromTextArea(textarea.get(0), {
+              readOnly: true,
+              lineNumbers: true,
+              foldGutter: true,
+              gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"]
+            });
             hyperlinkOverlay(responseBox);
 
             // we execute the code in a sandbox. console.log is redirected to the responseBox
@@ -116,7 +123,6 @@ window.onload = function() {
                     responseBox.setValue(responseBox.getValue() + JSON.stringify(text, null, 2) + '\n')
                 } else {
                     responseBox.setValue(responseBox.getValue() + text + '\n');
-                    hyperlinkRefresh();
                     hyperlinkRefresh();
                 }
             });

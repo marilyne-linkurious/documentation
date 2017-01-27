@@ -11,7 +11,8 @@
     "datasource.readwrite": "a445d586",
     "linkurious.apidoc": "[Linkurious Apidoc](http://linkurio.us)",
     "example.searchquery": "Matrix",
-    "example.nodeid": "719"
+    "example.nodeid": "719",
+    "example.cypherquery": "MATCH (n:Person)-[r]-(m) RETURN n, r, m LIMIT 5"
   },
   "assets": "assets",
   "siteTemplate": "site-template.html",
@@ -34,14 +35,17 @@
       "name": "Search",
       "children": [
         {"name": "Search nodes", "key": "search-nodes", "content": "search/search-nodes.md"},
-        {"name": "Get node properties", "key": "get-node-properties", "content": "search/get-node-properties.md"}
+        {"name": "Get node properties", "key": "get-node-properties", "content": "search/get-node-properties.md"},
+        {"name": "Get node neighborhood", "key": "get-node-neighborhood", "content": "search/get-node-neighborhood.md"}
       ]
     },
     {
       "name": "Visualizations",
       "children": [
-        {"name": "Open with a single node", "key": "open-with-a-single-node", "content": "visualizations/open-with-a-single-node.md"}
-    ]
+        {"name": "Open with a single node", "key": "open-with-a-single-node", "content": "visualizations/open-with-a-single-node.md"},
+        {"name": "Open with a search query", "key": "open-with-a-search-query", "content": "visualizations/open-with-a-search-query.md"},
+        {"name": "Open with a graph query", "key": "open-with-a-graph-query", "content": "visualizations/open-with-a-graph-query.md"}
+      ]
     },
     {
       "name": "Alerts",

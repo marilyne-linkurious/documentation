@@ -1,0 +1,2 @@
+
+{{editfile:openwithasearchquery.js}}
