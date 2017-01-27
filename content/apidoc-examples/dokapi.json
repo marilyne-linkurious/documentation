@@ -5,11 +5,13 @@
     "apikey": "b3e3617ddd283c2ea0457e610ca8c139",
     "admin.username": "admin",
     "admin.password": "demo_admin",
-    "simpleuser.username": "student@linkurio.us",
+    "simpleuser.email": "student@linkurio.us",
     "simpleuser.password": "student0",
     "datasource.readonly": "f788a1fb",
     "datasource.readwrite": "a445d586",
-    "linkurious.apidoc": "[Linkurious Apidoc](http://linkurio.us)"
+    "linkurious.apidoc": "[Linkurious Apidoc](http://linkurio.us)",
+    "example.searchquery": "Matrix",
+    "example.nodeid": "719"
   },
   "assets": "assets",
   "siteTemplate": "site-template.html",
@@ -30,13 +32,16 @@
     },
     {
       "name": "Search",
-      "children": [{"name": "Search nodes", "key": "search-nodes", "content": "search/search-nodes.md"}
+      "children": [
+        {"name": "Search nodes", "key": "search-nodes", "content": "search/search-nodes.md"},
+        {"name": "Get node properties", "key": "get-node-properties", "content": "search/get-node-properties.md"}
       ]
     },
     {
       "name": "Visualizations",
       "children": [
-      ]
+        {"name": "Open with a single node", "key": "open-with-a-single-node", "content": "visualizations/open-with-a-single-node.md"}
+    ]
     },
     {
       "name": "Alerts",

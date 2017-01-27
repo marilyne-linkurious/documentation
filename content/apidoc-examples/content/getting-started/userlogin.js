@@ -1,7 +1,7 @@
 request.post({
   uri: '{{baseurl}}/api/auth/login',
   body: {
-    usernameOrEmail: '{{simpleuser.username}}',
+    usernameOrEmail: '{{simpleuser.email}}',
     password: '{{simpleuser.password}}'
   }
 }, function(err, res) {

@@ -1,7 +1,12 @@
 request.get({
-  uri: '{{baseurl}}/api/{{datasource.readonly}}',
-  headers: {
-    Authorization: 'Basic 1:{{apikey}}'
+  uri: '{{baseurl}}/api/{{datasource.readonly}}/search/nodes',
+  auth: {
+    user: '{{simpleuser.email}}',
+    pass: '{{apikey}}'
+  },
+  qs: {
+    q: '{{example.searchquery}}',
+    fuzziness: 0.7
   }
 }, function(err, res) {
   console.log(res.body);

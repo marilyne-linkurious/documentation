@@ -17,6 +17,59 @@ function evalCode(src, log) {
     }
 }
 
+/**
+ * Add the class 'cm-url' to any link in a CodeMirror instance.
+ *
+ * @param {CodeMirror} cm
+ */
+function hyperlinkOverlay(cm) {
+  if (!cm) return;
+
+  const rx_word = "\" "; // Define what separates a word
+
+  function isUrl(s) {
+    return s.indexOf('http') === 0;
+  }
+
+  cm.addOverlay({
+        token: function(stream) {
+          let ch = stream.peek();
+          let word = "";
+
+          if (rx_word.includes(ch) || ch==='\uE000' || ch==='\uE001') {
+            stream.next();
+            return null;
+          }
+
+          while ((ch = stream.peek()) && !rx_word.includes(ch)) {
+            word += ch;
+            stream.next();
+          }
+
+          if (isUrl(word)) return "url"; // CSS class: cm-url
+        }},
+      { opaque : true }  // opaque will remove any spelling overlay etc
+  );
+}
+
+/**
+ * Add to any tag with id 'cm-url' an anchor that redirects to the content.
+ */
+function hyperlinkRefresh() {
+  _.forEach($('.cm-url'), function (cmurl) {
+    cmurl = $(cmurl);
+
+    // if it's not already wrapped in a A tag
+    if (cmurl.parent().prop("tagName") !== 'A') {
+      var newA = $('<a>');
+      newA.attr("href", "javascript:;");
+      newA.attr("onClick", `window.open('${cmurl.text()}');`);
+
+      cmurl.wrap(newA);
+    }
+  });
+}
+
 window.onload = function() {
     // scroll "current" menu item into visible pane
     var offset = document.getElementsByClassName('current')[0].offsetTop;
@@ -49,6 +102,7 @@ window.onload = function() {
             responseDiv.append(textarea);
             // we create a textarea (an uneditable codemirror box) for the response
             var responseBox = CodeMirror.fromTextArea(textarea.get(0), {readOnly: true});
+            hyperlinkOverlay(responseBox);
 
             // we execute the code in a sandbox. console.log is redirected to the responseBox
             evalCode(requestBox.getValue(), function(text) {
@@ -61,7 +115,9 @@ window.onload = function() {
                     // we pass it to JSON::stringify, that it's going to prettify it
                     responseBox.setValue(responseBox.getValue() + JSON.stringify(text, null, 2) + '\n')
                 } else {
-                    responseBox.setValue(responseBox.getValue() + text + '\n')
+                    responseBox.setValue(responseBox.getValue() + text + '\n');
+                    hyperlinkRefresh();
+                    hyperlinkRefresh();
                 }
             });
         });
