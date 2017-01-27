@@ -9,6 +9,7 @@ body {
 
 header,
 .menu,
+.version,
 .content-nav {
   display: none;
 }

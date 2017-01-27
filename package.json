@@ -8,26 +8,33 @@
     "admin-page": "node make.js admin page",
     "admin": "node make.js admin all",
 
+    "watch-admin-site": "node make.js admin site true",
+    "watch-admin-page": "node make.js admin page true",
+    "watch-admin": "node make.js admin all true",
+
     "user-site": "node make.js user site",
     "user-page": "node make.js user page",
     "user": "node make.js user all",
+
+    "watch-user-site": "node make.js user site  true",
+    "watch-user-page": "node make.js user page true",
+    "watch-user": "node make.js user all true",
 
     "apidoc-examples-site": "node make.js apidoc-examples site",
     "apidoc-examples-page": "node make.js apidoc-examples page",
     "apidoc-examples": "node make.js apidoc-examples all",
 
-    "all": "node make.js all all",
+    "watch-apidoc-examples-site": "node make.js apidoc-examples site  true",
+    "watch-apidoc-examples-page": "node make.js apidoc-examples page true",
+    "watch-apidoc-examples": "node make.js apidoc-examples all true",
 
-    "admin-site-watch": "node make.js admin site true",
-    "admin-page-watch": "node make.js admin page true",
-    "user-site-watch": "node make.js user site true",
-    "user-page-watch": "node make.js user page true",
-    "apidoc-examples-site-watch": "node make.js apidoc-examples site true",
-    "apidoc-examples-page-watch": "node make.js apidoc-examples page true"
+    "all": "node make.js all all",
+    "watch-all": "node make.js all all true"
   },
   "dependencies": {
   },
   "devDependencies": {
-    "dokapi": "1.0.16"
+    "dokapi": "1.0.19",
+    "fs-extra": "2.0.0"
   }
 }

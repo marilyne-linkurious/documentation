@@ -23,13 +23,13 @@ and values are objects with the following keys:
       "active": true,
       "displayName": true,
       "properties": ["name"]
-    "},"
+    },
     "COMPANY": {
       "active": true,
       "displayName": false,
       "properties": ["name", "country"]
-    "}"
-  "},"
+    }
+  },
   "edges": {
     "INVESTED_IN": {
       "active": true,

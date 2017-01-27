@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{entry.title}} - Linkurious {{docname}} {{package.version}}</title>
+    <link rel="stylesheet" href="/assets/styles.css?{{now}}" type="text/css" />
+    <link rel="stylesheet" href="/assets/print-styles.css?{{now}}" media="print" type="text/css" />
+    <link rel="stylesheet" href="/assets/atom-light.css?{{now}}" type="text/css" />
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+    <script lang="javascript" src="/assets/scripts.js"></script>
+    <script lang="javascript">
+      window.onload = initDocSite.bind(null, "{{entry.root.path}}");
+    </script>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        {{docname}} of <img src="/assets/logo-linkurious.png" alt="Linkurious" height="12">
+    </div>
+
+    <nav class="content-menu">
+        <h1>{{entry.title}}</h1>
+
+        <div class="switch dropdown">
+            <div class="dropdown-text">Version {{package.version}}</div>
+            <button class="dropbtn">
+                <div class="burger-container">
+                    <div class="burger-bar1"></div>
+                    <div class="burger-bar2"></div>
+                    <div class="burger-bar3"></div>
+                </div>
+            </button>
+            <div class="dropdown-content">
+                <a href="javascript:void(0)" id="versionOpen">Other versions of this {{doc}}</a>
+                <a href="{{entry.root.path}}/page.html" class="separator"><strong>Single-page</strong> version of this {{doc}}</a>
+                <a href="{{entry.root.path}}/../../user-manual/latest">User manual</a>
+                <a href="{{entry.root.path}}/../../admin-manual/latest">Administration manual</a>
+                <a href="{{entry.root.path}}/../../server-sdk/latest">Server SDK documentation</a>
+                <a href="{{entry.root.path}}/../../ogma/latest" class="separator">Visualization SDK (Ogma) documentation</a>
+                <a href="https://linkurio.us/">Linkurious website</a>
+            </div>
+        </div>
+    </nav>
+
+</header>
+
+<div id="popupLayer"></div>
+<div id="versionPopup">
+    <div class="head">All versions of this {{doc}}<div id="versionClose">X</div></div>
+    <div id="versionList"></div>
+</div>
+
+<div class="main">
+    <div class="menu">
+        <div class="info box-decorator">
+            Welcome to Linkurious' {{docname}} v{{package.version}}.
+            Use the menu to access other documentations.
+        </div>
+        <div>
+            {{menu}}
+        </div>
+    </div>
+
+    <div class="content box-decorator">
+        <div>
+            <span class="filler">&nbsp;</span>
+            <h1>{{entry.title}}</h1>
+            {{entry.html.body}}
+        </div>
+    </div>
+
+    <div class="content-nav">
+        {{entry.previous}}
+        {{entry.next}}
+    </div>
+</div>
+</body>
+</html>
