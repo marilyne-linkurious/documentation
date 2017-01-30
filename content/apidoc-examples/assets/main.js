@@ -53,6 +53,25 @@ function hyperlinkOverlay(cm) {
 }
 
 /**
+ * Add additional onLoad event handlers.
+ *
+ * @param func
+ */
+function addLoadEvent(func) {
+  var oldonload = window.onload;
+  if (typeof window.onload != 'function') {
+    window.onload = func;
+  } else {
+    window.onload = function() {
+      if (oldonload) {
+        oldonload();
+      }
+      func();
+    }
+  }
+}
+
+/**
  * Add to any tag with id 'cm-url' an anchor that redirects to the content.
  *
  * TODO understand CodeMirror s.t. this doesn't have to be called manually
@@ -72,11 +91,9 @@ function hyperlinkRefresh() {
   });
 }
 
-window.onload = function() {
-    // scroll "current" menu item into visible pane
-    var offset = document.getElementsByClassName('current')[0].offsetTop;
-    document.getElementsByClassName('menu')[0].scrollTop = offset - 15;
 
+
+addLoadEvent(function() {
     var allRequestBoxes = [];
 
     // for each textarea (created by dokapi)
@@ -136,4 +153,4 @@ window.onload = function() {
     _.forEach(allRequestBoxes, function(codeMirrorBox) {
        codeMirrorBox.refresh();
     });
-};
+});

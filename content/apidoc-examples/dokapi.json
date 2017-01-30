@@ -1,6 +1,9 @@
 {
   "name": "Linkurious Apidoc Examples",
   "variables": {
+    "package.version": "1.5.3",
+    "docname": "API examples",
+    "doc": "manual",
     "baseurl": "http://localhost:3000",
     "apikey": "b3e3617ddd283c2ea0457e610ca8c139",
     "admin.username": "admin",
