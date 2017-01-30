@@ -11,11 +11,11 @@
     "simpleuser.email": "student@linkurio.us",
     "simpleuser.password": "student0",
     "datasource.readonly": "f788a1fb",
-    "datasource.readwrite": "a445d586",
     "linkurious.apidoc": "[Linkurious Apidoc](http://linkurio.us)",
     "example.searchquery": "Matrix",
     "example.nodeid": "719",
-    "example.cypherquery": "MATCH (n:Person)-[r]-(m) RETURN n, r, m LIMIT 5"
+    "example.cypherquery": "MATCH (n:Person)-[r]-(m) RETURN n, r, m LIMIT 5",
+    "example.visualizationid": "20"
   },
   "assets": "assets",
   "siteTemplate": "site-template.html",
@@ -51,13 +51,15 @@
       ]
     },
     {
-      "name": "Alerts",
+      "name": "Widgets",
       "children": [
+        {"name": "Publish a widget", "key": "publish-a-widget", "content": "widgets/publish-a-widget.md"}
       ]
     },
     {
-      "name": "Widgets",
+      "name": "Alerts",
       "children": [
+        {"name": "Retrieve matches", "key": "retrieve-matches", "content": "alerts/retrieve-matches.md"}
       ]
     }
   ]
