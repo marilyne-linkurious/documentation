@@ -11,11 +11,12 @@
     "simpleuser.email": "student@linkurio.us",
     "simpleuser.password": "student0",
     "datasource.readonly": "f788a1fb",
-    "linkurious.apidoc": "[Linkurious Apidoc](http://linkurio.us)",
+    "linkurious.apidoc": "[Linkurious Apidoc](/api-documentation)",
     "example.searchquery": "Matrix",
     "example.nodeid": "719",
     "example.cypherquery": "MATCH (n:Person)-[r]-(m) RETURN n, r, m LIMIT 5",
-    "example.visualizationid": "20"
+    "example.visualizationid": "20",
+    "example.alertid": "1"
   },
   "assets": "assets",
   "siteTemplate": "site-template.html",
@@ -24,6 +25,12 @@
     "content": "main.md"
   },
   "index": [
+    {
+      "name": "API documentation",
+      "key": "api-documentation",
+      "hidden": true,
+      "content": "empty.md"
+    },
     {
       "name": "Getting started",
       "children": [
