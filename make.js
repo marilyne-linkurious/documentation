@@ -12,7 +12,9 @@ const outputType = args[1];
 const watch = args[2] === 'true';
 
 const OUTPUT_TYPES = ['site', 'page'];
-const DOC_NAMES = fs.readdirSync(path.resolve(__dirname, 'content'));
+const DOC_NAMES = fs
+  .readdirSync(path.resolve(__dirname, 'content'))
+  .filter(dir => dir !== 'shared');
 
 /**
  * @typedef {object} DokapiArgs
