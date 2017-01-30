@@ -1,7 +1,7 @@
 {
   "name": "Linkurious Apidoc Examples",
+  "project": "git@github.com:Linkurious/linkurious-server.git#develop",
   "variables": {
-    "package.version": "1.5.3",
     "docname": "API examples",
     "doc": "manual",
     "baseurl": "http://localhost:3000",
@@ -16,8 +16,9 @@
     "example.nodeid": "719",
     "example.cypherquery": "MATCH (n:Person)-[r]-(m) RETURN n, r, m LIMIT 5",
     "example.visualizationid": "20",
-    "example.alertid": "1"
+    "example.alertid": "3"
   },
+  "skipProjectVariables": true,
   "assets": "assets",
   "siteTemplate": "site-template.html",
   "pageTemplate": "page-template.html",
