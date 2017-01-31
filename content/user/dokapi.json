@@ -4,7 +4,9 @@
   "variables": {
     "doc": "manual",
     "docname": "user manual",
-    "lke": "Linkurious"
+    "lke": "Linkurious",
+    "admin.menu.tag": "span",
+    "user.menu.tag": "strong"
   },
   "skipProjectVariables": true,
   "assets": "../shared/assets",
