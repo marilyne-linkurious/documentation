@@ -1,5 +1,5 @@
 request.get({
-  uri: '{{baseurl}}/api/{{datasource.readonly}}/search/nodes',
+  uri: '{{baseurl}}/api/{{datasource.readonly}}/search/nodes/full',
   auth: {
     user: '{{simpleuser.email}}',
     pass: '{{apikey}}'
