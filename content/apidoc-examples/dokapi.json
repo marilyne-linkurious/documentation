@@ -1,6 +1,6 @@
 {
   "name": "Linkurious API Examples",
-  "project": "git@github.com:Linkurious/linkurious-server.git#develop",
+  "project": "../../../Linkurious-server",
   "variables": {
     "docname": "Server SDK",
     "doc": "documentation",
