@@ -187,6 +187,6 @@ function initDocSite(rootPath) {
   // make menu links AJAX links
   var menuLinks = document.querySelectorAll('.menu a');
   for (var i = 0, l = menuLinks.length; i < l; ++i) {
-    makeAjaxLink(menuLinks, menuLinks[i], ['content', 'content-nav']);
+    makeAjaxLink(menuLinks, menuLinks[i], ['content', 'content-nav', 'content-menu']);
   }
 }
