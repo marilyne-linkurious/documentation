@@ -55,7 +55,7 @@ makeAllArgs(docName, outputType).forEach(args => {
   const dok = new Dokapi(args);
   try {
     dok.run(() => {
-      if (args.outputType === 'page' && outputType === 'all') {
+      if ((args.outputType === 'page' || args.outputType === 'all') && outputType === 'all') {
         fs.copySync(
           path.resolve(args.output, 'page', 'index.html'),
           path.resolve(args.output, 'site', 'page.html')

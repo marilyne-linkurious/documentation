@@ -1,6 +1,6 @@
 {
   "name": "Linkurious Apidoc Examples",
-  "project": "git@github.com:Linkurious/linkurious-server.git#develop",
+  "project": "../../../Linkurious-server",
   "variables": {
     "docname": "API examples",
     "doc": "manual",

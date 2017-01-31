@@ -1,6 +1,6 @@
 {
   "name": "Linkurious administration manual",
-  "project": "git@github.com:Linkurious/linkurious-server.git#develop",
+  "project": "../../../Linkurious-server",
   "variables": {
     "doc": "manual",
     "docname": "administration manual",

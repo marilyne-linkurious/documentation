@@ -1,11 +1,12 @@
 {
   "name": "Linkurious user manual",
-  "project": "git@github.com:Linkurious/linkurious-client.git#develop",
+  "project": "../../../Linkurious-server",
   "variables": {
     "doc": "manual",
     "docname": "user manual",
     "lke": "Linkurious"
   },
+  "skipProjectVariables": true,
   "assets": "../shared/assets",
   "numbering": true,
   "externalLinksToBlank": true,
