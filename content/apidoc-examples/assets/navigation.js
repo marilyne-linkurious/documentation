@@ -38,13 +38,6 @@ function getVersions(rootPath, cb) {
   oReq.send();
 }
 
-/**
- * @param {string} itemId
- * @param {function} fn
- */
-function onClick(itemId, fn) {
-  document.getElementById(itemId).addEventListener('click', fn, false);
-}
 
 /**
  *
@@ -118,9 +111,20 @@ function makeAjaxLink(links, link, classes) {
 
       // reset scroll
       document.body.scrollTop = 0;
+
+      // init code edition
+      initCodeEditors();
     });
 
   }, false);
+}
+
+/**
+ * @param {string} itemId
+ * @param {function} fn
+ */
+function onClick(itemId, fn) {
+  document.getElementById(itemId).addEventListener('click', fn, false);
 }
 
 /**
@@ -171,7 +175,7 @@ function initDocSite(rootPath) {
         rootPath,
         '/../',
         versions[i],
-        '">Manual for version <strong>',
+        '">Documentation for version <strong>',
         versions[i],
         '</strong></a></li>\n'
       );
@@ -183,6 +187,6 @@ function initDocSite(rootPath) {
   // make menu links AJAX links
   var menuLinks = document.querySelectorAll('.menu a');
   for (var i = 0, l = menuLinks.length; i < l; ++i) {
-    makeAjaxLink(menuLinks, menuLinks[i], ['content', 'content-nav', 'content-title']);
+    makeAjaxLink(menuLinks, menuLinks[i], ['content', 'content-nav']);
   }
 }

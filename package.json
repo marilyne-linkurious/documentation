@@ -20,6 +20,14 @@
     "watch-user-page": "node make.js user page true",
     "watch-user": "node make.js user all true",
 
+    "apidoc-examples-site": "node make.js apidoc-examples site",
+    "apidoc-examples-page": "node make.js apidoc-examples page",
+    "apidoc-examples": "node make.js apidoc-examples all",
+
+    "watch-apidoc-examples-site": "node make.js apidoc-examples site  true",
+    "watch-apidoc-examples-page": "node make.js apidoc-examples page true",
+    "watch-apidoc-examples": "node make.js apidoc-examples all true",
+
     "all": "node make.js all all",
     "watch-all": "node make.js all all true"
   },
