@@ -17,6 +17,7 @@ header {
     top: 0;
     height: 56px;
     width: 100%;
+    z-index: 1000; /* fix a bug with scrolling */
     overflow-x: visible; /* for the dropdown menu */
     background-color: #1E1D32;
     color: #fff;
