@@ -17,7 +17,7 @@
           }
 
           var ct = oReq.getResponseHeader('Content-Type');
-          if (ct !== CT_JSON) {
+          if ((ct + '').indexOf(CT_JSON) === 0) {
             return cb(new Error('Unexpected Content-Type ' + ct), oReq.responseText);
           }
 
@@ -41,7 +41,7 @@
         getVersions(docSite, function(err, versions) {
           if (err || !versions || !versions.length) {
             console.log('Could not get versions for ' + docSite);
-            //versions = ['1.5.5'];
+            return;
           }
           var elements = document.getElementsByClassName(cssClass);
           for (var i = 0, l = elements.length; i < l; ++i) {
