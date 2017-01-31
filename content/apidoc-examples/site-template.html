@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{entry.title}} - Linkurious {{docname}} {{package.version}}</title>
+    <link rel="stylesheet" href="/assets/styles.css?{{now}}" type="text/css" />
+    <link rel="stylesheet" href="/assets/print-styles.css?{{now}}" media="print" type="text/css" />
+    <link rel="stylesheet" href="/assets/atom-light.css?{{now}}" type="text/css" />
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+
+    <!-- CUSTOM CODE FOR APIDOC EXAMPLES -->
+    <script src="/assets/lodash.min.js"></script>
+    <script src="/assets/jquery-3.1.1.min.js"></script>
+    <!--Codemirror-->
+    <link rel="stylesheet" href="/assets/codemirror/codemirror.css">
+    <script src="/assets/codemirror/codemirror.js"></script>
+    <script src="/assets/codemirror/javascript.js"></script>
+    <script src="/assets/codemirror/fold/foldcode.js"></script>
+    <script src="/assets/codemirror/fold/foldgutter.js"></script>
+    <script src="/assets/codemirror/fold/brace-fold.js"></script>
+    <link rel="stylesheet" href="/assets/codemirror/fold/foldgutter.css">
+    <!--request.js (browserify + tweak for error logging + uglifyjs)-->
+    <script src="/assets/request.min.js"></script>
+
+    <script src="/assets/code-edition.js"></script>
+    <script src="/assets/navigation.js"></script>
+    <script lang="javascript">
+      window.addEventListener('load', function() {
+        initDocSite("{{entry.root.path}}");
+        initCodeEditors()
+      }, false);
+    </script>
+
+    <!-- END CUSTOM CODE FOR APIDOC EXAMPLES -->
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        {{docname}} of <img src="/assets/linkurious-logo.svg" alt="Linkurious" height="12">
+    </div>
+
+    <nav class="content-menu">
+        <ul>
+            <li><a href="{{entry.root.path}}/apidoc">API Documentation</a></li>
+            <li><a class="active">API Examples</a></li>
+        </ul>
+
+        <div class="switch dropdown">
+            <button class="dropbtn">
+                <div class="dropdown-text">Version {{package.version}}</div>
+                <div class="burger-container">
+                    <div class="burger-bar1"></div>
+                    <div class="burger-bar2"></div>
+                    <div class="burger-bar3"></div>
+                </div>
+            </button>
+            <div class="dropdown-content">
+                <a href="javascript:void(0)" id="versionOpen">Other versions of this {{doc}}</a>
+                <a href="{{entry.root.path}}/page.html" class="separator"><strong>Single-page</strong> version of this {{doc}}</a>
+                <a href="{{entry.root.path}}/../../user-manual/latest">User manual</a>
+                <a href="{{entry.root.path}}/../../admin-manual/latest">Administration manual</a>
+                <a href="{{entry.root.path}}/../../server-sdk/latest">Server SDK documentation</a>
+                <a href="{{entry.root.path}}/../../ogma/latest" class="separator">Visualization SDK (Ogma) documentation</a>
+                <a href="https://linkurio.us/">Linkurious website</a>
+            </div>
+        </div>
+    </nav>
+
+</header>
+
+<div id="popupLayer"></div>
+<div id="versionPopup">
+    <div class="head">All versions of this {{doc}}<div id="versionClose">X</div></div>
+    <div id="versionList"></div>
+</div>
+
+<div class="main">
+    <div class="menu">
+        <div class="info box-decorator">
+            Welcome to Linkurious' {{docname}} {{doc}} v{{package.version}}.
+            Use the menu to access other documentations.
+        </div>
+        <div>
+            {{menu}}
+        </div>
+    </div>
+
+    <div class="content box-decorator">
+        <div>
+            <span class="filler">&nbsp;</span>
+            <h1>{{entry.title}}</h1>
+            {{entry.html.body}}
+        </div>
+    </div>
+
+    <div class="content-nav">
+        {{entry.previous}}
+        {{entry.next}}
+    </div>
+</div>
+</body>
+</html>

@@ -1,7 +1,9 @@
 {
-  "name": "Linkurious Administrator documentation",
-  "project": "git@github.com:Linkurious/linkurious-server.git#develop",
+  "name": "Linkurious administration manual",
+  "project": "../../../Linkurious-server",
   "variables": {
+    "doc": "manual",
+    "docname": "administration manual",
     "download.link": "https://linkurio.us/my-account/",
     "es.product.link": "https://www.elastic.co/products/elasticsearch",
     "es": "Elasticsearch",
@@ -13,11 +15,11 @@
     "apidoc.url": "https://linkurious.github.io/server-apidoc/",
     "auth.providers": "LDAP, Active Directory, Windows Azure Active Directory, Google Suite"
   },
-  "assets": "assets",
+  "assets": "../shared/assets",
   "numbering": true,
   "externalLinksToBlank": true,
-  "siteTemplate": "site-template.html",
-  "pageTemplate": "page-template.html",
+  "siteTemplate": "../shared/site-template.html",
+  "pageTemplate": "../shared/page-template.html",
   "main": {
     "content": "main.md"
   },

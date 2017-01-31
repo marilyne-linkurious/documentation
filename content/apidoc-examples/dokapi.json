@@ -1,0 +1,75 @@
+{
+  "name": "Linkurious API Examples",
+  "project": "../../../Linkurious-server",
+  "variables": {
+    "docname": "Server SDK",
+    "doc": "documentation",
+    "baseurl": "http://localhost:3000",
+    "apikey": "b3e3617ddd283c2ea0457e610ca8c139",
+    "admin.username": "admin",
+    "admin.password": "demo_admin",
+    "simpleuser.email": "student@linkurio.us",
+    "simpleuser.password": "student0",
+    "datasource.readonly": "f788a1fb",
+    "linkurious.apidoc": "[Linkurious API documentation](/apidoc)",
+    "example.searchquery": "Matrix",
+    "example.nodeid": "719",
+    "example.cypherquery": "MATCH (n:Person)-[r]-(m) RETURN n, r, m LIMIT 5",
+    "example.visualizationid": "20",
+    "example.alertid": "3"
+  },
+  "externalLinksToBlank": true,
+  "skipProjectVariables": true,
+  "assets": "assets",
+  "siteTemplate": "site-template.html",
+  "pageTemplate": "page-template.html",
+  "main": {
+    "content": "main.md"
+  },
+  "index": [
+    {
+      "name": "API documentation",
+      "key": "apidoc",
+      "hidden": true,
+      "content": "empty.md"
+    },
+    {
+      "name": "Getting started",
+      "children": [
+        {"name": "Get server status", "key": "get-server-status", "content": "getting-started/get-server-status.md"},
+        {"name": "Discover data-sources", "key": "discover-data-sources", "content": "getting-started/discover-data-sources.md"},
+        {"name": "User login", "key": "user-login", "content": "getting-started/user-login.md"},
+        {"name": "Obtain an API key", "key": "obtain-an-api-key", "content": "getting-started/obtain-an-api-key.md"},
+        {"name": "Use the API key", "key": "use-the-api-key", "content": "getting-started/use-the-api-key.md"}
+      ]
+    },
+    {
+      "name": "Search",
+      "children": [
+        {"name": "Search for nodes", "key": "search-nodes", "content": "search/search-nodes.md"},
+        {"name": "Get node properties", "key": "get-node-properties", "content": "search/get-node-properties.md"},
+        {"name": "Get node neighborhood", "key": "get-node-neighborhood", "content": "search/get-node-neighborhood.md"}
+      ]
+    },
+    {
+      "name": "Visualizations",
+      "children": [
+        {"name": "Open with a single node", "key": "open-with-a-single-node", "content": "visualizations/open-with-a-single-node.md"},
+        {"name": "Open with a search query", "key": "open-with-a-search-query", "content": "visualizations/open-with-a-search-query.md"},
+        {"name": "Open with a graph query", "key": "open-with-a-graph-query", "content": "visualizations/open-with-a-graph-query.md"}
+      ]
+    },
+    {
+      "name": "Widgets",
+      "children": [
+        {"name": "Publish a widget", "key": "publish-a-widget", "content": "widgets/publish-a-widget.md"}
+      ]
+    },
+    {
+      "name": "Alerts",
+      "children": [
+        {"name": "Retrieve matches", "key": "retrieve-matches", "content": "alerts/retrieve-matches.md"}
+      ]
+    }
+  ]
+}
