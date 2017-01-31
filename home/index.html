@@ -17,7 +17,7 @@
           }
 
           var ct = oReq.getResponseHeader('Content-Type');
-          if ((ct + '').indexOf(CT_JSON) === 0) {
+          if ((ct + '').indexOf(CT_JSON) !== 0) {
             return cb(new Error('Unexpected Content-Type ' + ct), oReq.responseText);
           }
 
