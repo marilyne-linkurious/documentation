@@ -1,7 +1,7 @@
 The preferred way to use the Linkurious APIs is to access them via API key.
-First, though, we have to obtain the API key by creating an **application**. To do so, we will use the `POST /api/admin/applications` API.
+First we have to obtain the API key by creating an **application**. To do so, we will use the `POST /api/admin/applications` API.
 
-To use thi API, though, we need to be authenticated as an **admin** by using HTTP cookie authentication.
+To use thi API, however, we need to be authenticated as an **admin** by using HTTP cookie authentication.
 
 When we are authenticated, we can create the application. Applications are used to access a subset of the Linkurious APIs on behalf of given groups of users. 
 The administrator can decide which access-rights can be delegated to a given application and for which group of users.

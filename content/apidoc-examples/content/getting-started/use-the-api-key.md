@@ -1,4 +1,4 @@
-Here we learn how to use an API key to access a given resource. In this example we want to use
+Let's see how to use an API key to access a given resource with an example. We will try to access
 the `GET /graph/schema/nodeTypes/properties` API. To do so, we require an API key that has the `schema` 
 access-right.
 
