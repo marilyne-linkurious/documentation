@@ -38,6 +38,87 @@ function getVersions(rootPath, cb) {
   oReq.send();
 }
 
+
+/**
+ *
+ * @param {string} url
+ * @param {function(Error, XMLHttpRequest)} cb
+ */
+function httpReq(url, cb) {
+  var oReq = new XMLHttpRequest();
+
+  oReq.addEventListener("load", function() {
+    if (oReq.status !== 200) {
+      return cb(new Error('Unexpected HTTP status: ' + oReq.status), oReq);
+    }
+    cb(null, oReq);
+  });
+
+  oReq.addEventListener("error", function(e) {
+    cb(e, null);
+  });
+
+  //console.log(JSON.stringify(url, null, ' '));
+  oReq.open("GET", url);
+  oReq.send();
+}
+
+var useAjaxLinks = true;
+
+/**
+ * @param {NodeList} links
+ * @param {HTMLAnchorElement} link
+ * @param {string[]} classes
+ */
+function makeAjaxLink(links, link, classes) {
+  var parser = new DOMParser();
+  var url = link.href;
+  link.addEventListener('click', function(event) {
+    if (useAjaxLinks) {
+      event.preventDefault();
+    } else {
+      return true;
+    }
+
+    for (var i = 0, l = links.length; i < l; ++i) {
+      if (link === links[i]) {
+        links[i].className = 'current';
+      } else {
+        links[i].className = '';
+      }
+    }
+
+    httpReq(url, function(err, req) {
+      if (err) {
+        console.log('state change error: ' + err.message);
+        useAjaxLinks = false;
+        return;
+      }
+
+      // parse response doc
+      var newDoc = parser.parseFromString(req.responseText, "text/html");
+
+      // set navigation
+      document.title = newDoc.title;
+      if (!url.endsWith('/')) { url = url + '/'; }
+      window.history.pushState({}, newDoc.title, url);
+
+      // replace content
+      for (var i = 0, l = classes.length; i < l; ++i) {
+        document.getElementsByClassName(classes[i])[0].innerHTML = newDoc
+          .getElementsByClassName(classes[i])[0].innerHTML;
+      }
+
+      // reset scroll
+      document.body.scrollTop = 0;
+
+      // init code edition
+      initCodeEditors();
+    });
+
+  }, false);
+}
+
 /**
  * @param {string} itemId
  * @param {function} fn
@@ -94,7 +175,7 @@ function initDocSite(rootPath) {
         rootPath,
         '/../',
         versions[i],
-        '">Manual for version <strong>',
+        '">Documentation for version <strong>',
         versions[i],
         '</strong></a></li>\n'
       );
@@ -102,4 +183,10 @@ function initDocSite(rootPath) {
     html.push('</ul>');
     list.innerHTML = html.join('');
   });
+
+  // make menu links AJAX links
+  var menuLinks = document.querySelectorAll('.menu a');
+  for (var i = 0, l = menuLinks.length; i < l; ++i) {
+    makeAjaxLink(menuLinks, menuLinks[i], ['content', 'content-nav']);
+  }
 }

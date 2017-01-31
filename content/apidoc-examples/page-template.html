@@ -7,10 +7,6 @@
     <link rel="stylesheet" href="/assets/print-styles.css?{{now}}" media="print" type="text/css" />
     <link rel="stylesheet" href="/assets/atom-light.css?{{now}}" type="text/css" />
     <link rel="shortcut icon" href="/assets/favicon.ico" />
-    <script lang="javascript" src="/assets/scripts.js"></script>
-    <script lang="javascript">
-      window.onload = initDocSite.bind(null, "");
-    </script>
     <style type="text/css">
         .content > h1 {
             display: block;
@@ -24,13 +20,8 @@
     </style>
 
     <!-- CUSTOM CODE FOR APIDOC EXAMPLES -->
-
-    <!--Lodash-->
     <script src="/assets/lodash.min.js"></script>
-
-    <!--jQuery-->
     <script src="/assets/jquery-3.1.1.min.js"></script>
-
     <!--Codemirror-->
     <link rel="stylesheet" href="/assets/codemirror/codemirror.css">
     <script src="/assets/codemirror/codemirror.js"></script>
@@ -39,12 +30,16 @@
     <script src="/assets/codemirror/fold/foldgutter.js"></script>
     <script src="/assets/codemirror/fold/brace-fold.js"></script>
     <link rel="stylesheet" href="/assets/codemirror/fold/foldgutter.css">
-
     <!--request.js (browserify + tweak for error logging + uglifyjs)-->
     <script src="/assets/request.min.js"></script>
-
-    <!--main.js-->
-    <script src="/assets/main.js"></script>
+    <script src="/assets/code-edition.js"></script>
+    <script src="/assets/navigation.js"></script>
+    <script lang="javascript">
+      window.addEventListener('load', function() {
+        initDocSite("");
+        initCodeEditors()
+      }, false);
+    </script>
 
     <!-- END CUSTOM CODE FOR APIDOC EXAMPLES -->
 </head>
@@ -52,15 +47,18 @@
 
 <header>
     <div class="logo">
-        {{docname}} of <img src="/assets/logo-linkurious.png" alt="Linkurious" height="12">
+        {{docname}} of <img src="/assets/linkurious-logo.svg" alt="Linkurious" height="12">
     </div>
 
     <nav class="content-menu">
-        <h1>Linkurious {{docname}}</h1>
+        <ul>
+            <li><a href="/apidoc">API Documentation</a></li>
+            <li><a class="active">API Examples</a></li>
+        </ul>
 
         <div class="switch dropdown">
-            <div class="dropdown-text">Version {{package.version}}</div>
             <button class="dropbtn">
+                <div class="dropdown-text">Version {{package.version}}</div>
                 <div class="burger-container">
                     <div class="burger-bar1"></div>
                     <div class="burger-bar2"></div>
@@ -87,7 +85,7 @@
     <div id="versionList"></div>
 </div>
 
-<div class="content box-decorator"  style="display: none"> <!-- CUSTOM STYLE FOR APIDOC EXAMPLES -->
+<div class="content box-decorator"  style="display: none">
     {{body}}
 </div>
 </body>

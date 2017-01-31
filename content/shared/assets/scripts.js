@@ -73,6 +73,7 @@ function httpReq(url, cb) {
 var useAjaxLinks = true;
 
 /**
+ * @param {NodeList} links
  * @param {HTMLAnchorElement} link
  * @param {string[]} classes
  */
@@ -180,7 +181,6 @@ function initDocSite(rootPath) {
   });
 
   // make menu links AJAX links
-  var link;
   var menuLinks = document.querySelectorAll('.menu a');
   for (var i = 0, l = menuLinks.length; i < l; ++i) {
     makeAjaxLink(menuLinks, menuLinks[i], ['content', 'content-nav', 'content-title']);

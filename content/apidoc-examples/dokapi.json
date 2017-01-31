@@ -1,9 +1,9 @@
 {
-  "name": "Linkurious Apidoc Examples",
+  "name": "Linkurious API Examples",
   "project": "git@github.com:Linkurious/linkurious-server.git#develop",
   "variables": {
-    "docname": "API examples",
-    "doc": "manual",
+    "docname": "Server SDK",
+    "doc": "documentation",
     "baseurl": "http://localhost:3000",
     "apikey": "b3e3617ddd283c2ea0457e610ca8c139",
     "admin.username": "admin",
@@ -11,13 +11,14 @@
     "simpleuser.email": "student@linkurio.us",
     "simpleuser.password": "student0",
     "datasource.readonly": "f788a1fb",
-    "linkurious.apidoc": "[Linkurious Apidoc](/api-documentation)",
+    "linkurious.apidoc": "[Linkurious API documentation](/apidoc)",
     "example.searchquery": "Matrix",
     "example.nodeid": "719",
     "example.cypherquery": "MATCH (n:Person)-[r]-(m) RETURN n, r, m LIMIT 5",
     "example.visualizationid": "20",
     "example.alertid": "3"
   },
+  "externalLinksToBlank": true,
   "skipProjectVariables": true,
   "assets": "assets",
   "siteTemplate": "site-template.html",
@@ -28,7 +29,7 @@
   "index": [
     {
       "name": "API documentation",
-      "key": "api-documentation",
+      "key": "apidoc",
       "hidden": true,
       "content": "empty.md"
     },
@@ -45,7 +46,7 @@
     {
       "name": "Search",
       "children": [
-        {"name": "Search nodes", "key": "search-nodes", "content": "search/search-nodes.md"},
+        {"name": "Search for nodes", "key": "search-nodes", "content": "search/search-nodes.md"},
         {"name": "Get node properties", "key": "get-node-properties", "content": "search/get-node-properties.md"},
         {"name": "Get node neighborhood", "key": "get-node-neighborhood", "content": "search/get-node-neighborhood.md"}
       ]
