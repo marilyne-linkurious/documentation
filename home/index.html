@@ -13,7 +13,7 @@
             if (typeof qs === 'string' && qs.indexOf(prefix) === 0) {
               var orgUrl = decodeURIComponent(qs.slice(prefix.length));
               var msg = 'The page located at "' + orgUrl + '" was not found.';
-              document.getElementById('error').innerHTML = msg;
+              document.getElementById('error').innerHTML = '<div class="error">' + msg + '</div>';
             }
         }, false);
     </script>

@@ -51,7 +51,7 @@ header h1 {
     .card { height: 130px !important; }
 }
 
-#error {
+.error {
     /*margin: 0 auto 20px auto;*/
     /*border: 1px solid red;*/
     /*text-align: center;*/
