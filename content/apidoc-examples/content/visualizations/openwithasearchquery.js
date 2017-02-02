@@ -10,7 +10,7 @@ request.post({
   var searchQuery = '{{example.searchquery}}';
   var searchFuzziness = 0.7;
   console.log('Visualization populated by the search query: "' + searchQuery + '"');
-  var url = '{{baseurl}}/workspace/new' +
+  var url = '{{baseurlnossl}}/workspace/new' +
       '?source={{datasource.readonly}}' +
       '&populate=searchNodes' +
       '&search_query=' + encodeURIComponent(searchQuery) +

@@ -9,7 +9,7 @@ request.post({
   // open a new visualization with one node
   var nodeId = {{example.nodeid}};
   console.log('Visualization populated by the node ' + nodeId);
-  var urlSingleNode = '{{baseurl}}/workspace/new' +
+  var urlSingleNode = '{{baseurlnossl}}/workspace/new' +
       '?source={{datasource.readonly}}' +
       '&populate=nodeId' +
       '&item_id=' + nodeId;
@@ -18,7 +18,7 @@ request.post({
 
   // open a new visualization with one node and its neighborhood
   console.log('Visualization populated by the node ' + nodeId + ' and its neighborhood');
-  var urlNodeAndNeighbors = '{{baseurl}}/workspace/new' +
+  var urlNodeAndNeighbors = '{{baseurlnossl}}/workspace/new' +
       '?source={{datasource.readonly}}' +
       '&populate=expandNodeId' +
       '&item_id=' + nodeId;
