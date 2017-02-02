@@ -6,7 +6,7 @@
     "doc": "documentation",
     "baseurl": "https://crunchbase.linkurio.us:3443",
     "baseurlnossl": "http://crunchbase.linkurio.us",
-    "apikey": "b3e3617ddd283c2ea0457e610ca8c139",
+    "apikey": "2c24afc069a3f0181fd60d0f3ee7a9cf",
     "admin.username": "admin",
     "admin.password": "demo_admin",
     "simpleuser.email": "student@linkurio.us",
