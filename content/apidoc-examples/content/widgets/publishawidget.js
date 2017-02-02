@@ -61,7 +61,7 @@ request.post({
         }
       }, function(err, postWidgetRes) {
         console.log('Widget populated by the node {{example.nodeid}} and its neighborhood');
-        var widgetUrl = '{{baseurl}}/widget/' + postWidgetRes.body;
+        var widgetUrl = '{{baseurlnossl}}/widget/' + postWidgetRes.body;
 
         console.log('Click here to open it: ' + widgetUrl);
       });

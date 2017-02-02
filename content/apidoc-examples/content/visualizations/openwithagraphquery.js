@@ -10,7 +10,7 @@ request.post({
   var graphQuery = '{{example.cypherquery}}';
   var graphDialect = 'cypher';
   console.log('Visualization populated by the graph query: "' + graphQuery + '"');
-  var url = '{{baseurl}}/workspace/new' +
+  var url = '{{baseurlnossl}}/workspace/new' +
       '?source={{datasource.readonly}}' +
       '&populate=pattern' +
       '&pattern_query=' + encodeURIComponent(graphQuery) +
