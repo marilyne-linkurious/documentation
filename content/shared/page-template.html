@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="/assets/print-styles.css?{{now}}" media="print" type="text/css" />
     <link rel="stylesheet" href="/assets/atom-light.css?{{now}}" type="text/css" />
     <link rel="shortcut icon" href="/assets/favicon.ico" />
-    <script lang="javascript" src="/assets/scripts.js"></script>
+    <script lang="javascript" src="/assets/navigation.js?{{now}}"></script>
     <script lang="javascript">
-      window.onload = initDocSite.bind(null, "");
+      window.onload = function() {
+        initDocSite("", ['content', 'content-nav', 'content-title'], null);
+      };
     </script>
     <style type="text/css">
         .content > h1 {

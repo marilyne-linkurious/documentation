@@ -9,25 +9,27 @@
     <link rel="shortcut icon" href="/assets/favicon.ico">
 
     <!-- CUSTOM CODE FOR APIDOC EXAMPLES -->
-    <script src="/assets/lodash.min.js"></script>
-    <script src="/assets/jquery-3.1.1.min.js"></script>
+    <script src="/assets/lodash.min.js?{{now}}"></script>
+    <script src="/assets/jquery-3.1.1.min.js?{{now}}"></script>
     <!--Codemirror-->
-    <link rel="stylesheet" href="/assets/codemirror/codemirror.css">
-    <script src="/assets/codemirror/codemirror.js"></script>
-    <script src="/assets/codemirror/javascript.js"></script>
-    <script src="/assets/codemirror/fold/foldcode.js"></script>
-    <script src="/assets/codemirror/fold/foldgutter.js"></script>
-    <script src="/assets/codemirror/fold/brace-fold.js"></script>
-    <link rel="stylesheet" href="/assets/codemirror/fold/foldgutter.css">
+    <link rel="stylesheet" href="/assets/codemirror/codemirror.css?{{now}}">
+    <script src="/assets/codemirror/codemirror.js?{{now}}"></script>
+    <script src="/assets/codemirror/javascript.js?{{now}}"></script>
+    <script src="/assets/codemirror/fold/foldcode.js?{{now}}"></script>
+    <script src="/assets/codemirror/fold/foldgutter.js?{{now}}"></script>
+    <script src="/assets/codemirror/fold/brace-fold.js?{{now}}"></script>
+    <link rel="stylesheet" href="/assets/codemirror/fold/foldgutter.css?{{now}}">
     <!--request.js (browserify + tweak for error logging + uglifyjs)-->
-    <script src="/assets/request.min.js"></script>
+    <script src="/assets/request.min.js?{{now}}"></script>
 
-    <script src="/assets/code-edition.js"></script>
-    <script src="/assets/navigation.js"></script>
+    <script src="/assets/code-edition.js?{{now}}"></script>
+    <script src="/assets/navigation.js?{{now}}"></script>
     <script lang="javascript">
       window.addEventListener('load', function() {
-        initDocSite("{{entry.root.path}}");
-        initCodeEditors()
+        initDocSite("{{entry.root.path}}", ['content', 'content-nav', 'content-menu'], function() {
+          initCodeEditors();
+        });
+        initCodeEditors();
       }, false);
     </script>
 
