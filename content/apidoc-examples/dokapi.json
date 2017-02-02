@@ -4,7 +4,7 @@
   "variables": {
     "docname": "Server SDK",
     "doc": "documentation",
-    "baseurl": "http://crunchbase.linkurio.us",
+    "baseurl": "https://crunchbase.linkurio.us:3443",
     "apikey": "b3e3617ddd283c2ea0457e610ca8c139",
     "admin.username": "admin",
     "admin.password": "demo_admin",
