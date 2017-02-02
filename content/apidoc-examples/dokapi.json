@@ -15,7 +15,7 @@
     "linkurious.apidoc": "[Linkurious API documentation](/apidoc)",
     "example.searchquery": "Coursera",
     "example.nodeid": "2242",
-    "example.cypherquery": "MATCH (n:Company)-[r]-(m) RETURN n, r, m LIMIT 5",
+    "example.cypherquery": "MATCH (n:COMPANY)-[r]-(m) RETURN n, r, m LIMIT 5",
     "example.visualizationid": "2325",
     "example.alertid": "1"
   },
