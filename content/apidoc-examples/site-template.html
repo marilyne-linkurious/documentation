@@ -21,9 +21,10 @@
     <link rel="stylesheet" href="/assets/codemirror/fold/foldgutter.css?{{now}}">
     <!--request.js (browserify + tweak for error logging + uglifyjs)-->
     <script src="/assets/request.min.js?{{now}}"></script>
-
+    <script src="/assets/ajax-nav.js?{{now}}"></script>
     <script src="/assets/code-edition.js?{{now}}"></script>
-    <script src="/assets/navigation.js?{{now}}"></script>
+    <script src="/assets/drop-menu.js?{{now}}"></script>
+    <script src="/assets/init-doc.js?{{now}}"></script>
     <script lang="javascript">
       window.addEventListener('load', function() {
         initDocSite("{{entry.root.path}}", ['content', 'content-nav', 'content-menu'], function() {
@@ -48,15 +49,15 @@
             <li><a class="active">API Examples</a></li>
         </ul>
 
-        <div class="switch dropdown">
-            <button class="dropbtn">
+        <div class="dropdown-menu">
+            <div class="dropdown-button">
                 <div class="dropdown-text">Version {{package.version}}</div>
                 <div class="burger-container">
-                    <div class="burger-bar1"></div>
-                    <div class="burger-bar2"></div>
-                    <div class="burger-bar3"></div>
+                    <div class="burger-bar"></div>
+                    <div class="burger-bar"></div>
+                    <div class="burger-bar"></div>
                 </div>
-            </button>
+            </div>
             <div class="dropdown-content">
                 <a href="javascript:void(0)" id="versionOpen">Other versions of this {{doc}}</a>
                 <a href="{{entry.root.path}}/page.html" class="separator"><strong>Single-page</strong> version of this {{doc}}</a>

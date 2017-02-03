@@ -32,11 +32,13 @@
     <link rel="stylesheet" href="/assets/codemirror/fold/foldgutter.css?{{now}}">
     <!--request.js (browserify + tweak for error logging + uglifyjs)-->
     <script src="/assets/request.min.js?{{now}}"></script>
+    <script src="/assets/ajax-nav.js?{{now}}"></script>
     <script src="/assets/code-edition.js?{{now}}"></script>
-    <script src="/assets/navigation.js?{{now}}"></script>
+    <script src="/assets/drop-menu.js?{{now}}"></script>
+    <script src="/assets/init-doc.js?{{now}}"></script>
     <script lang="javascript">
       window.addEventListener('load', function() {
-        initDocSite("", ['content', 'content-nav', 'content-menu'], function() {
+        initDocSite(".", ['content', 'content-nav', 'content-menu'], function() {
           initCodeEditors();
         });
         initCodeEditors()
@@ -58,22 +60,22 @@
             <li><a class="active">API Examples</a></li>
         </ul>
 
-        <div class="switch dropdown">
-            <button class="dropbtn">
+        <div class="dropdown-menu">
+            <div class="dropdown-button">
                 <div class="dropdown-text">Version {{package.version}}</div>
                 <div class="burger-container">
-                    <div class="burger-bar1"></div>
-                    <div class="burger-bar2"></div>
-                    <div class="burger-bar3"></div>
+                    <div class="burger-bar"></div>
+                    <div class="burger-bar"></div>
+                    <div class="burger-bar"></div>
                 </div>
-            </button>
+            </div>
             <div class="dropdown-content">
                 <a href="javascript:void(0)" id="versionOpen">Other versions of this {{doc}}</a>
-                <a href="/index.html" class="separator"><strong>Multi-page</strong> version of this {{doc}}</a>
-                <a href="/../../user-manual/latest">User manual</a>
-                <a href="/../../admin-manual/latest">Administration manual</a>
-                <a href="/../../server-sdk/latest"><strong>Server SDK documentation</strong></a>
-                <a href="/../../ogma/latest" class="separator">Visualization SDK (Ogma) documentation</a>
+                <a href="./index.html" class="separator"><strong>Multi-page</strong> version of this {{doc}}</a>
+                <a href="../../user-manual/latest">User manual</a>
+                <a href="../../admin-manual/latest">Administration manual</a>
+                <a href="../../server-sdk/latest"><strong>Server SDK documentation</strong></a>
+                <a href="../../ogma/latest" class="separator">Visualization SDK (Ogma) documentation</a>
                 <a href="../../">Documentation home</a>
                 <a href="https://linkurio.us/">Linkurious website</a>
             </div>

@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="/assets/print-styles.css?{{now}}" media="print" type="text/css" />
     <link rel="stylesheet" href="/assets/atom-light.css?{{now}}" type="text/css" />
     <link rel="shortcut icon" href="/assets/favicon.ico" />
-    <script lang="javascript" src="/assets/navigation.js?{{now}}"></script>
+    <script lang="javascript" src="/assets/ajax-nav.js?{{now}}"></script>
+    <script lang="javascript" src="/assets/drop-menu.js?{{now}}"></script>
+    <script lang="javascript" src="/assets/init-doc.js?{{now}}"></script>
     <script lang="javascript">
       window.onload = function() {
         initDocSite("{{entry.root.path}}", ['content', 'content-nav', 'content-title'], null);
@@ -24,15 +26,15 @@
     <nav class="content-menu">
         <h1 class="content-title">{{entry.title}}</h1>
 
-        <div class="switch dropdown">
-            <div class="dropdown-text">Version {{package.version}}</div>
-            <button class="dropbtn">
+        <div class="dropdown-menu">
+            <div class="dropdown-button">
+                <div class="dropdown-text">Version {{package.version}}</div>
                 <div class="burger-container">
-                    <div class="burger-bar1"></div>
-                    <div class="burger-bar2"></div>
-                    <div class="burger-bar3"></div>
+                    <div class="burger-bar"></div>
+                    <div class="burger-bar"></div>
+                    <div class="burger-bar"></div>
                 </div>
-            </button>
+            </div>
             <div class="dropdown-content">
                 <a href="javascript:void(0)" id="versionOpen">Other versions of this {{doc}}</a>
                 <a href="{{entry.root.path}}/page.html" class="separator"><strong>Single-page</strong> version of this {{doc}}</a>
