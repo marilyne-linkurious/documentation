@@ -51,6 +51,10 @@ The shadow-user created in Linkurious is only users to store user preferences an
 be linked to user-groups and other objects (visualizations, etc.).
 The password of external users in never stored in Linkurious.
 
-The user-group that will attributed to these users is the `Default` user-group (with read-all access),
-unless you specify a group ID in `access.externalUserDefaultGroupId`
+The user-group that will be attributed to these users is the `default` user-group (with read-all access),
+unless you specify a group ID in `access.externalUserDefaultGroupId` or you configure a group mapping.
 (see details on [how to configure access](/access)).
+
+### Group mapping
+
+{{access.groupmapping}}

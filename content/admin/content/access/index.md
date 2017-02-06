@@ -11,6 +11,7 @@ key in the configuration file ({{config}}):
 - `widget` (default: `true`): Enable to publish visualizations online.
    Published visualizations are accessible by anonymous users.
 - `externalUserDefaultGroupId`: Default *group id* set automatically for new external users (from LDAP, AD or any other external provider).
+- `externalUsersGroupMapping`: How to map external groups to Linkurious groups (see [how to configure group mapping](/users/#group-mapping)).
 - `ldap`: The connection to the LDAP service (see [how to configure LDAP](/ldap/#openldap)).
 - `msActiveDirectory`: The connection to the Microsoft Active Directory service (see [how to configure Active Directory](/ldap/#active-directory)).
 - `oauth2`: The connection to an OAuth2/OpenID Connect identity provider.
