@@ -162,6 +162,7 @@ header > nav .version {
 .content {
     max-width: 1000px;
     margin: 90px 20px 30px 300px;
+    padding-bottom: 20px;
 }
 
 /* multi-page version */
