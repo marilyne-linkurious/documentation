@@ -7,8 +7,8 @@
   if (!window.LKDOC) { window.LKDOC = {}; }
 
   var USE_AJAX_LINKS = true;
-
   var HTML_PARSER = new DOMParser();
+  var ajaxState = false;
 
   /**
    * @param {NodeList<HTMLAnchorElement>} links list of HTMLAnchorElement
@@ -39,7 +39,14 @@
       makeLink(links[i]);
     }
 
-    window.addEventListener('popstate', function() {
+    window.addEventListener('popstate', function(e) {
+      // use default behavior if:
+      // - the event is a hashchange (used clicked an hash link in the page)
+      // - the current state was not loaded via ajax
+      if (document.location.hash || (!ajaxState && !(e.state && e.state.ajax))) {
+        return true;
+      }
+
       ajaxOpenPage(links, document.location.href, classes, false, onAjaxLoad);
     }, false);
   };
@@ -114,17 +121,21 @@
       var newDoc = HTML_PARSER.parseFromString(req.responseText, 'text/html');
 
       // set navigation
-      document.title = newDoc.title;
-      if (!targetUrl.endsWith('/')) { targetUrl = targetUrl + '/'; }
+      targetUrl = fixUrl(targetUrl);
 
       if (addToHistory) {
-        window.history.pushState({ajax: true, url: targetUrl}, newDoc.title, targetUrl);
+        //console.log('+h '+JSON.stringify(newDoc.title, null, ' '))
+        window.history.pushState({ajax: true}, newDoc.title, targetUrl);
       }
+
+      document.title = newDoc.title;
 
       // replace content
       for (var i = 0, l = classes.length; i < l; ++i) {
         document.getElementsByClassName(classes[i])[0].innerHTML = newDoc.getElementsByClassName(classes[i])[0].innerHTML;
       }
+
+      ajaxState = true;
 
       if (onAjaxLoad) {
         onAjaxLoad();

@@ -63,7 +63,7 @@ a.external:hover {
 
 @media (min-width: 980px) {
     header h1 { display: inline; }
-    .content h1 { display: none; }
+    .content h1:first-of-type { display: none; }
     .content .filler { height: 30px !important; }
 }
 
@@ -211,12 +211,12 @@ h1:hover a, h2:hover a, h3:hover a, h4:hover {
 }
 
 h1 a svg, h2 a svg, h3 a svg, h4 a svg {
-    padding-top: 15px;
+    padding-top: 65px;
 }
 
-
-h2, h3, h4 {
-    padding-top: 1em;
+h1, h2, h3, h4 {
+    margin-top: 0;
+    padding-top: 0;
 }
 
 h1, h2, h3, h4 {
