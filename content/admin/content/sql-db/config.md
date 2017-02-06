@@ -1,4 +1,3 @@
-# Internal database
 
 Linkurious uses an SQL database to store user-data. The database contains:
 - visualizations

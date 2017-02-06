@@ -1,4 +1,3 @@
-# Backing-up your user-data store
 
 If you are using the SQLite database (by default),
 you only need to follow the [standard Linkurious backup procedure](/update-procedure).
