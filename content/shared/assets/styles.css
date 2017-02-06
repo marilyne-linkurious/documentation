@@ -77,6 +77,16 @@ a.external:hover {
     text-transform: uppercase;
 }
 
+.logo * {
+    color: inherit;
+    text-decoration: none;
+}
+
+.logo *:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
 header > nav.switch-menu {
     display: none;
     float: left;

@@ -62,13 +62,23 @@ header {
     text-transform: uppercase;
 }
 
-.logo > img {
+.logo img {
     height: 12px;
     display: inline;
     box-shadow: none;
     border: none;
     max-width: none;
     vertical-align: middle;
+}
+
+.logo * {
+    color: inherit;
+    text-decoration: none;
+}
+
+.logo *:hover {
+    color: inherit;
+    text-decoration: none;
 }
 
 header {
