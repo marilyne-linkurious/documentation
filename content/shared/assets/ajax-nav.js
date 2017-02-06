@@ -52,19 +52,19 @@
   function httpReq(url, cb) {
     var oReq = new XMLHttpRequest();
 
-    oReq.addEventListener("load", function() {
+    oReq.addEventListener('load', function() {
       if (oReq.status !== 200) {
         return cb(new Error('Unexpected HTTP status: ' + oReq.status), oReq);
       }
       cb(null, oReq);
     });
 
-    oReq.addEventListener("error", function(e) {
+    oReq.addEventListener('error', function(e) {
       cb(e, null);
     });
 
     //console.log(JSON.stringify(url, null, ' '));
-    oReq.open("GET", url);
+    oReq.open('GET', url);
     oReq.send();
   }
 
@@ -73,7 +73,7 @@
    * @returns {string}
    */
   function fixUrl(url) {
-    return url.endsWith('/') ? url : url + '/';
+    return url.endsWith('/') || url.endsWith('.html') ? url : url + '/';
   }
 
   /**
@@ -111,7 +111,7 @@
       }
 
       // parse response doc
-      var newDoc = HTML_PARSER.parseFromString(req.responseText, "text/html");
+      var newDoc = HTML_PARSER.parseFromString(req.responseText, 'text/html');
 
       // set navigation
       document.title = newDoc.title;
