@@ -8,8 +8,9 @@
  * @param {string} rootPath
  * @param {string} ajaxContentClasses
  * @param {function|null} onAjaxLoad
+ * @param {string|null} versionLinkSuffix
  */
-function initDocSite(rootPath, ajaxContentClasses, onAjaxLoad) {
+function initDocSite(rootPath, ajaxContentClasses, onAjaxLoad, versionLinkSuffix) {
 
   // scroll "current" menu item into visible pane
   var menu = document.getElementsByClassName('menu')[0];
@@ -18,7 +19,7 @@ function initDocSite(rootPath, ajaxContentClasses, onAjaxLoad) {
     menu.scrollTop = offset - 15;
   }
 
-  window.LKDOC.initVersionPopup(rootPath);
+  window.LKDOC.initVersionPopup(rootPath, versionLinkSuffix);
 
   // make menu links AJAX links
   var menuLinks = document.querySelectorAll('.menu a');

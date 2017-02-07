@@ -5,7 +5,12 @@
   'use strict';
   if (!window.LKDOC) { window.LKDOC = {}; }
 
-  window.LKDOC.initVersionPopup = function initVersionPopup(rootPath) {
+  /**
+   * @param {string} rootPath
+   * @param {string} [linkSuffix=""]
+   */
+  window.LKDOC.initVersionPopup = function initVersionPopup(rootPath, linkSuffix) {
+    if (!linkSuffix) { linkSuffix = ''; }
     var versionPopup = document.getElementById('versionPopup');
     var popupLayer = document.getElementById('popupLayer');
 
@@ -43,6 +48,7 @@
           rootPath,
           '/../',
           versions[i],
+          linkSuffix,
           '">Manual for version <strong>',
           versions[i],
           '</strong></a></li>\n'

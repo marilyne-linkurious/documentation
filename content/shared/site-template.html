@@ -12,7 +12,7 @@
     <script lang="javascript" src="/assets/init-doc.js?{{now}}"></script>
     <script lang="javascript">
       window.onload = function() {
-        initDocSite('{{entry.root.path}}', ['logo', 'content', 'content-nav', 'content-title'], null);
+        initDocSite('{{entry.root.path}}', ['logo', 'content', 'content-nav', 'content-title'], null, null);
       };
     </script>
 </head>
@@ -40,7 +40,7 @@
                 <a href="{{entry.root.path}}/page.html" class="separator"><strong>Single-page</strong> version of this {{doc}}</a>
                 <a href="{{entry.root.path}}/../../user-manual/latest"><{{user.menu.tag}}>User manual</{{user.menu.tag}}></a>
                 <a href="{{entry.root.path}}/../../admin-manual/latest"><{{admin.menu.tag}}>Administration manual</{{admin.menu.tag}}></a>
-                <a href="{{entry.root.path}}/../../server-sdk/latest">Server SDK documentation</a>
+                <a href="{{entry.root.path}}/../../server-sdk/latest/apidoc">Server SDK documentation</a>
                 <a href="{{entry.root.path}}/../../ogma/latest" class="separator">Visualization SDK (Ogma) documentation</a>
                 <a href="{{entry.root.path}}/../../">Documentation home</a>
                 <a href="https://linkurio.us/">Linkurious website</a>
