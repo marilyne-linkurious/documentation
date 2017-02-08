@@ -153,7 +153,7 @@ The following example set icons to node categories "COMPANY", "CITY", "MARKET", 
 }
 ```
 
-#### Node images
+## Node images
 
 *This feature is experimental and not yet available from the user interface.*
 
