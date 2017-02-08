@@ -161,7 +161,7 @@ Nodes can be filled with an image if one of their property is an URL to an image
 Available image formats are PNG, JPG, GIF, or TIFF.
 The following example set images to node categories `"COMPANY"`, `"CITY"`, `"MARKET"`.
 
-**Example;**
+**Example:**
 ```json
 "styles": {
   "nodes": {
@@ -187,6 +187,23 @@ The following example set images to node categories `"COMPANY"`, `"CITY"`, `"MAR
   }
 }
 ```
+
+Note that you can host your custom images in Linkurious itself by storing them in the folder
+located at `linkurious/data/server/customFiles/`. 
+For example you can create a folder in `customFiles` called `my-icons` and store your images
+there (e.g. `company.png` and `city.png`). Then, the palette configuration would be:
+
+```json
+"palette": {
+  "nodes": {
+    "images": {
+      "COMPANY": {"url": "/my-icons/company.png", "scale": 1.3, "clip": 0.85},
+      "CITY": {"url": "/my-icons/city.png", "scale": 1.3, "clip": 0.85}
+    }
+  }
+}
+```
+
 
 ## Applying the styles configuration to existing users
 
