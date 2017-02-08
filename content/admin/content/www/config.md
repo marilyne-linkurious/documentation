@@ -1,9 +1,11 @@
 The web server of Linkurious delivers the application to end users through HTTP/S.
-It is configured within the `server` configuration key within the configuration file (`linkurious/config/{{config.file}}`):
+It is configured within the `server` configuration key within the configuration 
+file (`linkurious/config/{{config.file}}`):
 
-- `domain` (default: `localhost`): The domain or sub-domain used to access the web server.
-   It is mandatory to edit it for publishing visualizations online.
-   It is also used to restrict the validity of cookies to a domain or sub-domain.
+## General 
+
+Within the `server` key:
+
 - `listenPort` (default: `3000`): The port of the web server. 
 
 Some firewalls block network traffic ports other than `80` (HTTP).
@@ -18,9 +20,29 @@ If you use SSL, you can add a second rule to redirect `3443` to `443`:
 sudo iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to-port 3443
 ```
 
+## Link generation
+
+Within the `server` key:
+
+- `domain` (default: `"localhost"`): The domain or sub-domain used to access the web server.
+   It is mandatory to edit it for publishing visualizations online.
+   It is also used to restrict the validity of cookies to a domain or sub-domain.
+- `publicPortHttp` (default: `listenPort`): The *public* HTTP port of the web server. 
+- `publicPortHttps` (default: `listenPortHttps`): The *public* HTTPS port of the web server. 
+
+In some cases, Linkurious needs to generate links to itself (for example
+when generating links to the widget). For that, the server needs to know
+its public *domain* and *port* to generate those links.
+
+The public port can be different from the actual port if you use traffic rerouting
+(using a firewall or a reverse-proxy). In the example above (traffic rerouting),
+the actual HTTP port (`listenPort`) is `3000`, but the public HTTP port (`publicPortHttp`) 
+is `80`.
+
 ## Cookies
 
 Within the `server` key:
+
 - `cookieSecret`: The secret key used to encrypt the session cookie. Randomized on first start.
 - `cookieDomain`: Set this value if you need your cookie to be set fo a domain different from `domain`.
 
@@ -45,9 +67,6 @@ Within the `sigma` key:
 
 ## SSL
 
-External communications with the Linkurious server can be secured using SSL
-without installing third-party software.
-
 Within the `server` key:
 
 - `listenPortHttps` (default: `3443`): The port of the web server if HTTPS is enabled. See the Install section to learn why you should not set `443` directly.
@@ -58,7 +77,10 @@ Within the `server` key:
 - `certificateKeyFile`: The relative path to a public key of the SSL certificate (must be located within the `linkurious/data` folder).
 - `certificatePassphrase`: The pass-phrase protecting the SSL certificate.
 
+External communications with the Linkurious server can be secured using SSL
+without installing third-party software.
+
 If the Linkurious server, graph database, and the search index are installed on different machines, 
-we recommend to encrypt internal communication between them. 
+we recommend to encrypting communication between them. 
 Please refer to the [data-source documentation](/configure-sources) and [search index documentation](/search) to
 learn how to enable HTTPS.
