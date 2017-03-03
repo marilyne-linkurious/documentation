@@ -70,3 +70,7 @@ Example Active Directory configuration:
   }
 }
 ```
+
+In alternative is possible to use your on premises Active Directory in conjunction with Azure Active Directory to provide SSO to your users.
+Please refer to [Prerequisites for Azure AD Connect](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-prerequisites) for more information and to
+[SSO with Azure AD](/sso-azure) to know how to setup Azure AD as an authentication provider.

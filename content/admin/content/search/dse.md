@@ -26,6 +26,11 @@ Follow these steps to use DSE Search and integrate it with Linkurious:
    Every property key that you want to index has to appear in this command.
    You can add as many properties as you want.
 
+We recommend to create `asText()` search indices instead of `asString()` ones. Both types of indices
+are supported by Linkurious, but the latter doesn't support `OR` search queries. If you don't need
+this feature, `asString()` indices will actually compute search queries faster. It's also possible to mix
+`asText()` and `asString()` indices to find a balance of features and performances.
+
 ### Integrate with Linkurious
 
 Set the `dataSources.index.vendor` key to `dseSearch` in the configuration ({{config}}):
@@ -34,7 +39,7 @@ Set the `dataSources.index.vendor` key to `dseSearch` in the configuration ({{co
   "dataSources": [
     {
       "graph": {
-        "vendor": "dse"
+        "vendor": "dse",
         "url": "ws://127.0.0.1:8182/",
         "graphName": "MY_GRAPH"
       },
