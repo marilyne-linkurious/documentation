@@ -11,6 +11,7 @@ This makes Linkurious easy to deploy.
 For deployment at scale (more than a couple users), we recommend switching to
 one of the supported *server-based* databases:
  - [MySQL](https://www.mysql.com/products/community/)
+ - [Microsoft SQL Server](https://www.microsoft.com/en-us/sql-server/)
  - [MariaDB](https://mariadb.org/about/)
 
 ## Configure with SQLite
@@ -36,6 +37,20 @@ SQLite if the default user-data store of Linkurious.
       "dialect": "mysql",
       "host": "MYSQL_HOST",
       "port": 3306
+    }
+}
+```
+
+## Configure with Microsoft SQL Server
+```js
+"db": {
+    "name": "linkurious",
+    "username": "MSSQL_USER_NAME",
+    "password": "MSSQL_PASSWORD",
+    "options": {
+      "dialect": "mssql",
+      "host": "MSSQL_HOST",
+      "port": 1433
     }
 }
 ```
