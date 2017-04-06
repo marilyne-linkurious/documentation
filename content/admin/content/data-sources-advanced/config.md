@@ -1,6 +1,6 @@
 
 The following are advanced data-source settings that apply to all data-sources.
-They can be changed in the configuration file (`linkurious/data/config{{config.file}}`) under the `allSources` key.
+They can be changed in the configuration file ({{config}}) under the `advanced` key.
  
 ## General settings
  
@@ -22,3 +22,7 @@ They can be changed in the configuration file (`linkurious/data/config{{config.f
 - `rawQueryTimeout` (default: `60000`): Abandon a query to the database if the time is over (in second).
 - `defaultFuzziness` (default: `0.9`): Default value to search fuzziness between 0 and 1. A value of `1` means exact matching of the search query.
 - `expandThreshold` (default: `50`): When the user expands a node with too many neighbors, Linkurious will ask to refine the query so that fewer neighbors are returned.
+
+## Additional Certificate Authorities
+
+- `extraCertificateAuthorities`: Path to a *.pem file. When set, the well known "root" CAs (like VeriSign) will be extended with the extra certificates in the file. The file should consist of one or more trusted certificates in PEM format.

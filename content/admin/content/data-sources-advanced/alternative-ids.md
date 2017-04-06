@@ -19,7 +19,7 @@ Notice that the properties used as identifier should be indexed by the database 
 ## Alternative identifiers configuration
 
 To use alternative node and edge identifiers,
-edit your data-source database configuration in the configuration file (`linkurious/data/config{{config.file}}`):
+edit your data-source database configuration in the configuration file ({{config}}):
 
 Example of alternative identifier configuration with Neo4j:
 ```json
@@ -30,7 +30,7 @@ Example of alternative identifier configuration with Neo4j:
         "vendor": "neo4j",
         "url": "http://127.0.0.1:7474/",
         "alternativeNodeId": "STABLE_NODE_PROPETY_NAME",
-        "alternativeIedgeId": "STABLE_EDGE_PROPETY_NAME"
+        "alternativeEdgeId": "STABLE_EDGE_PROPETY_NAME"
       }
       // [...]
     }
@@ -53,7 +53,7 @@ Before re-generating the graph database, go to the *Admin* > *Sources* menu:
 
 In the sources administration panel, find the **Key** value for your data-source (e.g. `1c3490bd`) and copy it.
  
-Then, edit the configuration file (`linkurious/data/config{{config.file}}`) 
+Then, edit the configuration file ({{config}}) 
 and set `manualSourceKey` for yur data-source:
 ```json
 {
