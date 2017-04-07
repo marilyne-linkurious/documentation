@@ -3,15 +3,15 @@
 Linkurious relies on a [role-based access control](https://en.wikipedia.org/wiki/Role-based_access_control)
 model based on *node-categories* and *edge-types*:
 
-- *Users* belong to one of many *user-groups*
-- *User-groups* have multiple *access-rights*
-- Each *access-right* gives access to a given *node-category* or *edge-type* with a certain right:
+- *Users* belong to at least one *user-group*
+- *User-groups* have several *access-rights*
+- Each *access-right* defines access to a specific *node-category* or *edge-type*:
    - `none` (no access)
    - `read` (read-only access)
    - `write` (read and write access)
 
-If a users belongs to multiple user-groups and has different access-rights defined for a given
-node-category (or edge-type), then highest attributed right is applied.
+When users belong to several user-groups, it can happen that many access-rights are defined for a 
+node-category (or edge-type). In this case, the more permissive access-right is granted.
 
 ## Example
 
@@ -23,9 +23,9 @@ node-category (or edge-type), then highest attributed right is applied.
    - READ access to node-category `CONTRACT`
    - WRITE access to node-category `CUSTOMER`
 - **Result**:
-   - User `Foo` has READ access to node-category `COMPANY` (through User-group `Accounting`)
-   - User `Foo` has WRITE access to node-category `CONTRACT`  (through User-group `Accounting`)
-   - User `Foo` has WRITE access to node-category `CUSTOMER`  (through User-group `Sales`)
+   - User `Foo` has READ access to node-category `COMPANY` (via User-group `Accounting`)
+   - User `Foo` has WRITE access to node-category `CONTRACT`  (via User-group `Accounting`)
+   - User `Foo` has WRITE access to node-category `CUSTOMER`  (via User-group `Sales`)
 
 ## Creating users, groups and rights
 
@@ -35,8 +35,8 @@ via the *Admin* > *Users* menu:
 
 ## Password hashing
 
-When an administrator create users, their password is hashed using the
-[PBKDF2 algorithm](https://en.wikipedia.org/wiki/PBKDF2) with the following parameters:
+Passwords are hashed with the 
+[PBKDF2 algorithm](https://en.wikipedia.org/wiki/PBKDF2) and the following parameters:
 
 - iterations: 1000
 - salt length: 96 bits
@@ -44,12 +44,11 @@ When an administrator create users, their password is hashed using the
 
 ## External users
 
-If you use an external source for authentication (LDAP, Active Directory, OpenID Connect etc.),
-a user will be created in Linkurious automatically at each user's first connection.
+When using an external source for authentication (LDAP, Active Directory, OpenID Connect etc.),
+users are automatically created in Linkurious when they first connect.
 
-The shadow-user created in Linkurious is only users to store user preferences and
-be linked to user-groups and other objects (visualizations, etc.).
-The password of external users in never stored in Linkurious.
+These shadow-users allow to store Linkurious specific data such as user preferences, user-groups and other objects (visualizations, etc.).
+Passwords of external users are never stored inside Linkurious.
 
 The user-group that will be attributed to these users is the `default` user-group (with read-all access),
 unless you specify a group ID in `access.externalUserDefaultGroupId` or you configure a group mapping.

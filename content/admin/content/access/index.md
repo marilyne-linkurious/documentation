@@ -6,11 +6,11 @@ key in the configuration file ({{config}}):
 
 - `authRequired` (default: `false`): `true` to reject requests anonymous sessions, see [how to enable authentication](/enabling-auth).
 - `dataEdition` (default: `true`): Enable the creation, edition, and deletion of nodes and edges in all data-sources.
-   Permissions can fine-tuned for each user-group, see [the documentation about users and groups](/users).
+   Permissions can be fine-tuned for each user-group, see [the documentation about users and groups](/users).
    If `false`, all edition requests sent through Linkurious to the data-sources will be rejected.
 - `widget` (default: `true`): Enable to publish visualizations online.
    Published visualizations are accessible by anonymous users.
-- `externalUserDefaultGroupId`: Default *group id* set automatically for new external users (from LDAP, AD or any other external provider).
+- `externalUserDefaultGroupId`: Default *group id* automatically set for new external users (from LDAP, AD or any other external provider).
 - `externalUsersGroupMapping`: How to map external groups to Linkurious groups (see [how to configure group mapping](/users/#group-mapping)).
 - `ldap`: The connection to the LDAP service (see [how to configure LDAP](/ldap/#openldap)).
 - `msActiveDirectory`: The connection to the Microsoft Active Directory service (see [how to configure Active Directory](/ldap/#active-directory)).
@@ -33,5 +33,5 @@ Linkurious supports the following external authentication services:
  - [Google Suite (with Single Sign-On)](/sso-google)
  - or [any OpenID Connect compatible service](/sso-openid)
 
-If your company uses an authentication service the Linkurious does nto support yet,
-please [get in touch](/support) with us.
+If your company uses an authentication service that Linkurious does not support yet,
+please [get in touch](/support).

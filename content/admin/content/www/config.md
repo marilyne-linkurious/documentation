@@ -1,6 +1,6 @@
 The web server of Linkurious delivers the application to end users through HTTP/S.
 It is configured within the `server` configuration key within the configuration 
-file (`linkurious/config/{{config.file}}`):
+file ({{config}}):
 
 ## General 
 

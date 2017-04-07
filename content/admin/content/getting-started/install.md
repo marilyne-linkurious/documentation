@@ -38,7 +38,7 @@ Linkurious as a system service on *Linux* and *Mac OS X*.
 
 ## Mac OS X systems
 
-1. Open the administration menu by running `menu.sh.command` in the `linkurious-linux` folder.
+1. Open the administration menu by running `menu.sh.command` in the `linkurious-osx` folder.
 2. Check if Linkurious is already installed as a service (displayed at the top of the menu).
 3. Select `Install Linkurious as a service`.
 4. Linkurious will install itself as a service of your operating system.
@@ -50,7 +50,7 @@ Linkurious as a system service on *Linux* and *Mac OS X*.
 Linkurious is designed to run a single instance per machine.
 While it is not recommended and with no guarantee to work, it is possible to run multiple instances of Linkurious by doing the following:
 
-Copy the entire linkurious directory to a new place, and edit the `data/config/{{config.file}}` file:
+Copy the entire linkurious directory to a new place, and edit the {{config}} file:
 You will need to change `listenPort` to set a different port from the one used in the original `{{config.file}}` file.
 You may also edit `graphdb` and `db.storage`.
 

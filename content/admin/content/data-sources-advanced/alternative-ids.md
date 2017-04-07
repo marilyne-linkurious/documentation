@@ -53,7 +53,7 @@ Before re-generating the graph database, go to the *Admin* > *Sources* menu:
 
 In the sources administration panel, find the **Key** value for your data-source (e.g. `1c3490bd`) and copy it.
  
-Then, edit the configuration file ({{config}}) 
+Then, edit the configuration file ({{config.file}}) 
 and set `manualSourceKey` for yur data-source:
 ```json
 {
