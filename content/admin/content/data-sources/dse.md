@@ -45,15 +45,7 @@ Example DSE Graph configuration:
 }
 ```
 
-Supported `graphdb` options for DSE Graph:
-
-- `url` (*required*): URL of the Gremlin server (must be a WebSocket URL, i.e. start with `ws://`)
-- `graphName` (*required*): Name of the graph to use
-- `create`: `true` to let Linkurious create the graph if it does not exist
-- `alternativeNodeId`: Name of the node property to use as reference in visualizations (see [alternative IDs](/alternative-ids))
-- `alternativeEdgeId`: Name of the edge property to use as reference in visualizations
-- `latitudeProperty`: Name of the node property to use for latitude (used in geo mode)
-- `longitudeProperty`: Name of the node property to use for longitude (used in geo mode)
+{{dse.graph.dao.options}}
 
 ## Search with DSE Graph
 

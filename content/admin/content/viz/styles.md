@@ -7,7 +7,7 @@ Nodes and edges are grey and have the same size by default.
 The defined styles will be applied to **all** data-sources.
 
 Open the configuration file ({{config}}).
-Visualization styles are defined within the `sigma` key by the `styles` and color `palette`.
+Visualization styles are defined within the `sigma` key by the `defaultStyles` and color `palette`.
 Styles are mapping between visual variables such as colors or size, 
 and data properties on nodes and edges. 
 
@@ -21,12 +21,12 @@ Schemes for qualitative properties bind property values to colors.
 Schemes for quantitative properties bind the number of property values to lists of sequential colors. 
 Schemes may be nested and be referenced in dot notation by the styles.
 
-Available `styles.nodes.by` values:
+Available `defaultStyles.nodes.by` values:
 
 - "data.categories"
 - "data.properties.X", with "X" the property name.
 
-Available `styles.edges.by` values:
+Available `defaultStyles.edges.by` values:
 
 - "data.type"
 - "data.properties.X", with "X" the property name.

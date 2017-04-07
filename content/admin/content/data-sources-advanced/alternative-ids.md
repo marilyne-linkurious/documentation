@@ -30,7 +30,7 @@ Example of alternative identifier configuration with Neo4j:
         "vendor": "neo4j",
         "url": "http://127.0.0.1:7474/",
         "alternativeNodeId": "STABLE_NODE_PROPETY_NAME",
-        "alternativeIedgeId": "STABLE_EDGE_PROPETY_NAME"
+        "alternativeEdgeId": "STABLE_EDGE_PROPETY_NAME"
       }
       // [...]
     }
