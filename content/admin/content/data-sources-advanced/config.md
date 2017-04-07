@@ -1,6 +1,6 @@
 
 The following are advanced data-source settings that apply to all data-sources.
-They can be changed in the configuration file (`linkurious/data/config{{config.file}}`) under the `allSources` key.
+They can be changed in the configuration file ({{config}}) under the `allSources` key.
  
 ## General settings
  

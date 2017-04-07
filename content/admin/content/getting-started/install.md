@@ -50,7 +50,7 @@ Linkurious as a system service on *Linux* and *Mac OS X*.
 Linkurious is designed to run a single instance per machine.
 While it is not recommended and with no guarantee to work, it is possible to run multiple instances of Linkurious by doing the following:
 
-Copy the entire linkurious directory to a new place, and edit the `data/config/{{config.file}}` file:
+Copy the entire linkurious directory to a new place, and edit the {{config}} file:
 You will need to change `listenPort` to set a different port from the one used in the original `{{config.file}}` file.
 You may also edit `graphdb` and `db.storage`.
 
