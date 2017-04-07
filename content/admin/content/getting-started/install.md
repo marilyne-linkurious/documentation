@@ -38,7 +38,7 @@ Linkurious as a system service on *Linux* and *Mac OS X*.
 
 ## Mac OS X systems
 
-1. Open the administration menu by running `menu.sh.command` in the `linkurious-linux` folder.
+1. Open the administration menu by running `menu.sh.command` in the `linkurious-osx` folder.
 2. Check if Linkurious is already installed as a service (displayed at the top of the menu).
 3. Select `Install Linkurious as a service`.
 4. Linkurious will install itself as a service of your operating system.
