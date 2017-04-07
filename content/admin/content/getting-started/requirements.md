@@ -43,9 +43,9 @@ Linkurious server can be deployed on the following platforms:
 - Mac OS X
   - OS X 10.10+ (OS X Lion and more recent)
 
-### Java JDK
+### Java
 
-Linkurious' embedded [{{es}}]({{es.product.link}}) engine requires *Oracle Java SE Development Kit (JDK)* 7+.
+Linkurious' embedded [{{es}}]({{es.product.link}}) engine requires *Java JRE (or JDK)* 7+.
 
 You can [download the latest JDK from Oracle's website](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 <!-- from: http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html -->

@@ -1,9 +1,9 @@
 ## Process monitoring
 
 Linkurious starts 3 separate processes when launched:
-- `node` (or `node.exe`): The internal process manager (a [PM2](https://github.com/Unitech/pm2) manager)
+- `node` (or `node.exe`): The internal process manager
 - `node` (or `node.exe`): The Linkurious Server process
-- `java` (or `java.exe`): The embedded [{{es}}]({{es.product.link}}) indexation server.
+- `java` (or `java.exe`): The embedded [{{es}}]({{es.product.link}}) indexation server (if enabled).
 
 Check if these processes are alive by opening the menu from the Linkurious directory 
 (see how on each operating system below). 

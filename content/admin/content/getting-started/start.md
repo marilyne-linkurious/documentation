@@ -14,7 +14,7 @@ See [the Web server configuration documentation](/web-server) to learn how to ma
 
 To start Linkurious, run the `start.bat` script in the `linkurious-windows` directory.
 
-Alternatively, run the `menu.bat` script and select *Start Linkurious processes* from the console. 
+Alternatively, run the `menu.bat` script and select *Start Linkurious* from the console. 
 
 
 > The firewall of Windows might ask you to authorize connections with Linkurious.

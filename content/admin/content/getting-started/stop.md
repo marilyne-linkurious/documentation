@@ -10,7 +10,7 @@ Alternately, run `menu.sh` and select *Stop Linkurious processes* from the conso
 
 Run the `stop.bat` script in the `linkurious-windows` directory.
 
-Alternately, run `menu.bat` and select *Stop Linkurious processes* from the console.
+Alternately, run `menu.bat` and select *Stop Linkurious* from the console.
 
 
 ## Mac OS X systems
