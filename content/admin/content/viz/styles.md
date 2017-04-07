@@ -40,24 +40,24 @@ Notice how each color palettes is referenced in schemes.
 
 **Example for qualitative properties:**
 ```json
-"styles": {
+"defaultStyles": {
   "nodes": {
     "color": {
       "by": "data.categories",
-      "scheme": "nodes.qualitative.categories"
+      "scheme": "nodes.qualitative.MyColorPalette1"
     }
   },
   "edges": {
     "color": {
       "by": "data.type",
-      "scheme": "edges.qualitative.type"
+      "scheme": "edges.qualitative.MyColorPalette2"
     }
   }
 },
 "palette": {
   "nodes": {
     "qualitative": {
-      "categories": {
+      "MyColorPalette1": {
         "INVESTOR": "#5FDAA2",
         "COMPANY": "#DE6FBC",
         "MARKET": "#4EA4D4",
@@ -67,7 +67,7 @@ Notice how each color palettes is referenced in schemes.
   },
   "edges": {
     "qualitative": {
-      "type": {
+      "MyColorPalette2": {
         "INVESTED_IN": "#5FDAA2",
         "HAS_CITY": "#DE6FBC",
         "HAS_MARKET": "#4EA4D4"
@@ -85,7 +85,7 @@ Values will be linearly grouped into 7 bins, ordered from small to large values 
 
 **Example for quantitative properties:**
 ```json
-"styles": {
+"defaultStyles": {
   "nodes": {
     "color": {
       "by": "data.properties.my_score",
@@ -131,18 +131,18 @@ The following example set icons to node categories "COMPANY", "CITY", "MARKET", 
 
 **Example;**
 ```json
-"styles": {
+"defaultStyles": {
   "nodes": {
     "icon": {
       "by": "data.categories",
-      "scheme": "nodes.icons.categories"
+      "scheme": "nodes.icons.MyIconPalette"
     }
   }
 },
 "palette": {
   "nodes": {
     "icons": {
-      "categories": {
+      "MyIconPalette": {
         "INVESTOR": {"font": "FontAwesome", "scale": 1, "color": "#fff", "content": "\uf19c"},
         "CITY": {"font": "FontAwesome", "scale": 1, "color": "#fff", "content": "\uf015"},
         "COMPANY": {"font": "FontAwesome", "scale": 1, "color": "#fff", "content": "\uf135"},
@@ -163,25 +163,27 @@ The following example set images to node categories `"COMPANY"`, `"CITY"`, `"MAR
 
 **Example:**
 ```json
-"styles": {
+"defaultStyles": {
   "nodes": {
     "image": {
       "by": "data.categories",
-      "scheme": "nodes.images"
+      "scheme": "nodes.images.MyImagePalette"
     }
   }
 },
 "palette": {
   "nodes": {
     "images": {
-      "COMPANY": {
-        "url": "http://example.com/img/company.png", "scale": 1.3, "clip": 0.85
-      },
-      "CITY": {
-        "url": "http://example.com/img/city.png", "scale": 1.3, "clip": 0.85
-      },
-      "MARKET": {
-        "url": "http://example.com/img/market.png", "scale": 1.3, "clip": 0.85
+      "MyImagePalette": {
+        "COMPANY": {
+          "url": "http://example.com/img/company.png", "scale": 1.3, "clip": 0.85
+        },
+        "CITY": {
+          "url": "http://example.com/img/city.png", "scale": 1.3, "clip": 0.85
+        },
+        "MARKET": {
+          "url": "http://example.com/img/market.png", "scale": 1.3, "clip": 0.85
+        }
       }
     }
   }
@@ -190,15 +192,17 @@ The following example set images to node categories `"COMPANY"`, `"CITY"`, `"MAR
 
 Note that you can host your custom images in Linkurious itself by storing them in the folder
 located at `linkurious/data/server/customFiles/`. 
-For example you can create a folder in `customFiles` called `my-icons` and store your images
-there (e.g. `company.png` and `city.png`). Then, the palette configuration would be:
+For example you can create a folder at `customFiles/my-icons/` and store your images
+there (e.g. `company.png` and `city.png`). Then, your palette configuration would be:
 
 ```json
 "palette": {
   "nodes": {
     "images": {
-      "COMPANY": {"url": "/my-icons/company.png", "scale": 1.3, "clip": 0.85},
-      "CITY": {"url": "/my-icons/city.png", "scale": 1.3, "clip": 0.85}
+      "MyImagePalette": {
+        "COMPANY": {"url": "/my-icons/company.png", "scale": 1.3, "clip": 0.85},
+        "CITY": {"url": "/my-icons/city.png", "scale": 1.3, "clip": 0.85}
+      }
     }
   }
 }
