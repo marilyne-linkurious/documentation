@@ -35,10 +35,10 @@ Linkurious server can be deployed on the following platforms:
   - Windows 10
   - Windows Server 2012
 - Linux
-  - Debian 8+
   - CentOS 7+
   - Ubuntu 12.10+
   - Gentoo 12+
+  - Debian 8+
   - Mint 14+
 - Mac OS X
   - OS X 10.10+ (OS X Lion and more recent)
@@ -47,15 +47,15 @@ Linkurious server can be deployed on the following platforms:
 
 Linkurious' embedded [{{es}}]({{es.product.link}}) engine requires *Java JRE (or JDK)* 7+.
 
-You can [download the latest JDK from Oracle's website](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+You can [download the latest JRE from Oracle's website](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html).
 <!-- from: http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html -->
 
 Installation instructions:
- - [Windows systems](http://docs.oracle.com/javase/8/docs/technotes/guides/install/windows_jdk_install.html#A1097936)
- - [Linux systems](http://docs.oracle.com/javase/8/docs/technotes/guides/install/linux_jdk.html#A1098871)
- - [Mac OS X systems](http://docs.oracle.com/javase/8/docs/technotes/guides/install/mac_jdk.html#A1096855)
+ - [Windows systems](https://docs.oracle.com/javase/8/docs/technotes/guides/install/windows_server_jre.html)
+ - [Linux systems](https://docs.oracle.com/javase/8/docs/technotes/guides/install/linux_server_jre.html)
+ - [Mac OS X systems](https://docs.oracle.com/javase/8/docs/technotes/guides/install/mac_jre.html)
 
-The `JAVA_HOME` environment variable must be set.
+The `JAVA_HOME` environment variable should be set.
 
 ### SQLite and GLIBC 2.14
 
