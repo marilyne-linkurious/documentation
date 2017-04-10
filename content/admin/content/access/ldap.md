@@ -15,15 +15,15 @@ Allowed options in `access.ldap`:
 
 - `enabled`           `true` to enable this authentication strategy.
 - `url`:              URL of the LDAP server.
-- `bindDN`:           "Domain Name" of the LDAP account used to search other accounts.
-- `bindPassword`:     Password of the LDAP account used to search other accounts.
+- `bindDN`:           (optional) "Domain Name" of the LDAP account used to search other accounts.
+- `bindPassword`:     (optional) Password of the LDAP account used to search other accounts.
 - `baseDN`:           Base "Domain Name" in which users will be searched.
 - `usernameField`:    Name of the LDAP attribute containing the user's *name*.
 - `emailField`:       Name of the LDAP attribute containing the user's *e-mail*.
-- `groupField`:       Name of the LDAP attribute containing the user's *group*.
-- `freeze`:           `true` to prevent new LDAP users from being created in Linkurious.
-                      Existing users (i.e. who logged in at least once) will still be able to log-in.
-- `authorizedGroups`: Array of LDAP groups that are authorized to log into Linkurious.
+- `groupField`:       (optional) Name of the LDAP attribute containing the user's *group*.
+- `authorizedGroups`: (optional) Array of LDAP groups that are authorized to log into Linkurious.
+
+The `bindDN` and `bindPassword` are optional. If specified they will be used to bind to the LDAP server.
 
 Example LDAP configuration:
 
