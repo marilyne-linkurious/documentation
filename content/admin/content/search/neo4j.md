@@ -9,17 +9,17 @@ Neo4j-to-elasticsearch is a Neo4j plugin that allows for automatic synchronizati
 between Neo4j and {{es}}. This means that all changes to Neo4j are automatically
 propagated to {{es}}.
 
-### Download neo4j-to-elasticsearch JARs
+### Resources for supported versions of neo4j-to-elasticsearch:
 
 - For Neo4j 3.0.7:
-   [neo4j-to-elasticsearch-3.0.7.44.8](http://products.graphaware.com/download/neo4j-to-elasticsearch/graphaware-neo4j-to-elasticsearch-3.0.7.44.8.jar)
-   and
-   [graphaware-server-community-all-3.0.7.44](http://products.graphaware.com/download/framework-server-community/graphaware-server-community-all-3.0.7.44.jar)
+  - Neo4j 3.0.7: [Mac or Linux (tar)](https://info.neo4j.com/download-thanks.html?edition=community&release=3.0.7&flavour=unix) / [Mac (dmg)](https://info.neo4j.com/download-thanks.html?edition=community&release=3.0.7&flavour=osx) / [Windows 64 installer (exe)](https://info.neo4j.com/download-thanks.html?edition=community&release=3.0.7&flavour=winstall64) / [Windows (zip)](https://info.neo4j.com/download-thanks.html?edition=community&release=3.0.7&flavour=winzip)
+  - [neo4j-to-elasticsearch-3.0.7.44.8](https://products.graphaware.com/download/neo4j-to-elasticsearch/graphaware-neo4j-to-elasticsearch-3.0.7.44.8.jar)
+  - [graphaware-server-community-all-3.0.7.44](https://products.graphaware.com/download/framework-server-community/graphaware-server-community-all-3.0.7.44.jar)
 
 - For Neo4j 3.1.0:
-   [neo4j-to-elasticsearch-3.1.0.44.8](http://products.graphaware.com/download/neo4j-to-elasticsearch/graphaware-neo4j-to-elasticsearch-3.1.0.44.8.jar)
-   and
-   [graphaware-server-community-all-3.1.0.44](http://products.graphaware.com/download/framework-server-community/graphaware-server-community-all-3.0.7.44.jar)
+  - Neo4j 3.1.0: [Mac or Linux (tar)](https://info.neo4j.com/download-thanks.html?edition=community&release=3.1.0&flavour=unix) / [Mac (dmg)](https://info.neo4j.com/download-thanks.html?edition=community&release=3.1.0&flavour=osx) / [Windows 64 installer (exe)](https://info.neo4j.com/download-thanks.html?edition=community&release=3.1.0&flavour=winstall64) / [Windows (zip)](https://info.neo4j.com/download-thanks.html?edition=community&release=3.1.0&flavour=winzip)  
+  - [neo4j-to-elasticsearch-3.1.0.44.7](https://products.graphaware.com/download/neo4j-to-elasticsearch/graphaware-neo4j-to-elasticsearch-3.1.0.44.7.jar)
+  - [graphaware-server-community-all-3.1.0.44](https://products.graphaware.com/download/framework-server-community/graphaware-server-community-all-3.1.0.44.jar)
 
 ### Install neo4j-to-elasticsearch
 
