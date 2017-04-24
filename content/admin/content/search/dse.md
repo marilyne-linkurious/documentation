@@ -10,7 +10,7 @@ You [can learn more about DSE Search from DataStax' documentation](http://docs.d
 
 ### Index with DSE Search
 
-Please refer to [DataStax' documentation on how to create new indices, including search indices](https://docs.datastax.com/en/latest-dse/datastax_enterprise/graph/using/createIndexes.html).
+Please refer to [DataStax' documentation on how to create new indices, including search indices](https://docs.datastax.com/en/dse/5.1/dse-dev/datastax_enterprise/graph/using/createIndexes.html).
 Follow these steps to use DSE Search and integrate it with Linkurious:
 
 1. Connect via gremlin to DSE Graph
