@@ -57,3 +57,6 @@ unless you specify a group ID in `access.externalUserDefaultGroupId` or you conf
 ### Group mapping
 
 {{access.groupmapping}}
+
+To exclude some groups of users from logging in into Linkurious, set up a list of 
+authorized groups in the configuration key `access.externalUsersAllowedGroups`.
