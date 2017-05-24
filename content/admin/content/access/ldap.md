@@ -35,7 +35,7 @@ Example LDAP configuration:
     "url": "ldap://ldap.forumsys.com:389",
     "bindDN": "cn=read-only-admin,dc=example,dc=com",
     "bindPassword": "password",
-    "baseDN": ["dc=example,dc=com'"],
+    "baseDN": ["dc=example,dc=com"],
     "usernameField": "uid",
     "emailField": "mail",
     "groupField": "group",
