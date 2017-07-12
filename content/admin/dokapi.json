@@ -118,7 +118,8 @@
         {"name": "LDAP", "content": "access/ldap.md"},
         {"name": "SSO with Azure AD", "key": "sso-azure", "content": "access/sso-azure.md"},
         {"name": "SSO with Google", "key": "sso-google", "content": "access/sso-google.md"},
-        {"name": "SSO with OpenID Connect", "key": "sso-openid", "content": "access/sso-openid-connect.md"}
+        {"name": "SSO with OpenID Connect", "key": "sso-openid", "content": "access/sso-openid-connect.md"},
+        {"name": "SSO with SAML2 / ADFS", "key": "sso-saml", "content": "access/sso-saml.md"}
       ]
     },
     {
