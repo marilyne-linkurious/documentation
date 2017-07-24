@@ -17,7 +17,7 @@ Example `access.saml2` configuration with a SAML2 provider:
 "access": {
   // [...]
   "saml2": {
-    "enabled": false,
+    "enabled": true,
     "url": "https://example.com/adfs/ls",
     "identityProviderCertificate": "/Users/example/linkurious/saml.cert",
     "groupAttribute": "Groups"

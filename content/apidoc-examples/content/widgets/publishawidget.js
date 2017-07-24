@@ -30,7 +30,21 @@ request.post({
         return {
           id: o
         };
-      })
+      }),
+      nodeFields: {
+        captions: {
+          COMPANY: {active: true, displayName: false, properties: ["name"]},
+          MARKET: {active: true, displayName: false, properties: ["name"]},
+          INVESTOR: {active: true, displayName: false, properties: ["name"]}
+        },
+        fields: [{name: "country", active: true}]
+      },
+      edgeFields: {
+        captions: {
+          INVESTED_IN: {active: true, displayName: true, properties: []}
+        },
+        fields: [{name: "raised_amount_usd", active: true}]
+      }
     },
     auth: {
       user: '{{simpleuser.email}}',
