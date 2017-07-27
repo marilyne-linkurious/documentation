@@ -1,6 +1,6 @@
 {
   "name": "Linkurious administration manual",
-  "project": "../../../Linkurious-server",
+  "project": "../../../linkurious-server",
   "variables": {
     "doc": "manual",
     "docname": "administration manual",
