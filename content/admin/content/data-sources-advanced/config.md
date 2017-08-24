@@ -19,7 +19,7 @@ They can be changed in the configuration file ({{config}}) under the `advanced` 
  
 - `maxPathLength` (default: `20`): The maximum shortest path length returned by Linkurious. Finding the shortest paths is a costly operation. Setting a small number will limit the resources used by the data source for performing this operation, and will return results faster.
 - `shortestPathsMaxResults` (default: `10`): The maximum of shortest paths returned.
-- `rawQueryTimeout` (default: `60000`): Abandon a query to the database if the time is over (in second).
+- `rawQueryTimeout` (default: `60000`): Abandon a query to the database if the time is over (in millisecond).
 - `defaultFuzziness` (default: `0.9`): Default value to search fuzziness between 0 and 1. A value of `1` means exact matching of the search query.
 - `expandThreshold` (default: `50`): When the user expands a node with too many neighbors, Linkurious will ask to refine the query so that fewer neighbors are returned.
 
