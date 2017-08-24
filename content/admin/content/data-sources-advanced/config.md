@@ -26,3 +26,6 @@ They can be changed in the configuration file ({{config}}) under the `advanced` 
 ## Additional Certificate Authorities
 
 - `extraCertificateAuthorities`: Path to a *.pem file. When set, the well known "root" CAs (like VeriSign) will be extended with the extra certificates in the file. The file should consist of one or more trusted certificates in PEM format.
+
+## Password obfuscation
+- `obfuscation` (default: `false`): Set to true if you want all the passwords in the configuration to be obfuscated at the next restart of Linkurious.

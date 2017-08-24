@@ -17,7 +17,7 @@ Allowed options in `access.ldap`:
 - `url`:              URL of the LDAP server.
 - `bindDN`:           (optional) "Domain Name" of the LDAP account used to search other accounts.
 - `bindPassword`:     (optional) Password of the LDAP account used to search other accounts.
-- `baseDN`:           Base "Domain Name" in which users will be searched.
+- `baseDN`:           Base "Domain Name" in which users will be searched. It can be a string or a non-empty array of strings.
 - `usernameField`:    Name of the LDAP attribute containing the user's *name*.
 - `emailField`:       Name of the LDAP attribute containing the user's *e-mail*.
 - `groupField`:       (optional) Name of the LDAP attribute containing the user's *group*.
@@ -35,7 +35,7 @@ Example LDAP configuration:
     "url": "ldap://ldap.forumsys.com:389",
     "bindDN": "cn=read-only-admin,dc=example,dc=com",
     "bindPassword": "password",
-    "baseDN": "dc=example,dc=com'",
+    "baseDN": ["dc=example,dc=com"],
     "usernameField": "uid",
     "emailField": "mail",
     "groupField": "group",

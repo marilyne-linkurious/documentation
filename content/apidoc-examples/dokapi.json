@@ -1,6 +1,6 @@
 {
   "name": "Linkurious API Examples",
-  "project": "../../../Linkurious-server",
+  "project": "../../../linkurious-server",
   "variables": {
     "docname": "Server SDK",
     "doc": "documentation",
