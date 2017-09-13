@@ -13,7 +13,7 @@ propagated to {{es}}.
 
 - For Neo4j 3.0.7:
   - Neo4j 3.0.7: [Mac or Linux (tar)](https://info.neo4j.com/download-thanks.html?edition=community&release=3.0.7&flavour=unix) / [Mac (dmg)](https://info.neo4j.com/download-thanks.html?edition=community&release=3.0.7&flavour=osx) / [Windows 64 installer (exe)](https://info.neo4j.com/download-thanks.html?edition=community&release=3.0.7&flavour=winstall64) / [Windows (zip)](https://info.neo4j.com/download-thanks.html?edition=community&release=3.0.7&flavour=winzip)
-  - [neo4j-to-elasticsearch-3.0.7.44.8](https://products.graphaware.com/download/neo4j-to-elasticsearch/graphaware-neo4j-to-elasticsearch-3.0.7.44.8.jar)
+  - [neo4j-to-elasticsearch-3.0.7.44.7](https://products.graphaware.com/download/neo4j-to-elasticsearch/graphaware-neo4j-to-elasticsearch-3.0.7.44.7.jar)
   - [graphaware-server-community-all-3.0.7.44](https://products.graphaware.com/download/framework-server-community/graphaware-server-community-all-3.0.7.44.jar)
 
 - For Neo4j 3.1.0:
