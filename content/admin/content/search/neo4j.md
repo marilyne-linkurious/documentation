@@ -21,6 +21,12 @@ propagated to {{es}}.
   - [neo4j-to-elasticsearch-3.1.4.49.7](https://products.graphaware.com/download/neo4j-to-elasticsearch/graphaware-neo4j-to-elasticsearch-3.1.4.49.7.jar)
   - [graphaware-server-community-all-3.1.4.49](https://products.graphaware.com/download/framework-server-community/graphaware-server-community-all-3.1.4.49.jar)
 
+- For Neo4j 3.2.1
+  - Neo4j 3.2.1: [Mac or Linux (tar)]({{neodl.unix}}3.2.1) / [Mac (dmg)]({{neodl.dmg}}3.2.1) / [Windows 64 installer (exe)]({{neodl.win}}3.2.1) / [Windows (zip)]({{neodl.winzip}}3.2.1)
+  - [neo4j-to-elasticsearch-3.2.1.51.7](https://products.graphaware.com/download/neo4j-to-elasticsearch/graphaware-neo4j-to-elasticsearch-3.2.1.51.7.jar)
+  - [graphaware-server-community-all-3.2.1.51](https://products.graphaware.com/download/framework-server-community/graphaware-server-community-all-3.2.1.51.jar)
+
+
 ### Install neo4j-to-elasticsearch
 
 Follow these steps to use install this Neo4j plugin:
