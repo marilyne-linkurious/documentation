@@ -1,0 +1,1 @@
+{{janusgraph.datasource.config}}

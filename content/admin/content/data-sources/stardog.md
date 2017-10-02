@@ -1,0 +1,1 @@
+{{stardog.datasource.config}}

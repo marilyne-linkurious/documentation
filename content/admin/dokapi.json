@@ -15,7 +15,7 @@
     "config.file": "production.json",
     "config": "`linkurious/data/config/production.json`",
     "graph.vendors": "Neo4j, DataStax, and AllegroGraph",
-    "graph.vendor.menu": "- [Neo4j](/configure-neo4j)\n- [DataStax Enterprise Graph](/configure-dse)\n- [AllegroGraph](/configure-allegrograph)\n- [Titan DB](/configure-titan)\n",
+    "graph.vendor.menu": "- [Neo4j](/configure-neo4j)\n- [JanusGraph](/configure-janus)\n- [AllegroGraph](/configure-allegrograph)\n- [DataStax Enterprise Graph](/configure-dse)\n- [Stardog](/configure-stardog)",
     "apidoc.url": "https://linkurious.github.io/server-apidoc/",
     "auth.providers": "LDAP, Active Directory, Windows Azure Active Directory, Google Suite",
     "admin.menu.tag": "strong",
@@ -53,9 +53,10 @@
       "content": "importing/index.md",
       "children": [
         {"name": "Neo4j", "key": "import-neo4j", "content": "importing/neo4j.md"},
-        {"name": "DataStax Enterprise Graph", "key": "import-dse", "content": "importing/dse.md"},
+        {"name": "JanusGraph", "key": "import-janus", "content": "importing/janus.md"},
         {"name": "AllegroGraph", "key": "import-allegrograph", "content": "importing/allegro.md"},
-        {"name": "Titan DB", "key": "import-titan", "content": "importing/titan.md"}
+        {"name": "DataStax Enterprise Graph", "key": "import-dse", "content": "importing/dse.md"},
+        {"name": "Stardog", "key": "import-stardog", "content": "importing/stardog.md"}
       ]
     },
     {
@@ -74,9 +75,10 @@
       "content": "data-sources/index.md",
       "children": [
         {"name": "Neo4j", "key": "configure-neo4j", "content": "data-sources/neo4j.md"},
-        {"name": "DataStax Enterprise Graph", "key": "configure-dse", "content": "data-sources/dse.md"},
+        {"name": "JanusGraph", "key": "configure-janus", "content": "data-sources/janus.md"},
         {"name": "AllegroGraph", "key": "configure-allegrograph", "content": "data-sources/allegro.md"},
-        {"name": "Titan DB", "key": "configure-titan", "content": "data-sources/titan.md"},
+        {"name": "DataStax Enterprise Graph", "key": "configure-dse", "content": "data-sources/dse.md"},
+        {"name": "Stardog", "key": "configure-stardog", "content": "data-sources/stardog.md"},
         {"name": "Alternative IDs", "content": "data-sources-advanced/alternative-ids.md"},
         {"name": "Advanced settings", "content": "data-sources-advanced/config.md"}
       ]
@@ -87,9 +89,10 @@
       "key": "search",
       "children": [
         {"name": "Neo4j", "key": "search-neo4j", "content": "search/neo4j.md"},
-        {"name": "DataStax Enterprise Graph", "key": "search-dse", "content": "search/dse.md"},
+        {"name": "JanusGraph", "key": "search-janus", "content": "search/janus.md"},
         {"name": "AllegroGraph", "key": "search-allegrograph", "content": "search/allegrograph.md"},
-        {"name": "Titan DB", "key": "search-titan", "content": "search/titan.md"},
+        {"name": "DataStax Enterprise Graph", "key": "search-dse", "content": "search/dse.md"},
+        {"name": "Stardog", "key": "search-stardog", "content": "search/stardog.md"},
         {"name": "Properties disclosure", "key": "properties-disclosure", "content": "search/data-disclosure.md"},
         {"name": "Configuring ElasticSearch", "key": "es-config", "content": "search/es.md"},
         {"name": "Using ElasticSearch on AWS", "key": "es-on-aws", "content": "search/es-on-aws.md"}

@@ -1,7 +1,7 @@
 Linkurious allow you to search your graph using natural full-text search.
 
 In order to offer the search feature out-of-the-box, Linkurious ships with an embedded
-{{es}} server. The option allow for zero-configuration deployment in many cases.
+{{es}} server. This option allow for zero-configuration deployment in many cases.
 
 ## Indexing your graph data
 
@@ -24,21 +24,23 @@ for security reasons and to avoid collisions with existing servers.
 ## Use your own {{es}}
 
 It is possible to use your own {{es}} cluster for performances reasons.
-Linkurious supports {{es}} v1.x as well as v2.x.
+Linkurious supports {{es}} v1.x and v2.x.
 See [details about {{es}} configuration options](/es-config).
 
 ## Search scalability and alternatives to {{es}}
 
 Using {{es}} is convenient but may not fit cases where
-the graph database is big (more a a couple million nodes and edges) and is regularly
+the graph database is big (more than a couple million nodes and edges) and is regularly
 modified from outside Linkurious, which required to re-index the whole database.
 
 In order to offer a scalable search feature on big graphs,
 Linkurious offers alternatives search solution:
 
 - With Neo4j: [using the neo4j-to-elasticsearch Neo4j plugin](/search-neo4j/#neo4j-to-elasticsearch-integration) to synchronize Neo4j and {{es}} incrementally
-- With DataStax Enterprise Graph: [using Linkurious' DSE Search connector](/search-dse/#dse-search-integration) to use DSE's built-in full-text search capability
-- With AllegroGraph: [using Linkurious' AllegroGraph Search connector](/search-allegrograph/#allegrograph-search-integration) to use AllegroGraph built-in full-text search capability
+- With JanusGraph: [using Linkurious' JanusGraph Search connector](/search-janus) to use JanusGraph built-in search indices
+- With AllegroGraph: [using Linkurious' AllegroGraph Search connector](/search-allegrograph) to use AllegroGraph built-in search indices
+- With DataStax Enterprise Graph: [using Linkurious' DSE Search connector](/search-dse) to use DSE built-in search indices
+- With Stardog: [using Linkurious' Stardog Search connector](/search-stardog) to use Stardog built-in search indices
 
 ## Edit the search configuration
 
@@ -61,6 +63,8 @@ Edit the configuration file located at {{config}}.
 
 See details for each supported search connector:
 - [{{es}}](/es-config)
-- [DSE Search](/search-dse/#integrate-with-linkurious)
-- [AllegroGraph Search](/search-allegrograph/#integrate-with-linkurious)
 - [Neo4j-to-Elasticsearch](/search-neo4j/#integrate-with-linkurious)
+- [JanusGraph Search](/search-janus)
+- [AllegroGraph Search](/search-allegrograph)
+- [DSE Search](/search-dse)
+- [Stardog Search](/search-stardog)

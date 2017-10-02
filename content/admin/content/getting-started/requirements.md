@@ -13,10 +13,11 @@ For a standard installation of Linkurious, the recommended hardware is:
   
 Please keep in mind that these technical requirements are for Linkurious server only.
 For hardware requirements regarding your graph database, please refer to these guides:
-- [Neo4j: hardware sizing calculator](https://neo4j.com/hardware-sizing-calculator/?aliId=linkurious)
+- [Neo4j: hardware sizing calculator](https://neo4j.com/hardware-sizing-calculator/)
+- [JanusGraph: *Google Groups* discussion on hardware requirements](https://groups.google.com/forum/#!topic/aureliusgraphs/0wWk9AzHyTM)
 - [DataStax Enterprise Graph: hardware requirements](https://docs.datastax.com/en/landing_page/doc/landing_page/planning/planningHardware.html)
 - [AllegroGraph: hardware and performance tuning](http://franz.com/agraph/allegrograph/agraph_performance_tuning.lhtml)
-- [Titan: *Google Groups* discussion on hardware requirements](https://groups.google.com/forum/#!topic/aureliusgraphs/0wWk9AzHyTM)
+- [Stardog: capacity planning](http://www.stardog.com/docs/#_capacity_planning)
 
 #### {{es}}
 

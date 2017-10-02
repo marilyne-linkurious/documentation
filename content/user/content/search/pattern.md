@@ -1,8 +1,8 @@
 
 Most graph database support a query language that can be used to express 
 pattern queries in the graph. Neo4j supports the ` Cypher` language, 
-Titan and DataStax Enterprise Graph support the `Gremlin` language and 
-AllegroGraph supports the `SPARQL` language.
+JanusGraph and DataStax Enterprise Graph support the `Gremlin` language and 
+AllegroGraph and Stardog support the `SPARQL` language.
 
 In {{lke}}, you can directly use these query language from the 
 **"Find" > "Patterns"** menu. 
