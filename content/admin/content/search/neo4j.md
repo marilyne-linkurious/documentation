@@ -26,6 +26,11 @@ propagated to {{es}}.
   - [neo4j-to-elasticsearch-3.2.1.51.7](https://products.graphaware.com/download/neo4j-to-elasticsearch/graphaware-neo4j-to-elasticsearch-3.2.1.51.7.jar)
   - [graphaware-server-community-all-3.2.1.51](https://products.graphaware.com/download/framework-server-community/graphaware-server-community-all-3.2.1.51.jar)
 
+- For Neo4j 3.2.5
+  - Neo4j 3.2.5: [Mac or Linux (tar)]({{neodl.unix}}3.2.5) / [Mac (dmg)]({{neodl.dmg}}3.2.5) / [Windows 64 installer (exe)]({{neodl.win}}3.2.5) / [Windows (zip)]({{neodl.winzip}}3.2.5)
+  - [neo4j-to-elasticsearch-3.2.5.51.7](https://products.graphaware.com/download/neo4j-to-elasticsearch/graphaware-neo4j-to-elasticsearch-3.2.5.51.7.jar)
+  - [graphaware-server-community-all-3.2.5.51](https://products.graphaware.com/download/framework-server-community/graphaware-server-community-all-3.2.5.51.jar)
+
 
 ### Install neo4j-to-elasticsearch
 
