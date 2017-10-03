@@ -2,7 +2,7 @@
 We visualize a match within the Workspace. 
 A specific "Match" panel on the left displays buttons to un/confirm or 
 un/dismiss the match. 
-We can go back to the list of matches, or press Previous/Next match to 
+We can go back to the list of matches, or click Previous/Next match to 
 navigate the list of matches without leaving the Workspace.
 
 All features of the Workspace are available for a complete 

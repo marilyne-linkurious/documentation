@@ -13,10 +13,10 @@ To enable authentication use the Web user interface via the *Admin* > *Users* me
 
 ![login screen](create-admin1.png)
 
-The following screen will be prompted if authentication is disabled. Press *Enable Authentication*.
+The following screen will be prompted if authentication is disabled. Click *Enable Authentication*.
 
 ![login screen](create-admin2.png)
 
-Create an admin account and press *Save and enable*.
+Create an admin account and click *Save and enable*.
 
 ![login screen](create-admin3.png)
