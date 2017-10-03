@@ -8,13 +8,6 @@ The following image shows a typical dashboard after starting to use
 
 ![dashboard](Dashboard.png)
 
-## Directory
-
-The directory lists all indexed nodes and edges of the graph database in 
-a tabular display.
-
-![](Directory.png)
-
 ## Workspace
 
 The workspace allows to explore the graph database and craft the 
