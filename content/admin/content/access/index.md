@@ -48,3 +48,9 @@ Linkurious supports the following external authentication services:
 
 If your company uses an authentication service that Linkurious does not support yet,
 please [get in touch](/support).
+
+If you enable an SSO capable authentication service (*OAuth/OpenID Connect* or *SAML2*),
+your users won't need to login directly in Linkurious but, instead, by clicking the SSO button
+they will be redirected to the identity provider for authentication.
+
+![login screen](openidconnect-login.png)
