@@ -1,4 +1,3 @@
-
 You can configure Linkurious to customize the default visual aspect of 
 nodes and edges in new visualizations, so that your users will jump head 
 first into the exploration of data. 
@@ -7,9 +6,9 @@ Nodes and edges are grey and have the same size by default.
 The defined styles will be applied to **all** data-sources.
 
 Open the configuration file ({{config}}).
-Visualization styles are defined within the `sigma` key by the `defaultStyles` and color `palette`.
+Visualization styles are defined within the `defaultStyles` and color `palette` key.
 Styles are mapping between visual variables such as colors or size, 
-and data properties on nodes and edges. 
+and data properties on nodes and edges.
 
 Visual variables can be used in a single style at a time. 
 For instance we can set `nodes.color` and `nodes.icons`, but we cannot set `nodes.color` twice.
