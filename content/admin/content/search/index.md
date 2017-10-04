@@ -37,10 +37,10 @@ In order to offer a scalable search feature on big graphs,
 Linkurious offers alternatives search solution:
 
 - With Neo4j: [using the neo4j-to-elasticsearch Neo4j plugin](/search-neo4j/#neo4j-to-elasticsearch-integration) to synchronize Neo4j and {{es}} incrementally
-- With JanusGraph: [using Linkurious' JanusGraph Search connector](/search-janus) to use JanusGraph built-in search indices
-- With AllegroGraph: [using Linkurious' AllegroGraph Search connector](/search-allegrograph) to use AllegroGraph built-in search indices
-- With DataStax Enterprise Graph: [using Linkurious' DSE Search connector](/search-dse) to use DSE built-in search indices
-- With Stardog: [using Linkurious' Stardog Search connector](/search-stardog) to use Stardog built-in search indices
+- With JanusGraph: [using Linkurious JanusGraph Search connector](/search-janus) to use JanusGraph built-in search indices
+- With AllegroGraph: [using Linkurious AllegroGraph Search connector](/search-allegrograph) to use AllegroGraph built-in search indices
+- With DataStax Enterprise Graph: [using Linkurious DSE Search connector](/search-dse) to use DSE built-in search indices
+- With Stardog: [using Linkurious Stardog Search connector](/search-stardog) to use Stardog built-in search indices
 
 ## Edit the search configuration
 

@@ -10,7 +10,7 @@ You will then see the downloadable files:
 
 ## Archive content
 
-The *ZIP* file contains:
+The ZIP file contains:
  - A [NodeJS](https://nodejs.org)-based Web-application server
  - An [{{es}}]({{es.product.link}}) engine
  - A NodeJS-based process manager to supervise the server and {{es}}

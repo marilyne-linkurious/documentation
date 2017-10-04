@@ -2,7 +2,7 @@ Linkurious supports [Google Suite (a.k.a. Google Apps)](https://gsuite.google.co
 as an external authentication provider (with Single Sign-On).
 
 Since Google Suite implements the **OpenID Connect** standard, 
-this can be configured using Linkurious' OpenID Connect provider.
+this can be configured using Linkurious OpenID Connect provider.
 
 To set up Linkurious authentication with Google Suite, follow these steps:
 
