@@ -1,15 +1,17 @@
 ## About menu
-Administrators can manually check if updates of Linkurious are available by opening the "about" menu from
- *Dashboard* > *account menu* > *about*.
+Using an administrator account, access the *Your Username* > *About* menu to open the Linkurious info:
 
-Example "about" menu:
-![about page example](check-updates.png)
+![](about-menu.png)
+
+Click *Check for updates* to see if you are using the latest version.
+
+![](about.png)
 
 ## Public version API
 
-Another options is to open http://linkurio.us/version/linkurious-enterprise.json
+Alternatively, you can check at http://linkurio.us/version/linkurious-enterprise.json
 ```JS
-// example output:
+// example response
 {
   "tag_name": "v{{package.version}}", // latest version of Linkurious
   "message": null,

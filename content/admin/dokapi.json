@@ -14,10 +14,10 @@
     "lke": "Linkurious",
     "config.file": "production.json",
     "config": "`linkurious/data/config/production.json`",
-    "graph.vendors": "Neo4j, DataStax, and AllegroGraph",
+    "graph.vendors": "Neo4j, JanusGraph, DataStax Enterprise Graph, AllegroGraph and Stardog",
     "graph.vendor.menu": "- [Neo4j](/configure-neo4j)\n- [JanusGraph](/configure-janus)\n- [AllegroGraph](/configure-allegrograph)\n- [DataStax Enterprise Graph](/configure-dse)\n- [Stardog](/configure-stardog)",
-    "apidoc.url": "https://linkurious.github.io/server-apidoc/",
-    "auth.providers": "LDAP, Active Directory, Windows Azure Active Directory, Google Suite",
+    "apidoc.url": "https://doc.linkurio.us/server-sdk/latest/apidoc/",
+    "auth.providers": "LDAP, Microsoft Active Directory, Microsoft Azure Active Directory, Google Suite, OpenID Connect, SAML2 / ADFS",
     "admin.menu.tag": "strong",
     "user.menu.tag": "span"
   },
@@ -37,13 +37,14 @@
         {"name": "Downloading", "key": "download", "content": "getting-started/download.md"},
         {"name": "Installing", "key": "install", "content": "getting-started/install.md"},
         {"name": "Starting Linkurious", "key": "start", "content": "getting-started/start.md"},
-        {"name": "Stopping Linkurious", "key": "stop", "content": "getting-started/stop.md"}
+        {"name": "Stopping Linkurious", "key": "stop", "content": "getting-started/stop.md"},
+        {"name": "Configure Linkurious", "key": "configure", "content": "getting-started/configure.md"}
       ]
     },
     {
       "name": "Troubleshooting",
       "children": [
-        {"name": "Checking Linkurious' status", "key": "status", "content": "troubleshoot/status.md"},
+        {"name": "Checking Linkurious status", "key": "status", "content": "troubleshoot/status.md"},
         {"name": "Reading the logs", "key": "logs", "content": "troubleshoot/logs.md"},
         {"name": "Getting support", "key": "support", "content": "troubleshoot/support.md"}
       ]
@@ -109,10 +110,9 @@
     },
     {
       "name": "Web server",
-      "key": "web-server",
-      "content": "www/config.md",
+      "key": "web-server-idx",
       "children": [
-        {"name": "Client analytics", "content": "www/analytics.md"}
+        {"name": "Configuration", "key": "web-server", "content": "www/config.md"}
       ]
     },
     {

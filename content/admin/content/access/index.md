@@ -53,4 +53,4 @@ If you enable an SSO capable authentication service (*OAuth/OpenID Connect* or *
 your users won't need to login directly in Linkurious but, instead, by clicking the SSO button
 they will be redirected to the identity provider for authentication.
 
-![login screen](openidconnect-login.png)
+![](openidconnect-login.png)

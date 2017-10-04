@@ -5,9 +5,10 @@ This documentation will help you install, run and customize Linkurious.
 ## Architecture overview
 
 Linkurious is a three-tier application. 
+
 The presentation layer is a Web application. 
-It uses our graph visualization library, called Ogma, to allow rich interactions with the graph. 
-It also provides a user interface to enable collaboration among end users and data administration.
+It uses our graph visualization library, [Ogma](https://ogma.linkurio.us/), to allow rich interactions with the graph. 
+It also provides a user interface to enable data administration and collaboration among end users.
 
 The presentation layer communicates with the logic layer via a [JSON-based REST API]({{apidoc.url}}). 
 Custom presentation layer application can be developed on top of the logic layer.

@@ -11,12 +11,12 @@ password, so anyone can access the platform.
 
 To enable authentication use the Web user interface via the *Admin* > *Users* menu:
 
-![login screen](create-admin1.png)
+![](user-menu.png)
 
 The following screen will be prompted if authentication is disabled. Click *Enable Authentication*.
 
-![login screen](create-admin2.png)
+![](create-admin1.png)
 
 Create an admin account and click *Save and enable*.
 
-![login screen](create-admin3.png)
+![](create-admin2.png)
