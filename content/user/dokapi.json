@@ -123,8 +123,7 @@
       "children": [
         {"name": "List alerts",         "key": "alert-list",         "content": "alerts/list.md"},
         {"name": "List matches",        "key": "alert-list-matches", "content": "alerts/matches.md"},
-        {"name": "Investigate a match", "key": "alert-investigate",  "content": "alerts/investigate.md"},
-        {"name": "Match audit trail",   "key": "alert-audit-trail",  "content": "alerts/audit-trail.md"}
+        {"name": "Investigate a match", "key": "alert-investigate",  "content": "alerts/investigate.md"}
       ]
     }
   ]
