@@ -44,7 +44,7 @@
     {
       "name": "Troubleshooting",
       "children": [
-        {"name": "Checking Linkurious' status", "key": "status", "content": "troubleshoot/status.md"},
+        {"name": "Checking Linkurious status", "key": "status", "content": "troubleshoot/status.md"},
         {"name": "Reading the logs", "key": "logs", "content": "troubleshoot/logs.md"},
         {"name": "Getting support", "key": "support", "content": "troubleshoot/support.md"}
       ]

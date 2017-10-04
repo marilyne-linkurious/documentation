@@ -1,6 +1,6 @@
 If you follow this procedure, you will be able to update Linkurious to a newer version
 without loosing your configuration and user-data store.
-You data will be automatically migrated to the never version.
+You data will be automatically migrated to the newer version.
 
 Before updating, make sure that you have [backed-up your data](/backup)
 in case something unexpected happens.

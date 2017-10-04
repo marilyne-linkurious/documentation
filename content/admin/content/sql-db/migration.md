@@ -1,5 +1,5 @@
 
-The default storage system for Linkurious' user-data store is SQLite.
+The default storage system for Linkurious user-data store is SQLite.
 
 This is the procedure to migrate from SQLite to MySQL.
 

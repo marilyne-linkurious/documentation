@@ -46,7 +46,7 @@ Linkurious server can be deployed on the following platforms:
 
 ### Java
 
-Linkurious' embedded [{{es}}]({{es.product.link}}) engine requires *Java JRE (or JDK)* 7+.
+Linkurious embedded [{{es}}]({{es.product.link}}) engine requires *Java JRE (or JDK)* 7+.
 
 You can [download the latest JRE from Oracle's website](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html).
 <!-- from: http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html -->

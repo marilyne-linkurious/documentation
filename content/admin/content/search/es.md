@@ -5,7 +5,7 @@ ElasticSearch is supported from 1.4+ (for `elasticSearch` connector) and from ve
 
 Linkurious ships with an embedded {{es}} server (**version {{es.version}}**).
 
-To use Linkurious' embedded {{es}} instance, simply set the following `index` configurations keys:
+To use Linkurious embedded {{es}} instance, simply set the following `index` configurations keys:
 - `vendor` must be `elasticSearch`
 - `host` must be `"127.0.0.1"`
 - `port` must be `9201`

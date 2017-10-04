@@ -10,3 +10,5 @@ Using an administrator account, access the *Admin* > *Configuration* menu to edi
 Configuration keys are divided per category. Edit what you need to change and click *Save*.
 
 ![](configure-ui.png)
+
+> Password field will always be hidden from the Web UI, but they can be edited.
