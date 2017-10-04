@@ -1,4 +1,5 @@
-Linkurious supports **SAML2** compatible providers as external authentication providers.
+Linkurious supports any [SAML2](https://en.wikipedia.org/wiki/SAML_2.0) compatible provider
+as external authentication providers.
 
 ## Configuration
 
@@ -11,7 +12,7 @@ obtain the following parameters from the provider:
    
 `groupAttribute` is the attribute of the SAML response containing the array of groups a user belongs to.
 
-Example `access.saml2` configuration with a SAML2 provider:
+Example `access.saml2` configuration with any SAML2 provider:
 
 ```json
 "access": {
@@ -27,6 +28,7 @@ Example `access.saml2` configuration with a SAML2 provider:
 
 ## ADFS Configuration
 
-In particular, **ADFS** (Active Directory Federation Services) is a SAML 2 provider that offers Single-Sign-On towards an Active Directory service.
+In particular, **ADFS** (Active Directory Federation Services) is a SAML2
+provider that offers Single-Sign-On towards an Active Directory service.
 
-To set up Linkurious authentication with ADFS, Linkurious has to be configured as a Relying Party Trust in ADFS.
+To set up Linkurious authentication with ADFS, Linkurious has to be configured as a *Relying Party Trust* in ADFS.

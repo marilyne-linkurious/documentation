@@ -1,5 +1,7 @@
 Linkurious supports [Microsoft Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis)
-an external authentication provider.
+as an external authentication provider.
+
+## Configuration
 
 To set up Linkurious authentication with Microsoft Azure Active Directory, follow these steps:
 
@@ -10,7 +12,7 @@ To set up Linkurious authentication with Microsoft Azure Active Directory, follo
    - `clientID`, e.g. `91d426e2-xxx-xxxx-xxxx-989f89b6b2a2`
    - `clientSecret`, e.g. `gt7BHSnoIffbxxxxxxxxxxxxxxxxxxtyAG5xDotC8I=`
    - `tenantID`, (optional, required only for group mapping) e.g. `60d78xxx-xxxx-xxxx-xxxx-xxxxxx9ca39b`
-3. Add an `oauth2` section inside the `access` section in Linkurious configuration ({{config}})
+3. Add an `oauth2` section inside the `access` section in {{config}}
 
 Example `access.oauth2` configuration with Microsoft Azure Active Directory:
 

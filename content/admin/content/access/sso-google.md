@@ -2,7 +2,9 @@ Linkurious supports [Google Suite (a.k.a. Google Apps)](https://gsuite.google.co
 as an external authentication provider (with Single Sign-On).
 
 Since Google Suite implements the **OpenID Connect** standard, 
-this can be configured using Linkurious OpenID Connect provider.
+it can be configured as an OpenID Connect provider.
+
+## Configuration
 
 To set up Linkurious authentication with Google Suite, follow these steps:
 
@@ -12,9 +14,10 @@ To set up Linkurious authentication with Google Suite, follow these steps:
    - `tokenURL`, e.g. `https://www.googleapis.com/oauth2/v4/token`
    - `clientID`, e.g. `1718xxxxxx-xxxxxxxxxxxxxxxx.apps.googleusercontent.com`
    - `clientSecret`, e.g. `E09dQxxxxxxxxxxxxxxxxSN`
+3. Add an `oauth2` section inside the `access` section in {{config}}
 
-To limit the access to the Google accounts from your Google Suite domain, remember to add 
-the `hd` query parameter to the `authorizationURL` with your domain as value.
+To limit the access to the Google accounts from your Google Suite domain, use
+the `hd` query parameter in the `authorizationURL` with your domain as value.
 
 Example `access.oauth2` configuration with Google Suite:
 

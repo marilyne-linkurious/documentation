@@ -18,7 +18,7 @@ obtain the following parameters from the provider:
    - `clientID`, e.g. `1718xxxxxx-xxxxxxxxxxxxxxxx.apps.googleusercontent.com`
    - `clientSecret`, e.g. `E09dQxxxxxxxxxxxxxxxxSN`
 
-Example `access.oauth2` configuration with an OpenID Connect provider:
+Example `access.oauth2` configuration with any OpenID Connect provider:
 
 ```json
 "access": {
@@ -42,7 +42,7 @@ To set up group mapping in OpenID Connect is necessary to specify additional con
    - `openidconnect.scope`, e.g. `openid profile email groups`
    - `openidconnect.groupClaim`, e.g. `groups`
 
-For example if you want to set up OIDC with Okta:
+For example if you want to set up OIDC with *Okta*:
 
 ```json
 "access": {
