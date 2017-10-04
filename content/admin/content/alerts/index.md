@@ -12,10 +12,10 @@ To create an alert, an administrator needs to:
 - Configure an optional score column from the Pattern query results, to sort matches
 
 After that, users will have access to all matches to this alert in the *Alerts* panel of Linkurious:
-![alert list](user-alert-list.png)
+![](user-alert-list.png)
 
 Opening an alerts lists all recent matches sorted by score:
-![alert matches](user-alert-matches.png)
+![](user-alert-matches.png)
 
 Clinking on a match opens it in graph view for details:
-![match details](user-match-details.png)
+![](user-match-details.png)

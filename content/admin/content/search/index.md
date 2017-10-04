@@ -49,13 +49,13 @@ Linkurious offers alternatives search solution:
 The `index` configuration can be changed from the administration interface.
 
 Using an administrator account, access the *Admin* > *Data* menu to edit the current data-source configuration:
-![admin-data menu](menu-data.png)
+![](menu-data.png)
 
 Edit the data-source index configuration:
-![edit data-source configuration form](index-config.png)
+![](index-config.png)
 
 Submit the changes by hitting the *Save configuration* button
-![save data-source configuration](edit-source-submit.png)
+![](edit-source-submit.png)
 
 ### Using the configuration file
 

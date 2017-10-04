@@ -38,23 +38,23 @@ Example of alternative identifier configuration with Neo4j:
 }
 ```
 
-## Stable `sourceKey` in Neo4j
+## Stable sourceKey
 
 Linkurious generates a unique identifier for data-source, based on internal information from the data-source.
-This data-source identifiers (called the `sourceKey`) is used identify all user-data (visualizations etc.)
+This data-source identifiers (called the `sourceKey`) is used to identify all user-data (visualizations etc.)
 that belongs to a data-source.
 
-When re-generating a Neo4j graph database, the `sourceKey` will change.
-In order to avoid breaking all references to existing visualisations, 
-it is possible to manually the `sourceKey` of a data-source.
+When re-generating a Neo4j graph database, for example, the `sourceKey` will change.
+In order to avoid breaking all references to existing visualizations, 
+it is possible to set manually the `sourceKey` of a data-source.
 
 Before re-generating the graph database, go to the *Admin* > *Sources* menu:
-![sources admin menu](menu-sources.png)
+![](sources-menu.png)
 
 In the sources administration panel, find the **Key** value for your data-source (e.g. `1c3490bd`) and copy it.
  
-Then, edit the configuration file ({{config.file}}) 
-and set `manualSourceKey` for yur data-source:
+Then, edit the configuration file ({{config}}) 
+and set the key `manualSourceKey` for your data-source:
 ```json
 {
   "dataSources": [

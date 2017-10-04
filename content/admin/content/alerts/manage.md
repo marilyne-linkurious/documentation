@@ -4,7 +4,7 @@ Alerts are currently only supported on Neo4j databases.
 ## Creating a new alert
 
 To create an Alert, open the *Admin* > *Alerts* menu and click *add*:
-![create an alert](admin-alerts.png)
+![](admin-alerts.png)
 
 Alert settings are:
 

@@ -63,4 +63,4 @@ new visualizations created by all users for a given data-source, you need to:
 3. Open the *Admin* > *Data* menu and scroll to the bottom of the page
 4. Click the "Reset default captions styles" button.
 
-![reset default captions](reset-captions.png)
+![](reset-captions.png)

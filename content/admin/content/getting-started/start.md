@@ -19,11 +19,10 @@ Alternatively, run the `menu.bat` script and click *Start Linkurious*.
 > The firewall of Windows might ask you to authorize connections with Linkurious. If so, click on *Authorize access*.
 
 Content of the `linkurious-windows` directory:
-![Content of the linkurious-windows directory](folder-windows.png)
+![](folder-windows.png)
 
 Linkurious starting up on Windows:
-![startup window](startup.png)
-
+![](startup.png)
 
 ## Mac OS X systems
 
