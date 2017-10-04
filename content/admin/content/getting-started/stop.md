@@ -3,19 +3,18 @@
 
 Run the `stop.sh` script in the `linkurious-linux` directory.
 
-Alternately, run `menu.sh` and select *Stop Linkurious processes* from the console.
+Alternately, run `menu.sh` and click *Stop Linkurious*.
 
 
 ## Windows systems
 
 Run the `stop.bat` script in the `linkurious-windows` directory.
 
-Alternately, run `menu.bat` and select *Stop Linkurious* from the console.
+Alternately, run `menu.bat` and click *Stop Linkurious*.
 
 
 ## Mac OS X systems
 
 Run the `stop.sh.command` script in the `linkurious-osx` directory.
 
-Alternately, run `menu.sh.command` and select *Stop Linkurious processes* from the console.
-
+Alternately, run `menu.sh.command` and click *Stop Linkurious*.

@@ -6,22 +6,21 @@ Linkurious starts 3 separate processes when launched:
 - `java` (or `java.exe`): The embedded [{{es}}]({{es.product.link}}) indexation server (if enabled).
 
 Check if these processes are alive by opening the menu from the Linkurious directory 
-(see how on each operating system below). 
+(see how to open it on each operating system below):
 
-The menu looks like this:
-![Linkurious manager menu](manager-menu.png)
+![](manager.png)
 
 ### Linux systems
 
-Run `menu.sh` (the status is above the menu). Alternately, run `menu.sh status`.
+Run `menu.sh`. Alternately, run `menu.sh status`.
 
 ### Windows systems
 
-Run `menu.bat` (the status is above the menu). Alternately, run `menu.bat status`.
+Run `menu.bat`. Alternately, run `menu.bat status`.
 
 ### Mac OS X systems
 
-Run `menu.sh.command` (the status is above the menu). Alternately, run `menu.sh.command status`.
+Run `menu.sh.command`. Alternately, run `menu.sh.command status`.
 
 ## API status
 
@@ -31,7 +30,14 @@ To retrieve the API status, send a `GET` request to http://127.0.0.1:3000/api/st
 (replace `127.0.0.1` and `3000` with the actual host and port of your server).
 ```JS
 // example response
-{"status":{"code":200,"name":"initialized","message":"Linkurious ready to go :)","uptime":8633}}
+{
+  "status": {
+    "code": 200,
+    "name": "initialized",
+    "message": "Linkurious ready to go :)",
+    "uptime": 8633
+  }
+}
 ```
 
 ## API version
@@ -42,6 +48,10 @@ To retrieve the API status, send a `GET` request to http://127.0.0.1:3000/api/ve
 (replace `127.0.0.1` and `3000` with the actual host and port of your server).
 ```JS
 // example response
-{"tag_name":"{{package.version}}","name":"Xenodochial Xenoposeidon","prerelease":false,"enterprise":true}
+{
+  "tag_name": "{{package.version}}",
+  "name": "Brilliant Burrito",
+  "prerelease": false,
+  "enterprise": true
+}
 ```
-

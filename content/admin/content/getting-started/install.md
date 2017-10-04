@@ -1,55 +1,39 @@
 ## Linux systems
 
-1. Unzip Linkurious' archive: `>unzip linkurious-linux-v{{package.version}}.zip`
-2. Enter the Linkurious folder: `>cd linkurious-linux`
+1. Unzip Linkurious archive: `> unzip linkurious-linux-v{{package.version}}.zip`
+2. Enter the Linkurious folder: `> cd linkurious-linux`
 3. Check the configuration file at `linkurious-linux/data/config/{{config.file}}` (see [how to configure a data-source](/configure-sources))
-4. Make Java JRE 7+ is installed (type `java -version` in a terminal), if needed, [install Java](/requirements/#java).  
+4. Make sure that Java JRE 7+ is installed (type `java -version` in a terminal), if needed, [install Java](/requirements/#java)
 
 See [how to start Linkurious on Linux](/start/#linux-systems).
 
 ## Windows systems
 
-1. Unzip Linkurious' archive (right-click on the file, then "Extract all")
+1. Unzip Linkurious archive (right-click on the file, then "Extract all")
 2. Enter the `linkurious-windows` folder
 3. Check the configuration file at `linkurious-windows/data/config/{{config.file}}` (see [how to configure a data-source](/configure-sources)) 
-4. Make sure that you have Java JRE 7+ installed (see [Java JDK requirements](/requirements/#java))
+4. Make sure that Java JRE 7+ is installed (see [Java JDK requirements](/requirements/#java))
 
 See [how to start Linkurious on Windows](/start/#windows-systems).
 
 ## Mac OS X systems
 
-1. Unzip Linkurious' archive: `>unzip linkurious-osx-v{{package.version}}.zip`
-2. Enter the Linkurious folder: `>cd linkurious-osx`
+1. Unzip Linkurious archive: `> unzip linkurious-osx-v{{package.version}}.zip`
+2. Enter the Linkurious folder: `> cd linkurious-osx`
 3. Check the configuration file at `linkurious-osx/data/config/{{config.file}}` (see [how to configure a data-source](/configure-sources))
-4. Make Java JRE 7+ is installed (type `java -version` in a terminal), if needed, [install Java](/requirements/#java).  
+4. Make sure that Java JRE 7+ is installed (type `java -version` in a terminal), if needed, [install Java](/requirements/#java)
 
 See [how to start Linkurious on Mac OS X](/start/#mac-os-x-systems).
 
-# Installing as a service.
+# Install as a service
 
 In order to run Linkurious automatically when the operating system starts, it is possible to install 
 Linkurious as a system service on *Linux*, *Mac OS X* and *Windows*.
 
-## Linux systems
+Open the administration menu by running `menu.sh`, `menu.bat` or `menu.sh.command` in the linkurious folder.
+Click on `Install Linkurious as a system service`.
 
-1. Open the administration menu by running `menu.sh` in the `linkurious-linux` folder.
-2. Check if Linkurious is already installed as a service (displayed at the top of the menu).
-3. Select `Install Linkurious as a service`.
-4. Linkurious will install itself as a service of your operating system.
-
-## Windows systems
-
-1. Open the administration menu by running `menu.bat` in the `linkurious-windows` folder.
-2. Check if Linkurious is already installed as a service (displayed at the top of the menu).
-3. Select `Install Linkurious as a service`.
-4. Linkurious will install itself as a service of your operating system.
-
-## Mac OS X systems
-
-1. Open the administration menu by running `menu.sh.command` in the `linkurious-osx` folder.
-2. Check if Linkurious is already installed as a service (displayed at the top of the menu).
-3. Select `Install Linkurious as a service`.
-4. Linkurious will install itself as a service of your operating system.
+![](install-as-a-service.png)
 
 <!--
 # Installing multiple instances
