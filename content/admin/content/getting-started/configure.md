@@ -5,7 +5,7 @@ Using an administrator account, access the *Admin* > *Configuration* menu to edi
 
 ![](configuration-menu.png)
 
-> Some configuration keys requires a restart to be applied. Linkurious will notify you about it and offer you to restart from the Web UI.
+> Some configuration keys requires a restart to be applied. Linkurious will notify you about it and offer you to restart from the Web UI **only if** you made the changes from the Web UI itself. If you modified the {{config.file}} file manually, changes won't get applied and you will need to restart Linkurious.
 
 Configuration keys are divided per category. Edit what you need to change and click *Save*.
 

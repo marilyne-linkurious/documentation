@@ -1,12 +1,12 @@
 The web server of Linkurious delivers the application to end users through HTTP/S.
-It is configured within the `server` configuration key within the configuration 
+It is configured in the `server` configuration key within the configuration 
 file ({{config}}):
 
 ## General 
 
 Within the `server` key:
 
-- `listenPort` (default: `3000`): The port of the web server. 
+- `listenPort` (default: `3000`): The port of the web server
 
 Some firewalls block network traffic ports other than `80` (HTTP).
 Since only `root` users can listen on ports lower than 1024,
@@ -31,7 +31,7 @@ Within the `server` key:
 - `publicPortHttps` (default: `listenPortHttps`): The *public* HTTPS port of the web server. 
 
 In some cases, Linkurious needs to generate links to itself (for example
-when generating links to the widget). For that, the server needs to know
+when generating a link to a widget). For that, the server needs to know
 its public *domain* and *port* to generate those links.
 
 The public port can be different from the actual port if you use traffic rerouting
@@ -43,15 +43,14 @@ is `80`.
 
 Within the `server` key:
 
-- `cookieSecret`: The secret key used to encrypt the session cookie. Randomized on first start.
-- `cookieDomain`: Set this value if you need your cookie to be set fo a domain different from `domain`.
+- `cookieDomain` (optional): Set this value if you need your cookie to be set fo a domain different from `domain`.
 
 ## Cross-origin resource sharing (CORS)
 
 Within the `server` key:
 
 - `allowOrigin` (default: `"*"`): Define the cross-origin resource sharing (CORS) policy. 
-  Accept cross-site HTTP/S requests by default (wildcard). The value can be:
+  Accept cross-site HTTP/S requests by default. The value can be:
   - a string (`"abc.com"`): only requests from "abc.com" domain are allowed.
   - wildcard-prefixed string (`"*.abc.com"`): request from all sub-domains of `abc.com` are allowed.
   - an array of strings (`["abc.com", "*.def.com"]`): requests from `abc.com` **and** all sub-domains of `def.com` are allowed.
@@ -59,11 +58,11 @@ Within the `server` key:
 
 ## Image cross-origin (client-side)
 
-Within the `sigma` key:
+Within the `ogma.settings.render` key:
 
 - `imgCrossOrigin` (default: `"anonymous"`): Restrict the origin of images 
    displayed in visualizations to prevent running malicious code on the graphic card of users.
-   Display images from any origin by default.
+   Display images from any origin by default. Read [here](https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes) to learn more. 
 
 ## SSL
 
@@ -81,6 +80,8 @@ External communications with the Linkurious server can be secured using SSL
 without installing third-party software.
 
 If the Linkurious server, graph database, and the search index are installed on different machines, 
-we recommend to encrypting communication between them. 
+we recommend to encrypt communication between them. 
 Please refer to the [data-source documentation](/configure-sources) and [search index documentation](/search) to
 learn how to enable HTTPS.
+
+Look here if you want to add [additional certificate authorities](/advanced-settings/#additional-certificate-authorities).

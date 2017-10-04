@@ -6,7 +6,7 @@ key in the configuration file ({{config}}):
 - `authRequired` (default: `false`): Whether to require authentication, see [how to enable authentication](/enabling-auth).
 
 - `dataEdition` (default: `true`): Enable the creation, edition, and deletion of nodes and edges in all data-sources.
-   Permissions can be fine-tuned for each user-group, see [the documentation about users and groups](/users).
+   Permissions can be fine-tuned for each group, see [the documentation about users and groups](/users).
    If set to `false`, all edition requests sent through Linkurious to the data-sources will be rejected.
    
 - `widget` (default: `true`): Enable to publish visualizations online.

@@ -95,8 +95,8 @@
         {"name": "DataStax Enterprise Graph", "key": "search-dse", "content": "search/dse.md"},
         {"name": "Stardog", "key": "search-stardog", "content": "search/stardog.md"},
         {"name": "Properties disclosure", "key": "properties-disclosure", "content": "search/data-disclosure.md"},
-        {"name": "Configuring ElasticSearch", "key": "es-config", "content": "search/es.md"},
-        {"name": "Using ElasticSearch on AWS", "key": "es-on-aws", "content": "search/es-on-aws.md"}
+        {"name": "Configuring Elasticsearch", "key": "es-config", "content": "search/es.md"},
+        {"name": "Using Elasticsearch on AWS", "key": "es-on-aws", "content": "search/es-on-aws.md"}
       ]
     },
     {

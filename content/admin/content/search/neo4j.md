@@ -1,15 +1,10 @@
-
-Neo4j supports search with the `elasticSearch`, `elasticSearch2` and `neo2es` connectors.
-
-See [details on how to configure ElasticSearch with Linkurious](/es-config).
-
 ## Neo4j-to-elasticsearch integration
 
 Neo4j-to-elasticsearch is a Neo4j plugin that allows for automatic synchronization
 between Neo4j and {{es}}. This means that all changes to Neo4j are automatically
 propagated to {{es}}.
 
-### Resources for supported versions of neo4j-to-elasticsearch:
+### Resources for supported versions of neo4j-to-elasticsearch
 
 - For Neo4j 3.1.0:
   - Neo4j 3.1.0: [Mac or Linux (tar)]({{neodl.unix}}3.1.0) / [Mac (dmg)]({{neodl.dmg}}3.1.0) / [Windows 64 installer (exe)]({{neodl.win}}3.1.0) / [Windows (zip)]({{neodl.winzip}}3.1.0)  
@@ -37,9 +32,9 @@ propagated to {{es}}.
 Follow these steps to use install this Neo4j plugin:
 
 1. Download the [GraphAware framework JAR](http://products.graphaware.com/?dir=framework-server-community)
-   - Choose a version `A.B.C.x` where `A.B.C` matches your Neo4j version and `x` is *44 or later*.
+   - Choose a version `A.B.C.x` where `A.B.C` matches your Neo4j version and `x` is *44 or later*
 2. Download the [neo4j-to-elasticsearch JAR](http://products.graphaware.com/?dir=neo4j-to-elasticsearch)
-   - Choose a version `A.B.C.x.y` where `A.B.C` matches your Neo4j version and `x.y` is *44.8 or later*.
+   - Choose a version `A.B.C.x.y` where `A.B.C` matches your Neo4j version and `x.y` is *44.8 or later*
 3. Copy `graphaware-server-community-all-A.B.C.x.jar` and `graphaware-neo4j-to-elasticsearch-A.B.C.x.y.jar` to your `neo4j/plugins` directory
 4. Edit the Neo4 configuration at `neo4j/conf/neo4j.conf` and add the following lines at the beginning of the file:
    ```sh
@@ -61,21 +56,5 @@ Follow these steps to use install this Neo4j plugin:
 Once the `neo4j-to-elasticsearch` plugin is installed, you need to change
 the data-source configuration to use the `neo2es` vendor.
 
-Set the `dataSources.index.vendor` key to `neo2es` in the configuration ({{config}}):
-```json
-{
-  "dataSources": [
-    {
-      "graph": {
-        "vendor": "neo4j"
-        "url": "http://127.0.0.1:7474"
-      },
-      "index": {
-        "vendor": "neo2es"
-      }
-    }
-  ]
-}
-```
-
-Restart Linkurious after saving the configuration.
+You can either [use the Web user-interface](/search/#using-the-web-user-interface)
+or edit the configuration file located at {{config}} to set the `index.vendor` property to the value `neo2es`.

@@ -1,11 +1,13 @@
+Elasticsearch is supported from 1.4.0 (using the `elasticSearch` connector)
+and from version 2.0.0 (using the `elasticSearch2` connector).
 
-ElasticSearch is supported from 1.4+ (for `elasticSearch` connector) and from version 2.0 (for `elasticSearch2` connector).
+> Elasticsearch 5 is not yet supported in Linkurious {{package.version}}.
 
 ## Embedded {{es}}
 
 Linkurious ships with an embedded {{es}} server (**version {{es.version}}**).
 
-To use Linkurious embedded {{es}} instance, simply set the following `index` configurations keys:
+To use the Linkurious embedded {{es}} instance, set the following `index` configurations keys:
 - `vendor` must be `elasticSearch`
 - `host` must be `"127.0.0.1"`
 - `port` must be `9201`
@@ -36,15 +38,13 @@ Search connector `elasticSearch` supports the following options:
 - `host` (*required*): {{es}} server host 
 - `port` (*required*): {{es}} server port (standard is `9200`)
 - `https`: `true` to connect to {{es}} via HTTPS 
-- `user`: {{es}} username (if you are using [X-Pack Security, a.k.a ElasticShield](https://www.elastic.co/products/x-pack/security)
+- `user`: {{es}} username (if you are using [X-Pack Security, a.k.a ElasticShield](https://www.elastic.co/products/x-pack/security))
 - `password`: {{es}} password
 - `forceReindex`: `true` to re-index the data-source each time Linkurious starts
-- `skipEdgeIndexation`: `true` to skip edges indexation (they will not be searchable)
-- `analyzer` (default: `"standard"`): The custom analyzer aimed at analyzing a specific language text. (see [available language analysers](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-lang-analyzer.html)).
+- `skipEdgeIndexation`: `true` to skip edges indexation (edges won't be searchable)
+- `analyzer` (default: `"standard"`): The custom analyzer aimed at analyzing a specific language text. (see [available language analysers](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-lang-analyzer.html))
 - `dynamicMapping`: `true` to enable *number parsing* for advanced number search features (range, etc.)
 - `dateDetection`: `true` to enable *date parsing* for advanced date search features (range, etc.)
-<!-- `webAdmin`: {type: 'string'}, // tolerated but not actually used -->
-<!-- `mapping`: {type: 'object'}, // tolerated but is it used? -->
 
 Example configuration:
 ```json
@@ -73,14 +73,14 @@ Search connector `elasticSearch2` supports the following options:
 - `host` (*required*): {{es}} server host 
 - `port` (*required*): {{es}} server port (standard is `9200`)
 - `https`: `true` to connect to {{es}} via HTTPS
-- `user`: {{es}} username (if you are using [X-Pack Security, a.k.a ElasticShield](https://www.elastic.co/products/x-pack/security)
+- `user`: {{es}} username (if you are using [X-Pack Security, a.k.a ElasticShield](https://www.elastic.co/products/x-pack/security))
 - `password`: {{es}} password
 - `forceReindex`: `true` to re-index the data-source each time Linkurious starts
-- `skipEdgeIndexation`: `true` to skip edges indexation (they will not be searchable)
-- `analyzer` (default: `"standard"`): The custom analyzer aimed at analyzing a specific language text. (see [available language analysers](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-lang-analyzer.html)).
+- `skipEdgeIndexation`: `true` to skip edges indexation (edges won't be searchable)
+- `analyzer` (default: `"standard"`): The custom analyzer aimed at analyzing a specific language text. (see [available language analysers](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-lang-analyzer.html))
 - `dynamicMapping`: `true` to enable *number parsing* for advanced number search features (range, etc.)
-- `forceStringMapping`: TODO
-- `caCert`: Absolute path to *[Certificate Authority]:CA certificate
+- `forceStringMapping`: List of fields that are mapped to strings even with dynamicMapping is `true`
+- `caCert`: Absolute path to a Certificate Authority certificate
 
 Example configuration:
 ```json

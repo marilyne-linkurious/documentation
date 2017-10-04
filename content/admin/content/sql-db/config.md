@@ -2,7 +2,7 @@
 Linkurious uses an SQL database to store user-data. The database contains:
 - visualizations
 - users
-- user-groups
+- groups
 - access-rights
 
 By default, the user-data store is a [SQLite](https://sqlite.org/about.html) *file-based* database.
