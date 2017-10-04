@@ -1,10 +1,8 @@
-
-The default values for **Match TTL**, **Maximum match** and **Maximum runtime**
-can be set in the configuration file ({{config}}) under the `alert` key:
+The maximum number of matches and the maximum execution time
+can be set in {{config}} under the `alerts` key:
 
 ```
-alert: {
-  maxMatchTTL: 30,
+alerts: {
   maxMatchesLimit: 5000,
   maxRuntimeLimit: 600000,
   maxConcurrency: 1

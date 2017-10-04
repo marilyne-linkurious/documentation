@@ -110,10 +110,8 @@
     },
     {
       "name": "Web server",
-      "key": "web-server-idx",
-      "children": [
-        {"name": "Configuration", "key": "web-server", "content": "www/config.md"}
-      ]
+      "key": "web-server",
+      "content": "www/config.md"
     },
     {
       "name": "Access control",
@@ -133,8 +131,7 @@
       "name": "Alerts",
       "content": "alerts/index.md",
       "children": [
-        {"name": "Configuration", "key": "config-alerts", "content": "alerts/config.md"},
-        {"name": "Managing alerts", "key": "manage-alerts", "content": "alerts/manage.md"}
+        {"name": "Configuration", "key": "config-alerts", "content": "alerts/config.md"}
       ]
     },
     {
