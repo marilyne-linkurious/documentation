@@ -59,6 +59,7 @@ Within the `server` key:
 ## Image cross-origin (client-side)
 
 Within the `ogma.settings.render` key:
+<!-- todo: check that this is still correct with our current version of ogma -->
 
 - `imgCrossOrigin` (default: `"anonymous"`): Restrict the origin of images 
    displayed in visualizations to prevent running malicious code on the graphic card of users.
@@ -80,8 +81,9 @@ External communications with the Linkurious server can be secured using SSL
 without installing third-party software.
 
 If the Linkurious server, graph database, and the search index are installed on different machines, 
-we recommend to encrypt communication between them. 
+we recommend using secure communication channels between these machines (e.g. HTTPS or WSS).
 Please refer to the [data-source documentation](/configure-sources) and [search index documentation](/search) to
 learn how to enable HTTPS.
 
-Look here if you want to add [additional certificate authorities](/advanced-settings/#additional-certificate-authorities).
+To use custom Certificate Authorities (CA), please check
+[how to use additional Certificate Authorities in Linkurious](/advanced-settings/#additional-certificate-authorities).

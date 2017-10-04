@@ -18,6 +18,7 @@ For hardware requirements regarding your graph database, please refer to these g
 - [DataStax Enterprise Graph: hardware requirements](https://docs.datastax.com/en/landing_page/doc/landing_page/planning/planningHardware.html)
 - [AllegroGraph: hardware and performance tuning](http://franz.com/agraph/allegrograph/agraph_performance_tuning.lhtml)
 - [Stardog: capacity planning](http://www.stardog.com/docs/#_capacity_planning)
+<!-- todo: for janusgrpah, add a link to http://docs.janusgraph.org/latest/cassandra.html -->
 
 #### {{es}}
 
@@ -85,4 +86,4 @@ End-users will access Linkurious through a Web browser. All modern browsers are 
 - Internet Explorer 10+
 - Firefox 17+
 - Opera 12+
-<!--* Safari 7.-->
+<!-- todo: add Safari (check compatible version) -->
