@@ -44,18 +44,19 @@ Linkurious offers alternatives search solution:
 
 ## Edit the search configuration
 
+You can configure your search engines via the Web user interface
+or directly on the {{config}} file.
+
 ### Using the Web user interface
 
-The `index` configuration can be changed from the administration interface.
-
 Using an administrator account, access the *Admin* > *Data* menu to edit the current data-source configuration:
-![](menu-data.png)
+![](data-menu.png)
 
-Edit the data-source index configuration:
-![](index-config.png)
+Edit the search engine configuration to connect to your graph database:
+![](edit-search-form.png)
 
-Submit the changes by hitting the *Save configuration* button
-![](edit-source-submit.png)
+Submit the changes by hitting the *Save configuration* button.
+![](edit-search-submit.png)
 
 ### Using the configuration file
 

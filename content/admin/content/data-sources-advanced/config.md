@@ -4,13 +4,13 @@ To change them, see [how to configure Linkurious](/configure).
  
 ## General settings
  
-- `connectionRetries` (default: `10`): The maximum number of connection attempts to each data source and to the search engine before stating them as disconnected.
+- `connectionRetries` (default: `10`): The maximum number of connection attempts to each data-source and to the search engine before stating them as disconnected.
 
-- `pollInterval` (default: `10`): Check if the data sources and search engine are connected at each interval (in second).
+- `pollInterval` (default: `10`): Check if the data-sources and search engine are connected at each interval (in seconds).
  
 ## Search engine settings
  
-- `indexationChunkSize` (default: `5000`): The number of nodes and edges retrieved at each batch during indexing the graph database.
+- `indexationChunkSize` (default: `5000`): The number of nodes and edges retrieved at each batch during the indexation of the graph database.
 
 - `searchAddAllThreshold` (default: `500`): The maximum number of search results that the user can add to a Visualization at once.
 

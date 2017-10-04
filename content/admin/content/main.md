@@ -26,4 +26,4 @@ Multiple external authentication providers are supported ({{auth.providers}}).
 
 The data layer supports several graph databases, as well as indexation engines.
 
-![](archi-overview_desktop_vectorized.svg)
+![](arch_schema.png)
