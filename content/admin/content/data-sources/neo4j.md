@@ -1,12 +1,13 @@
 
-Neo4j is supported from version 2.0.
+Neo4j is supported since version 2.0.0.
 
-## Configuration file
+## Configuration
 
-To edit the Neo4j data-source configuration, you can either [use the Web user-interface](/configure-sources/#using-the-web-user-interface)
+To edit the Neo4j data-source configuration,
+you can either [use the Web user-interface](/configure-sources/#using-the-web-user-interface)
 or edit the configuration file located at {{config}}.
 
-Example Neo4j configuration:
+Example configuration:
 ```json
 {
   "dataSources": [
@@ -14,8 +15,8 @@ Example Neo4j configuration:
       "graphdb": {
         "vendor": "neo4j",
         "url": "http://127.0.0.1:7474/",
-        "user": "MY_NEO4J_USER",
-        "password": "MY_NEO4J_PASSWORD"
+        "user": "myNeo4jUser",
+        "password": "nyNeo4jPassword"
       },
       "index": {
         "vendor": "elasticSearch",
@@ -30,20 +31,21 @@ Example Neo4j configuration:
 Supported `graphdb` options with Neo4j:
 
 - `url` (*required*): URL of the Neo4j server
-- `user`: Neo4j user (if credentials are enabled, see [Neo4j credentials](#neo4j-credentials))
-- `password`: Neo4j password (if credentials are enabled)
-- `proxy`: URL of the proxy to use to connect to Neo4j
-- `allowSelfSigned`: `true` to allow the Neo4j server to use a self-signed SSL certificate
-- `alternativeNodeId`: Name of the node property to use as reference in visualizations (see [alternative IDs](/alternative-ids))
-- `alternativeEdgeId`: Name of the edge property to use as reference in visualizations
-- `latitudeProperty`: Name of the node property to use for latitude (used in geo mode)
-- `longitudeProperty`: Name of the node property to use for longitude (used in geo mode)
-<!-- `webAdmin` (URL): not used at all -->
-<!-- `writeURL` (URL): not fully functional -->
+- `user` (optional): Neo4j user (if credentials are enabled, see [Neo4j credentials](#neo4j-credentials))
+- `password` (optional): Neo4j password (if credentials are enabled)
+- `proxy` (optional): URL of the proxy to use to connect to Neo4j
+- `alternativeNodeId` (optional): Name of the node property to use as reference in visualizations (see [alternative IDs](/alternative-ids))
+- `alternativeEdgeId` (optional): Name of the edge property to use as reference in visualizations
+- `latitudeProperty` (optional): Name of the node property to use for latitude (used in geo mode)
+- `longitudeProperty` (optional): Name of the node property to use for longitude (used in geo mode)
+- `allowSelfSigned` (optional, default `false`): Whether to allow self-signed certificates
 
 ## Search with Neo4j
 
-For supported `index` options, see our [documentation about search with Neo4j](/search-neo4j).
+In order to have full-text search, you can choose among the following options:
+
+- [Configure a search index in Neo4j](/search-neo4j).
+- [Configure a search index in Elasticsearch](/es-config).
 
 ## Neo4j credentials
 
@@ -55,7 +57,7 @@ If you just installed Neo4j, these steps will help you create credentials:
 3. Follow the instructions to create a new username and password
 
 Alternatively, you can disable credentials in Neo4j by editing the Neo4j configuration at `neo4j/conf/neo4j.conf`
-and uncommenting the following line:
-```sh
+by uncommenting the following line:
+```
 dbms.security.auth_enabled=false
 ```

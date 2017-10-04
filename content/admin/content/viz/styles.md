@@ -81,7 +81,7 @@ Coloring by quantitative property follows the same logic.
 In the following example the nodes are colored by a numeric property. 
 Values will be linearly grouped into 7 bins, ordered from small to large values (see an example below).
 
-![color-scale](color-scale.png)
+![](color-scale.png)
 
 **Example for quantitative properties:**
 ```json
@@ -116,7 +116,7 @@ Be careful to never delete `linkurious_def` or `sequential` because they are use
 We recommend to pick colors from the [ColorBrewer palette](https://github.com/Linkurious/linkurious.js/blob/develop/plugins/sigma.plugins.colorbrewer/sigma.plugins.colorbrewer.js),
 which provides highly distinctive sets of colors (see below).
 
-![color-brewer](color-brewer.png)
+![](color-brewer.png)
 
 You can also generate consistent color scales for qualitative data on http://gka.github.io/palettes/.
 
@@ -226,4 +226,4 @@ new visualizations created by all users for a given data-source, you need to:
 3. Open the *Admin* > *Data* menu and scroll to the bottom of the page
 4. Click the "Reset default visualization styles" button.
 
-![reset styles](reset-styles.png)
+![](reset-styles.png)
