@@ -24,7 +24,7 @@ at which the query will be run.
 
 ![](create-alert2.png)
 
-After configuring and enabling an alert, it can eb accessed by users in the *Alerts* panel:
+After configuring and enabling an alert, it can be accessed by users in the *Alerts* panel:
 
 ![](alert-list.png)
 
@@ -35,6 +35,3 @@ Opening an alerts lists all recent matches, sortable by any column:
 Clicking on a match opens it for details:
 
 ![](match-details.png)
-
-<!-- todo: please check that none of the images you use are wider than 900px -->
-<!-- todo: don't use retina-enabled images, they will appear twice as big on non-retina screens -->

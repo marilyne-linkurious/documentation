@@ -59,7 +59,6 @@ Within the `server` key:
 ## Image cross-origin (client-side)
 
 Within the `ogma.settings.render` key:
-<!-- todo: check that this is still correct with our current version of ogma -->
 
 - `imgCrossOrigin` (default: `"anonymous"`): Restrict the origin of images 
    displayed in visualizations to prevent running malicious code on the graphic card of users.
