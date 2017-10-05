@@ -18,7 +18,6 @@ For hardware requirements regarding your graph database, please refer to these g
 - [DataStax Enterprise Graph: hardware requirements](https://docs.datastax.com/en/landing_page/doc/landing_page/planning/planningHardware.html)
 - [AllegroGraph: hardware and performance tuning](http://franz.com/agraph/allegrograph/agraph_performance_tuning.lhtml)
 - [Stardog: capacity planning](http://www.stardog.com/docs/#_capacity_planning)
-<!-- todo: for janusgrpah, add a link to http://docs.janusgraph.org/latest/cassandra.html -->
 
 #### {{es}}
 
@@ -50,7 +49,6 @@ Linkurious server can be deployed on the following platforms:
 Linkurious embedded [{{es}}]({{es.product.link}}) engine requires *Java JRE (or JDK)* 7+.
 
 You can [download the latest JRE from Oracle's website](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html).
-<!-- from: http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html -->
 
 Installation instructions:
  - [Windows systems](https://docs.oracle.com/javase/8/docs/technotes/guides/install/windows_server_jre.html)
@@ -86,4 +84,4 @@ End-users will access Linkurious through a Web browser. All modern browsers are 
 - Internet Explorer 10+
 - Firefox 17+
 - Opera 12+
-<!-- todo: add Safari (check compatible version) -->
+- Safari 11+
