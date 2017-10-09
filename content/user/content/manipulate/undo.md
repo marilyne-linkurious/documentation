@@ -8,7 +8,7 @@ For example, after expanding a node, clicking on the undo button
 
 ![](Undo.png)
 
-After undoing an action, you can go back and re-run the expand action by clicking on the redo button (or using the shortcut `ctrl-y` or `cmd-y` on MacOS).
+After reverting the expand, you can go back and re-run it by clicking on the redo button (or using the shortcut `ctrl-y` or `cmd-y` on MacOS).
 
 ![](Redo.png)
 
