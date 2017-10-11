@@ -8,7 +8,7 @@ Select `Toggle lasso`.
 Move the lasso around the nodes you are interested in selecting to 
 select them.
 
-> You can also toggle lasso by simply clicking on the graph with the key `ctrl` or `cmd` (on MacOS) and move your mouse to create the lasso.
+> You can also use the lasso by pressing the `ctrl` key (`cmd` on MacOS) while dragging with the mouse to draw the outline of the desired selection.
 
 ![](Lasso.png)
 

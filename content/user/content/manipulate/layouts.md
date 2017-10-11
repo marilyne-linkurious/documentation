@@ -24,7 +24,7 @@ Such layouts position nodes according to their connections: connected
 nodes are usually closed to each others, while disconnected nodes are
 usually pushed further.
 
-By setting "incremantal expand" active, force-directed layouts will be 
+By enabling "incremantal expand" active, force-directed layouts will be 
 applied only on new nodes added to the visualization.
 
 **Best Mode:**
@@ -60,19 +60,19 @@ Will position root nodes at the right side of the screen.
 
 ## Radial layout
 
-Radial layouts positions nodes around the selected one based on their 
-graph-theoretical distance (shortest path in the graph, connecting them).
+The Radial layouts positions nodes around the currently selected node (used as center of the layout) based on their 
+graph-theoretical distance (shortest path in the graph).
 This is useful to reveal layers in data and to draw the rest of the 
 graph in its relation to the pre-defined focus node.
 
 **Best mode:**
-Will use energy model and produce more readable layouts. It is also capable 
+Will use an energy model to produce more readable layouts. It is also capable 
 of handling special cases like disconnected components.
 
 ![](Radial.png)
 
 **Fast mode:**
-Will use geometrical model and is faster but produce a lot of overlapping edges.
+Will use a geometrical model, which is faster but can produce more overlapping edges.
 
 ![](Concentric.png)
 

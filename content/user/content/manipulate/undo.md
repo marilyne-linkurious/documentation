@@ -3,8 +3,8 @@ You now have the possibility to revert your last action on a visualization.
 
 > You can revert only the last action you do on the visualization.
 
-For example, after expanding a node, clicking on the undo button 
-(or using the shortcut `ctrl-z` or `cmd-z` on MacOS) will collapse and remove all nodes added by the expand.
+For example, after expanding a node, clicking the undo button 
+(or using the shortcut `ctrl-z` or `cmd-z` on MacOS) will revert the expand by returning the graph to its previous state.
 
 ![](Undo.png)
 
@@ -16,4 +16,4 @@ You can undo all actions that impact your visualization except when you :
 
 * Modify the captions
 * Modify the styles
-* Create a node or an edge
+* Deleting a node (or edge)
