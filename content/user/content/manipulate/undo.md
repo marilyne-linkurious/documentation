@@ -12,8 +12,8 @@ After reverting the expand, you can go back and re-run it by clicking on the red
 
 ![](Redo.png)
 
-You can undo all actions that impact your visualization except when you :
+Some actions cannot currently be undone :
 
-* Modify the captions
-* Modify the styles
+* Changing the caption settings of the visualization
+* Changing the styles of the visualization
 * Deleting a node (or edge)
