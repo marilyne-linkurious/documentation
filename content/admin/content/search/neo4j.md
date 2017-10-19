@@ -42,9 +42,14 @@ Follow these steps to use install this Neo4j plugin:
    com.graphaware.module.ES.1=com.graphaware.module.es.ElasticSearchModuleBootstrapper
    com.graphaware.module.ES.uri=HOST_OF_YOUR_ELASTICSEARCH_SERVER
    com.graphaware.module.ES.port=PORT_OF_YOUR_ELASTICSEARCH_SERVER
-   com.graphaware.module.ES.relationship=(true)
    com.graphaware.module.ES.mapping=AdvancedMapping
    com.graphaware.module.ES.keyProperty=ID()
+   com.graphaware.module.ES.retryOnError=true
+
+   # Set "relationship" to "(false)" to disable relationships (edges) indexation.
+   # Disabling relationship indexation is recommended if you have a lot of relationships and don't need to search them.
+   com.graphaware.module.ES.relationship=(true)
+
    com.graphaware.runtime.stats.disabled=true
    com.graphaware.server.stats.disabled=true
    ```
