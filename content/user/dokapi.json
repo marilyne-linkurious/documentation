@@ -54,6 +54,7 @@
         {"name": "Hide",                   "key": "hide",             "content": "manipulate/hide.md"},
         {"name": "Layouts",                "key": "layout",           "content": "manipulate/layouts.md"},
         {"name": "Pinning nodes",          "key": "pinning",          "content": "manipulate/pinning.md"},
+        {"name": "Undo/redo",              "key": "undo",             "content": "manipulate/undo.md"},
         {"name": "Shortcuts",              "key": "shortcuts",        "content": "manipulate/shortcuts.md"}
       ]
     },

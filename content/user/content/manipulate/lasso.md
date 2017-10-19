@@ -8,6 +8,8 @@ Select `Toggle lasso`.
 Move the lasso around the nodes you are interested in selecting to 
 select them.
 
+> You can also use the lasso by pressing the `ctrl` key (`cmd` on MacOS) while dragging with the mouse to draw the outline of the desired selection.
+
 ![](Lasso.png)
 
 Release the mouse when you are finished and your selection is activated.
