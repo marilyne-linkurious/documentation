@@ -90,6 +90,7 @@
       "key": "search",
       "children": [
         {"name": "Neo4j", "key": "search-neo4j", "content": "search/neo4j.md"},
+        {"name": "Neo4j to Elasticsearch", "key": "search-neo4j-to-elasticsearch", "content": "search/neo4j-to-elasticsearch.md"},
         {"name": "JanusGraph", "key": "search-janus", "content": "search/janus.md"},
         {"name": "AllegroGraph", "key": "search-allegrograph", "content": "search/allegrograph.md"},
         {"name": "DataStax Enterprise Graph", "key": "search-dse", "content": "search/dse.md"},
