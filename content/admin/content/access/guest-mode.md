@@ -1,5 +1,5 @@
 By default, the guest mode is disabled.
-To enable it, set to `true` the `guestModeAllowed` configuration key inside the `access` configuration.
+To enable it, set to `true` the `guestMode` configuration key inside the `access` configuration.
 
 A new user will appear in the [user list](/users/#creating-users) with the email `guest@linkurio.us`.
 This special user can only access the workspace and it can't save any visualization. Its access rights
