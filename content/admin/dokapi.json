@@ -120,6 +120,7 @@
       "content": "access/index.md",
       "children": [
         {"name": "Enabling authentication", "key": "enabling-auth", "content": "access/enable-auth.md"},
+        {"name": "Guest mode", "key": "guest-mode", "content": "access/guest-mode.md"},
         {"name": "Users, groups and rights", "key": "users", "content": "access/users.md"},
         {"name": "LDAP", "content": "access/ldap.md"},
         {"name": "SSO with Azure AD", "key": "sso-azure", "content": "access/sso-azure.md"},
