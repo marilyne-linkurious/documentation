@@ -70,6 +70,16 @@ Follow these steps to use install this Neo4j plugin:
    com.graphaware.module.ES.initializeUntil=2000000000000
    ```
 
+#### Note regarding `initializeUntil`
+This is used to trigger the indexation of existing Neo4j data in Elasticsearch.
+
+The way it is supposed to be used is the following: `com.graphaware.module.ES.initializeUntil` must
+be set to a number slightly higher than a Java call to `System.currentTimeInMillis()` would return
+when the module is starting.
+This way, the database will be (re-)indexed once, not with every following restart.
+
+> In other words, re-indexing will happen if `System.currentTimeInMillis() < com.graphaware.module.ES.initializeUntil`.
+
 ### Integrate with Linkurious
 
 Once the `neo4j-to-elasticsearch` plugin is installed, you need to change
