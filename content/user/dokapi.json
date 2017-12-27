@@ -126,6 +126,15 @@
         {"name": "List matches",        "key": "alert-list-matches", "content": "alerts/matches.md"},
         {"name": "Investigate a match", "key": "alert-investigate",  "content": "alerts/investigate.md"}
       ]
+    },
+    {
+      "name": "Guest Mode",
+      "key": "guest",
+      "content": "guest/index.md",
+      "children": [
+        {"name": "Enable",         "key": "guest-enable",         "content": "guest/enable.md"},
+        {"name": "Open",         "key": "guest-open",         "content": "guest/open.md"}
+      ]
     }
   ]
 }
