@@ -90,6 +90,7 @@
       "key": "search",
       "children": [
         {"name": "Neo4j", "key": "search-neo4j", "content": "search/neo4j.md"},
+        {"name": "Neo4j to Elasticsearch", "key": "search-neo4j-to-elasticsearch", "content": "search/neo4j-to-elasticsearch.md"},
         {"name": "JanusGraph", "key": "search-janus", "content": "search/janus.md"},
         {"name": "AllegroGraph", "key": "search-allegrograph", "content": "search/allegrograph.md"},
         {"name": "DataStax Enterprise Graph", "key": "search-dse", "content": "search/dse.md"},
@@ -119,6 +120,7 @@
       "content": "access/index.md",
       "children": [
         {"name": "Enabling authentication", "key": "enabling-auth", "content": "access/enable-auth.md"},
+        {"name": "Guest mode", "key": "guest-mode", "content": "access/guest-mode.md"},
         {"name": "Users, groups and rights", "key": "users", "content": "access/users.md"},
         {"name": "LDAP", "content": "access/ldap.md"},
         {"name": "SSO with Azure AD", "key": "sso-azure", "content": "access/sso-azure.md"},

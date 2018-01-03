@@ -1,7 +1,7 @@
-Elasticsearch is supported from 1.4.0 (using the `elasticSearch` connector)
-and from version 2.0.0 (using the `elasticSearch2` connector).
+Elasticsearch is supported from version 1.4.0 (using the `elasticSearch` connector)
+and for version 2.x and version 5.x (using the `elasticSearch2` connector).
 
-> Elasticsearch 5 is not yet supported in Linkurious {{package.version}}.
+> Elasticsearch 6 is not yet supported in Linkurious {{package.version}}.
 
 ## Embedded {{es}}
 
