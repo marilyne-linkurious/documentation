@@ -10,7 +10,9 @@ For a standard installation of Linkurious, the recommended hardware is:
  - 32GB of RAM
  - 8 CPU cores
  - 50GB of free space (SSD preferred)
-  
+
+> Linkurious requires a 64-bit system to run.
+
 Please keep in mind that these technical requirements are for Linkurious server only.
 For hardware requirements regarding your graph database, please refer to these guides:
 - [Neo4j: hardware sizing calculator](https://neo4j.com/hardware-sizing-calculator/)
