@@ -8,7 +8,13 @@ Key characteristics:
 
 The Guest mode is available once an Administrator has enabled it.
 
-<!--- TODO : add 2 images, one of a viz in LKE and one of the same viz opened through the Guest mode to illustrate the difference in terms of UI -->
+![](full_lke.png)
+
+Full visualization
+
+![](guest_lke.png)
+
+Same visualization, now on guest mode
 
 # Share a visualization
 There are 2 options to share a visualization with the Guest mode:
@@ -17,7 +23,7 @@ There are 2 options to share a visualization with the Guest mode:
 
 ![](guest_enable_share.png)
 
-<!--- TODO : add an image for sharing from the workspace -->
+![](guest_enable_share_from_vis.png)
 
 - Enable Public link sharing for that visualization by clicking on the Public link toggle button.
 - Copy the URL.

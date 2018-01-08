@@ -7,7 +7,13 @@ Key characteristics:
 - Read-only: the data in the database cannot be altered through the Guest mode.
 - Simplified interface.
 
-<!--- TODO : add 2 images, one of a viz in LKE and one of the same viz opened through the Guest mode to illustrate the difference in terms of UI -->
+![](full_lke.png)
+
+Full visualization
+
+![](guest_lke.png)
+
+Same visualization, now on guest mode
 
 # Enabling the Guest mode
 - By default, the Guest mode is disabled.
