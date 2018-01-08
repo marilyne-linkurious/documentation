@@ -130,11 +130,7 @@
     {
       "name": "Guest Mode",
       "key": "guest",
-      "content": "guest/index.md",
-      "children": [
-        {"name": "Enable",         "key": "guest-enable",         "content": "guest/enable.md"},
-        {"name": "Open",         "key": "guest-open",         "content": "guest/open.md"}
-      ]
+      "content": "guest/index.md"
     }
   ]
 }
