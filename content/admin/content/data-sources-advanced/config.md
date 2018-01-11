@@ -19,6 +19,8 @@ To change them, see [how to configure Linkurious](/configure).
 - `minSearchQueryLength` (default: `3`): The number of characters needed to trigger a search query. Set `1` to provide live results from the first character typed by the user.
  
 ## Graph exploration settings
+
+- `supernodeThreshold` (default: `10000`): The number of relationships after which a node is considered a supernode.
  
 - `maxPathLength` (default: `20`): The maximum shortest path length returned by Linkurious. Finding the shortest paths is a costly operation. Setting a small number will limit the resources used by the data-source for performing this operation, and will return results faster.
 
