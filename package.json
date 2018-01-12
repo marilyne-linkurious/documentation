@@ -4,29 +4,24 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-
     "admin": "node make.js admin all",
     "admin-site": "node make.js admin site",
     "admin-page": "node make.js admin page",
     "watch-admin": "node make.js admin all true",
     "watch-admin-site": "node make.js admin site true",
     "watch-admin-page": "node make.js admin page true",
-
     "user": "node make.js user all",
     "user-site": "node make.js user site",
     "user-page": "node make.js user page",
     "watch-user": "node make.js user all true",
     "watch-user-site": "node make.js user site  true",
     "watch-user-page": "node make.js user page true",
-
     "apidoc-examples": "node make.js apidoc-examples all",
     "apidoc-examples-site": "node make.js apidoc-examples site",
     "apidoc-examples-page": "node make.js apidoc-examples page",
-
     "watch-apidoc-examples": "node make.js apidoc-examples all true",
     "watch-apidoc-examples-site": "node make.js apidoc-examples site  true",
     "watch-apidoc-examples-page": "node make.js apidoc-examples page true",
-
     "all": "node make.js all all",
     "watch-all": "node make.js all all true"
   },
