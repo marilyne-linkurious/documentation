@@ -8,13 +8,11 @@ Key characteristics:
 
 The Guest mode is available once an Administrator has enabled it.
 
+Standard user interface:
 ![](full_lke.png)
 
-Full visualization
-
+Guest mode user interface:
 ![](guest_lke.png)
-
-Same visualization, now on guest mode
 
 # Share a visualization
 There are 2 options to share a visualization with the Guest mode:
