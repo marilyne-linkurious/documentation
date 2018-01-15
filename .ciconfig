@@ -1,0 +1,36 @@
+pipeline {
+  agent any
+  options {
+    skipDefaultCheckout true
+  }
+  stages {
+    stage('install') {
+      when { branch "main" }
+      steps {
+        dir('documentation') {
+          checkout scm
+          sh 'npm install'
+        }
+        dir('linkurious-server') {
+          git branch: 'master', credentialsId: 'dd38fcea-d471-4856-a009-4029127c6450', url: 'git@github.com:Linkurious/linkurious-server.git'
+          sh 'npm install'
+        }
+      }
+    }
+    stage('release doc') {
+      when { branch "main" }
+      steps {
+        // We upload the doc
+        dir('linkurious-server') {
+          sh 'grunt doc'
+        }
+        dir('documentation') {
+          sh 'npm run all'
+        }
+        dir('linkurious-server') {
+          sh 'grunt uploadDoc'
+        }
+      }
+    }
+  }
+}
