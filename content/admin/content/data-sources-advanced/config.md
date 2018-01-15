@@ -20,7 +20,7 @@ To change them, see [how to configure Linkurious](/configure).
  
 ## Graph exploration settings
 
-- `supernodeThreshold` (default: `10000`): The number of relationships after which a node is considered a supernode.
+- `supernodeThreshold` (default: `10000`): Number of adjacent edges after which a node is considered a supernode.
  
 - `maxPathLength` (default: `20`): The maximum shortest path length returned by Linkurious. Finding the shortest paths is a costly operation. Setting a small number will limit the resources used by the data-source for performing this operation, and will return results faster.
 
