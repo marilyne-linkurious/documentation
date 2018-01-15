@@ -14,7 +14,7 @@ Guest mode user interface:
 ![](guest_lke.png)
 
 # Enabling the Guest mode
-By default, the Guest mode is disabled. Enabling the Guest mode is done on a source-per-source basis so that you can manage the access rights associated with the Guest mode at the source level.
+By default, the Guest mode is disabled. Enabling the Guest mode is done on a per-source basis so that you can manage the access rights associated with the Guest mode at the source level.
 
 Enabling it is a 3-steps process:
 1. In the Configuration screen (Menu > Admin > Configuration) activate the Guest mode
