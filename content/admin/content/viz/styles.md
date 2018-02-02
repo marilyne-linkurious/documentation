@@ -5,7 +5,7 @@ first into the exploration of data.
 Nodes and edges are grey and have the same size by default. 
 The defined styles will be applied to **all** data-sources.
 
-Open the configuration file ({{config}}).
+Open the configuration file ({{config}}) or use the Configuration page (menu > *Admin* > *Configuration*).
 Visualization styles are defined within the `defaultStyles` and color `palette` key.
 Styles are mapping between visual variables such as colors or size, 
 and data properties on nodes and edges.
@@ -42,12 +42,14 @@ Notice how each color palettes is referenced in schemes.
 "defaultStyles": {
   "nodes": {
     "color": {
+      "enabled": true,
       "by": "data.categories",
       "scheme": "nodes.qualitative.MyColorPalette1"
     }
   },
   "edges": {
     "color": {
+      "enabled": true,
       "by": "data.type",
       "scheme": "edges.qualitative.MyColorPalette2"
     }
@@ -87,6 +89,7 @@ Values will be linearly grouped into 7 bins, ordered from small to large values 
 "defaultStyles": {
   "nodes": {
     "color": {
+      "enabled": true,
       "by": "data.properties.my_score",
       "scheme": "nodes.quantitative"
     }
@@ -133,6 +136,7 @@ The following example set icons to node categories "COMPANY", "CITY", "MARKET", 
 "defaultStyles": {
   "nodes": {
     "icon": {
+      "enabled": true,
       "by": "data.categories",
       "scheme": "nodes.icons.MyIconPalette"
     }
@@ -165,6 +169,7 @@ The following example set images to node categories `"COMPANY"`, `"CITY"`, `"MAR
 "defaultStyles": {
   "nodes": {
     "image": {
+      "enabled": true,
       "by": "data.categories",
       "scheme": "nodes.images.MyImagePalette"
     }
@@ -222,7 +227,8 @@ new visualizations created by all users for a given data-source, you need to:
 
 1. Connect to Linkurious as an administrator
 2. Select the data-source you want to apply the default styles to
-3. Open the *Admin* > *Data* menu and scroll to the bottom of the page
-4. Click the "Reset default visualization styles" button.
+3. Open the *Admin* > *Configuration* menu
+4. Scroll to the *Default Styles* section and click the "Apply to current source" button.
+5. Scroll to the *Palettes* section and click the "Apply to current source" button.
 
 ![](reset-styles.png)
