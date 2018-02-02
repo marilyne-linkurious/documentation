@@ -42,14 +42,14 @@ Notice how each color palettes is referenced in schemes.
 "defaultStyles": {
   "nodes": {
     "color": {
-      "enabled": true,
+      "active": true,
       "by": "data.categories",
       "scheme": "nodes.qualitative.MyColorPalette1"
     }
   },
   "edges": {
     "color": {
-      "enabled": true,
+      "active": true,
       "by": "data.type",
       "scheme": "edges.qualitative.MyColorPalette2"
     }
@@ -89,7 +89,7 @@ Values will be linearly grouped into 7 bins, ordered from small to large values 
 "defaultStyles": {
   "nodes": {
     "color": {
-      "enabled": true,
+      "active": true,
       "by": "data.properties.my_score",
       "scheme": "nodes.quantitative"
     }
@@ -136,7 +136,7 @@ The following example set icons to node categories "COMPANY", "CITY", "MARKET", 
 "defaultStyles": {
   "nodes": {
     "icon": {
-      "enabled": true,
+      "active": true,
       "by": "data.categories",
       "scheme": "nodes.icons.MyIconPalette"
     }
@@ -169,7 +169,7 @@ The following example set images to node categories `"COMPANY"`, `"CITY"`, `"MAR
 "defaultStyles": {
   "nodes": {
     "image": {
-      "enabled": true,
+      "active": true,
       "by": "data.categories",
       "scheme": "nodes.images.MyImagePalette"
     }
