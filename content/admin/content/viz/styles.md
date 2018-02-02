@@ -231,4 +231,4 @@ new visualizations created by all users for a given data-source, you need to:
 4. Scroll to the *Default Styles* section and click the "Apply to current source" button.
 5. Scroll to the *Palettes* section and click the "Apply to current source" button.
 
-![](reset-styles.png)
+![](apply-styles.png)
