@@ -48,6 +48,7 @@
       "children": [
         {"name": "Nodes and edges",        "key": "list-nodes-edges", "content": "manipulate/list.md"},
         {"name": "Expand nodes",           "key": "expand",           "content": "manipulate/expand.md"},
+        {"name": "Expand supernodes",      "key": "expand-super",     "content": "manipulate/expand-super.md"},
         {"name": "Collapse nodes",         "key": "collapse",         "content": "manipulate/collapse.md"},
         {"name": "Select nodes and edges", "key": "select",           "content": "manipulate/select.md"},
         {"name": "Lasso",                  "key": "lasso",            "content": "manipulate/lasso.md"},
