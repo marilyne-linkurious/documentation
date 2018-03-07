@@ -1,30 +1,33 @@
 ## Configuring access control
 
-The access control is configured within the `access` configuration 
-key in the configuration file ({{config}}):
+The access control is configured within the `access` configuration key in the configuration file ({{config}}):
 
 - `authRequired` (default: `false`): Whether to require authentication, see [how to enable authentication](/enabling-auth).
+
+- `guestMode` (default: `false`): Enable the [guest mode](/guest-mode).
+
+- `loginTimeout` (default: `Infinity`): Seconds of inactivity after which a user is logged out.
 
 - `dataEdition` (default: `true`): Enable the creation, edition, and deletion of nodes and edges in all data-sources.
    Permissions can be fine-tuned for each group, see [the documentation about users and groups](/users).
    If set to `false`, all edition requests sent through Linkurious to the data-sources will be rejected.
-   
+
 - `widget` (default: `true`): Enable to publish visualizations online.
    Published visualizations are *always accessible* by anonymous users.
-  
+
 - `externalUsersGroupMapping` (optional): How to map external groups to Linkurious groups
   (see [how to configure group mapping](/users/#group-mapping)).
 
 - `externalUsersAllowedGroups` (optional): List of external groups of users allowed to log in into Linkurious.
-  
+
 - `externalUserDefaultGroupId` (optional): Default *group id* automatically set for new external users
   when no other rule is set in `externalUsersGroupMapping`.
-  
+
 - `ldap` (optional): The connection to the LDAP service (see [how to configure LDAP](/ldap/#openldap)).
 
 - `msActiveDirectory` (optional): The connection to the Microsoft Active Directory service
   (see [how to configure Active Directory](/ldap/#active-directory)).
-  
+
 - `oauth2` (optional): The connection to an OAuth2/OpenID Connect identity provider
   (see how to configure [Azure AD](/sso-azure), [Google](/sso-google) or [a generic OpenID Connect provider](/sso-openid)).
 
