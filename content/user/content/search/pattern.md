@@ -8,7 +8,16 @@ In {{lke}}, you can directly use these query language from the
 **"Find" > "Patterns"** menu. 
 Once a query is previewed (using the *Preview* button), you can click 
 the "Add all" button to add all matching results to the current 
-visualization.  
+visualization.
+
+When clicking on the button "load queries", you can access to the list of 
+queries saved by you or shared by other users.
+
+![](load_queries.png)
+
+![](queries_list.png)
+
+In the queries modal, you can select a query to run, create, edit or delete existing queries.
 
 ## With Neo4j: the Cypher query language
 

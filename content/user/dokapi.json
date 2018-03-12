@@ -49,6 +49,7 @@
         {"name": "Nodes and edges",        "key": "list-nodes-edges", "content": "manipulate/list.md"},
         {"name": "Expand nodes",           "key": "expand",           "content": "manipulate/expand.md"},
         {"name": "Collapse nodes",         "key": "collapse",         "content": "manipulate/collapse.md"},
+        {"name": "Template queries",       "key": "template-queries", "content": "manipulate/template.md"},
         {"name": "Select nodes and edges", "key": "select",           "content": "manipulate/select.md"},
         {"name": "Lasso",                  "key": "lasso",            "content": "manipulate/lasso.md"},
         {"name": "Hide",                   "key": "hide",             "content": "manipulate/hide.md"},
