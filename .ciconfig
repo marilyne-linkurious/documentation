@@ -17,6 +17,21 @@ pipeline {
         }
       }
     }
+    stage('release preprod doc') {
+      when { branch "preprod" }
+      steps {
+        // We upload the doc
+        dir('linkurious-server') {
+          sh 'grunt doc'
+        }
+        dir('documentation') {
+          sh 'npm run all'
+        }
+        dir('linkurious-server') {
+          sh 'grunt uploadDevDoc'
+        }
+      }
+    }
     stage('release doc') {
       when { branch "main" }
       steps {
