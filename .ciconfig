@@ -4,20 +4,20 @@ pipeline {
     skipDefaultCheckout true
   }
   stages {
-    stage('install') {
-      when { branch "main" }
+    stage('install preprod') {
+      when { branch "preprod" }
       steps {
         dir('documentation') {
           checkout scm
           sh 'npm install'
         }
         dir('linkurious-server') {
-          git branch: 'master', credentialsId: 'dd38fcea-d471-4856-a009-4029127c6450', url: 'git@github.com:Linkurious/linkurious-server.git'
+          git branch: 'develop', credentialsId: 'dd38fcea-d471-4856-a009-4029127c6450', url: 'git@github.com:Linkurious/linkurious-server.git'
           sh 'npm install'
         }
       }
     }
-    stage('release preprod doc') {
+    stage('release preprod') {
       when { branch "preprod" }
       steps {
         // We upload the doc
@@ -32,7 +32,20 @@ pipeline {
         }
       }
     }
-    stage('release doc') {
+    stage('install') {
+      when { branch "main" }
+      steps {
+        dir('documentation') {
+          checkout scm
+          sh 'npm install'
+        }
+        dir('linkurious-server') {
+          git branch: 'master', credentialsId: 'dd38fcea-d471-4856-a009-4029127c6450', url: 'git@github.com:Linkurious/linkurious-server.git'
+          sh 'npm install'
+        }
+      }
+    }
+    stage('release') {
       when { branch "main" }
       steps {
         // We upload the doc
