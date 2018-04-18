@@ -26,7 +26,7 @@ Investors and companies are linked to each other by the `INVESTED_IN`
 edge. 
 Companies are linked to markets by the `HAS_MARKET` edge.
 
-In order to follow this manual, we suggest you to 
+In order to follow this manual, we suggest you  
 [download and install the dataset](http://linkurio.us/public/crunchbase-sfbay.db.zip).
 Extract the archive and put its content in the folder 
 `[YOUR_NEO4J_FOLDER]/data/graph.db`.
